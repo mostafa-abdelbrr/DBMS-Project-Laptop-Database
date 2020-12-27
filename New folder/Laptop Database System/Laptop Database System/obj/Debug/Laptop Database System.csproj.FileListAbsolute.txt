@@ -1,0 +1,22 @@
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe.config
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csprojAssemblyReference.cache
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Login.resources
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Properties.Resources.resources
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.GenerateResource.cache
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
+G:\DBMS-Project-Laptop-Database\LDBS\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csprojAssemblyReference.cache
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Login.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Properties.Resources.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.GenerateResource.cache
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe.config
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Sign_Up.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Sign_Up.resources
