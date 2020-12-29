@@ -35,3 +35,6 @@ G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database Sy
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.WelcomeForm.resources
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Search.resources
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewAll.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Search.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewAll.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.WelcomeForm.resources

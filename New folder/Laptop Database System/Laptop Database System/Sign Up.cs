@@ -60,7 +60,24 @@ namespace Laptop_Database_System
             {
                 return;
             }
-
+            if(controllerObj.checkUser(user.Text) != -1 && controllerObj.checkMail(email.Text) == -1)
+            {
+                ERR.Visible = true;
+                ERR.Text = "Username Already Exists";
+                return;
+            }
+            if (controllerObj.checkUser(user.Text) == -1 && controllerObj.checkMail(email.Text) != -1)
+            {
+                ERR.Visible = true;
+                ERR.Text = "Email Already Exists";
+                return;
+            }
+            if (controllerObj.checkUser(user.Text) != -1 && controllerObj.checkMail(email.Text) != -1)
+            {
+                ERR.Visible = true;
+                ERR.Text = "Email And Username Already Exist";
+                return;
+            }
 
             if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "User") == 1)
             {

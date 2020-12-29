@@ -47,6 +47,18 @@ namespace Laptop_Database_System
 
         }
 
+        public int checkMail(string email) // checks if the email exists in the DB or not and returns their ID
+        {
+            string query = "select ID from S_User where  email ='" + email + "'";
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return -1; // user not found
+            }
+
+            return (int)dbMan.ExecuteScalar(query);
+
+        }
+
         public int getUserDataFromID(int id, ref string username, ref string role)
         {
             username = "n/a";

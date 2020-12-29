@@ -39,6 +39,7 @@ namespace Laptop_Database_System
             this.signStore = new System.Windows.Forms.Button();
             this.signUser = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ERR = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // email
@@ -134,11 +135,23 @@ namespace Laptop_Database_System
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ERR
+            // 
+            this.ERR.AutoSize = true;
+            this.ERR.ForeColor = System.Drawing.Color.Red;
+            this.ERR.Location = new System.Drawing.Point(192, 153);
+            this.ERR.Name = "ERR";
+            this.ERR.Size = new System.Drawing.Size(88, 17);
+            this.ERR.TabIndex = 8;
+            this.ERR.Text = "ERR_LABEL";
+            this.ERR.Visible = false;
+            // 
             // Sign_Up
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 272);
+            this.Controls.Add(this.ERR);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.signUser);
             this.Controls.Add(this.signStore);
@@ -170,5 +183,6 @@ namespace Laptop_Database_System
         private System.Windows.Forms.Button signStore;
         private System.Windows.Forms.Button signUser;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label ERR;
     }
 }
