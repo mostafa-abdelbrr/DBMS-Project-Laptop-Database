@@ -13,10 +13,11 @@ namespace Laptop_Database_System
 
     public partial class WelcomeForm : Form
     {
-        Controller controllerObj;
+        Controller controllerObj = new Controller();
         public WelcomeForm()
         {
             InitializeComponent();
+            dataGridView1.DataSource = controllerObj.getall();
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
@@ -45,6 +46,23 @@ namespace Laptop_Database_System
             Search search = new Search();
             this.Hide();
             search.Show();
+        }
+
+        private void searchlaptopbutton_Click(object sender, EventArgs e)
+        {
+            if (laptopnametxt.Text == "")
+            {
+                MessageBox.Show("Please enter a laptop name to search for");
+            }
+            else
+            {
+                dataGridView1.DataSource = controllerObj.searchbylaptopname(laptopnametxt.Text);
+            }
+        }
+
+        private void dashboardbutton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This should be removed and code should redirect to a dashboard form");
         }
     }
 }

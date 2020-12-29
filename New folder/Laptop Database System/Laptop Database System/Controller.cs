@@ -94,5 +94,13 @@ namespace Laptop_Database_System
             string query = "Select Size from RAM";
             return dbMan.ExecuteReader(query);
         }
+
+        public DataTable searchbylaptopname(string name)
+        {
+
+            //TODO display all specs
+            string query = "Select * from Laptop l"+/*,Composed_of c*/ " where l.Name like '%" + name + "%'";// and c.Laptop_Model = l.Model";
+            return dbMan.ExecuteReader(query);
+        }
     }
 }
