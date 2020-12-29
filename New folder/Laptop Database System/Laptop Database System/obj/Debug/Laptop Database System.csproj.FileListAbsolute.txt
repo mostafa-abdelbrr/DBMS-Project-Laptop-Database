@@ -20,3 +20,18 @@ G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Databas
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Sign_Up.resources
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Sign_Up.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe.config
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csprojAssemblyReference.cache
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Login.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Properties.Resources.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Sign_Up.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Sign_Up.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.GenerateResource.cache
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.WelcomeForm.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Search.resources
+G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewAll.resources
