@@ -22,14 +22,22 @@ namespace Laptop_Database_System
         }
 
 
-        public int checkUser(string username, string password) // checks if the user exists in the DB or not
+        public int checkUser(string username, string password) // checks if the user exists in the DB or not and returns their ID
         {
-            string query = @"select ID
-                            from S_User
-                            where CONVERT(NVARCHAR(MAX), UserName) = N'" + username + @"'
-                            AND
-                            CONVERT(NVARCHAR(MAX), Password) = N'" + password + "'";
+            string query = "select ID from S_User where  UserName COLLATE SQL_Latin1_General_CP1_CS_AS = N'" + username + @"' AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = N'" + password + "'";
 
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return -1; // user not found
+            }
+
+            return (int)dbMan.ExecuteScalar(query);
+
+        }
+
+        public int checkUser(string username) // checks if the user exists in the DB or not and returns their ID
+        {
+            string query = "select ID from S_User where  UserName COLLATE SQL_Latin1_General_CP1_CS_AS = N'" + username + "'";
             if (dbMan.ExecuteScalar(query) == null)
             {
                 return -1; // user not found
@@ -43,13 +51,19 @@ namespace Laptop_Database_System
         {
             username = "n/a";
             role = "n/a";
+
+            if(id == -1)
+            {
+                return -1 ;
+            }
+
             string nameQuery = " select UserName from S_User where ID = '" + id + "'";
             string roleQuery = " select Role from S_User where ID = '" + id + "'";
 
             username = (string) dbMan.ExecuteScalar(nameQuery);
             role = (string) dbMan.ExecuteScalar(roleQuery);
 
-            return 0;
+            return checkUser(username);
 
 
         }

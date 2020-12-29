@@ -66,12 +66,17 @@ namespace Laptop_Database_System
             int userId = -1;
             userId = controllerObj.checkUser(username.Text, password.Text);
 
+            string user = "n/a";
+
+            string role = "n/a";
+            controllerObj.getUserDataFromID(userId, ref user, ref role);
+
             if(userId == -1)
             {
                 incorrect.Visible = true;
             } else
             {
-                string message = "User With ID " + userId + " has been found. They should be redirected to the landing page now and this message box should be hidden";
+                string message = user + " " + role + " " + userId;
                 MessageBox.Show(message);
             }
            
