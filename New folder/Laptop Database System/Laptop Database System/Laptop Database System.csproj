@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
+    <Compile Include="enums.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

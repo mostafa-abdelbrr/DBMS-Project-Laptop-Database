@@ -182,11 +182,11 @@ namespace Laptop_Database_System
             // 
             this.validation.AutoSize = true;
             this.validation.ForeColor = System.Drawing.Color.Red;
-            this.validation.Location = new System.Drawing.Point(425, 326);
+            this.validation.Location = new System.Drawing.Point(337, 314);
             this.validation.Name = "validation";
-            this.validation.Size = new System.Drawing.Size(138, 17);
+            this.validation.Size = new System.Drawing.Size(79, 17);
             this.validation.TabIndex = 22;
-            this.validation.Text = "Please enter all data";
+            this.validation.Text = "ERR_LABL";
             this.validation.Visible = false;
             // 
             // Store_Sign_Up

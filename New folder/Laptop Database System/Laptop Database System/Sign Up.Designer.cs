@@ -48,6 +48,7 @@ namespace Laptop_Database_System
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(223, 22);
             this.email.TabIndex = 1;
+            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             this.email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.email_KeyPress);
             // 
             // password

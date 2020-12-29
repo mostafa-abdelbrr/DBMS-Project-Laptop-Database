@@ -103,6 +103,18 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int addStore(string name,int number,string address)
+        {
+            string query = "INSERT INTO Store Values('"+name+"',"+number+",'"+address+"')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int addStoreOwner(string storeName,int id)
+        {
+            string query = "INSERT INTO Owner Values ("+id+",'"+storeName+"')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public DataTable getall()
         {
             string query = "Select * from Laptop"; // TODO: Add a select all feature

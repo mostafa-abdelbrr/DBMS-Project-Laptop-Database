@@ -48,7 +48,7 @@ namespace Laptop_Database_System
                 tt.InitialDelay = 0;
 
 
-                tt.Show("No spaces allowed ", this, 200, 20, 2000);
+                tt.Show("No spaces allowed ", this, 400, 20, 2000);
 
             }
         }
@@ -145,11 +145,43 @@ namespace Laptop_Database_System
                 tt.Show("Please Enter Your store phone number", this, 400, 245, 2000);
             }
 
+            if (controllerObj.checkUser(user.Text) != -1 && controllerObj.checkMail(email.Text) == -1)
+            {
+                validation.Visible = true;
+                validation.Text = "Username Already Exists";
+                return;
+            }
+            if (controllerObj.checkUser(user.Text) == -1 && controllerObj.checkMail(email.Text) != -1)
+            {
+                validation.Visible = true;
+                validation.Text = "Email Already Exists";
+                return;
+            }
+            if (controllerObj.checkUser(user.Text) != -1 && controllerObj.checkMail(email.Text) != -1)
+            {
+                validation.Visible = true;
+                validation.Text = "Email And Username Already Exist";
+                return;
+            }
+
             if (phone.TextLength == 0 || address.TextLength == 0 || storename.TextLength == 0 || password.TextLength == 0 || email.TextLength == 0 || user.TextLength == 0)
             {
+                validation.Text = "Please Enter All Data";
                 validation.Visible = true;
                 return;
             }
+
+            if ((email.Text.Contains('@') && email.Text.Contains('.') && email.Text.IndexOf('@') < email.Text.IndexOf('.')))
+            {
+                validation.Visible = true;
+                validation.Text = "Please Enter A Valid Email";
+                return;
+            }
+
+            controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "Store");
+            controllerObj.addStore(storename.Text, int.Parse(phone.Text) , address.Text);
+            controllerObj.addStoreOwner(storename.Text, controllerObj.checkUser(user.Text));
+
 
         }
     }

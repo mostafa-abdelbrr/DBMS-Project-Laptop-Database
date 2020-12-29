@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Laptop_Database_System
 {
     public partial class Sign_Up : Form
@@ -79,6 +80,15 @@ namespace Laptop_Database_System
                 return;
             }
 
+            if (!(email.Text.Contains('@') && email.Text.Contains('.') && email.Text.IndexOf('@') < email.Text.IndexOf('.',email.Text.IndexOf('@'))))
+            {
+                ERR.Visible = true;
+                ERR.Text = "Please Enter A Valid Email";
+                return;
+            }
+
+
+
             if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "User") == 1)
             {
                 MessageBox.Show("Welcome To LDBS, " + user.Text + ".");
@@ -87,6 +97,8 @@ namespace Laptop_Database_System
             {
                 MessageBox.Show("An Error has occured while creating a new account.");
             }
+
+
         }
 
         private void Sign_Up_FormClosed(object sender, FormClosedEventArgs e)
@@ -146,6 +158,11 @@ namespace Laptop_Database_System
         {
             parent.Show();
             Hide();
+        }
+
+        private void email_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
