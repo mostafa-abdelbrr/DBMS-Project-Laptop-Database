@@ -38,11 +38,12 @@ namespace Laptop_Database_System
             this.label3 = new System.Windows.Forms.Label();
             this.signStore = new System.Windows.Forms.Button();
             this.signUser = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(120, 35);
+            this.email.Location = new System.Drawing.Point(195, 32);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(223, 22);
             this.email.TabIndex = 1;
@@ -50,7 +51,7 @@ namespace Laptop_Database_System
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(120, 127);
+            this.password.Location = new System.Drawing.Point(195, 124);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(223, 22);
             this.password.TabIndex = 3;
@@ -58,7 +59,7 @@ namespace Laptop_Database_System
             // 
             // user
             // 
-            this.user.Location = new System.Drawing.Point(120, 82);
+            this.user.Location = new System.Drawing.Point(195, 79);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(223, 22);
             this.user.TabIndex = 2;
@@ -69,7 +70,7 @@ namespace Laptop_Database_System
             // consent
             // 
             this.consent.AutoSize = true;
-            this.consent.Location = new System.Drawing.Point(21, 173);
+            this.consent.Location = new System.Drawing.Point(96, 173);
             this.consent.Name = "consent";
             this.consent.Size = new System.Drawing.Size(276, 21);
             this.consent.TabIndex = 4;
@@ -79,7 +80,7 @@ namespace Laptop_Database_System
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 85);
+            this.label1.Location = new System.Drawing.Point(93, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 4;
@@ -88,7 +89,7 @@ namespace Laptop_Database_System
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 132);
+            this.label2.Location = new System.Drawing.Point(93, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 5;
@@ -97,7 +98,7 @@ namespace Laptop_Database_System
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 35);
+            this.label3.Location = new System.Drawing.Point(93, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 6;
@@ -123,11 +124,22 @@ namespace Laptop_Database_System
             this.signUser.UseVisualStyleBackColor = true;
             this.signUser.Click += new System.EventHandler(this.signUser_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(382, 213);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Log In";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Sign_Up
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 272);
+            this.ClientSize = new System.Drawing.Size(553, 272);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.signUser);
             this.Controls.Add(this.signStore);
             this.Controls.Add(this.label3);
@@ -157,5 +169,6 @@ namespace Laptop_Database_System
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button signStore;
         private System.Windows.Forms.Button signUser;
+        private System.Windows.Forms.Button button1;
     }
 }
