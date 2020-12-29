@@ -22,7 +22,10 @@ namespace Laptop_Database_System
 
         private void guest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("this button should redirect the guest to the landing page, and this message box should be removed after implementation is complete");
+            //MessageBox.Show("this button should redirect the guest to the landing page, and this message box should be removed after implementation is complete");
+            WelcomeForm welcome = new WelcomeForm();
+            welcome.Show();
+            this.Hide();
         }
 
         private void Login_Load(object sender, EventArgs e)

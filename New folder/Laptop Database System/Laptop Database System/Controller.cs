@@ -77,5 +77,22 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public DataTable getall()
+        {
+            string query = "Select * from Laptop"; // TODO: Add a select all feature
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable getlaptopbyfeatures()
+        {
+            string query = "Select * from Laptop";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable getramsize()
+        {
+            string query = "Select Size from RAM";
+            return dbMan.ExecuteReader(query);
+        }
     }
 }
