@@ -121,9 +121,35 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public DataTable getlaptopbyfeatures()
+        public DataTable getlaptopbyfeatures(string lname,string ktype, string klight,
+                                             string cpubrand, string cpumodel, string ramsize, 
+                                             string ramddr, string gpumodel, string os, string ssize, 
+                                             string smanufacturer, string sctype, string scres, string scsize)
         {
-            string query = "Select * from Laptop";
+
+            /* this block just checks if the passed argument is empty and replaces it with the wildcard "*",
+               otherwise it uses the same stored value */
+            lname         = lname         == "" ? "*" : lname;
+            ktype         = ktype         == "" ? "*" : ktype;
+            klight        = klight        == "" ? "*" : klight;
+            cpubrand      = cpubrand      == "" ? "*" : cpubrand;
+            cpumodel      = cpumodel      == "" ? "*" : cpumodel;
+            ramsize       = ramsize       == "" ? "*" : ramsize;
+            ramddr        = ramddr        == "" ? "*" : ramddr;
+            gpumodel      = gpumodel      == "" ? "*" : gpumodel;
+            os            = os            == "" ? "*" : os;
+            ssize         = ssize         == "" ? "*" : ssize;
+            smanufacturer = smanufacturer == "" ? "*" : smanufacturer;
+            sctype        = sctype        == "" ? "*" : sctype;
+            scres         = scres         == "" ? "*" : scres;
+            scsize        = scsize        == "" ? "*" : scsize;
+
+            string query = "Select * from Laptop l, Composed_of c where l.Name like '" + lname
+                + "' and c.Laptop_Model = l.Model and c.K_Type = '" + ktype + "' and c.K_Light = '" + klight
+                + "'and c.P_Brand = '" + cpubrand + "' and c.P_ModelNum = '" + cpumodel + "' and c.R_Size = '" + ramsize
+                + "' and c.R_DDR = '" + ramddr + "' and c.GPU_Model_Number = '" + gpumodel + "' and c.OS_Name = '" + os
+                + "'and c.S_Size = '" + ssize + "' and c.S_Manufacturer = '" + smanufacturer + "' and c.SC_Type = '" + sctype
+                + "'and c.SC_Resolution ='" + scres + "' and c.SC_Size = '" + scsize + "'";
             return dbMan.ExecuteReader(query);
         }
 
