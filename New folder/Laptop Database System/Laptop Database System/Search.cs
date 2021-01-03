@@ -14,10 +14,16 @@ namespace Laptop_Database_System
     {
         Controller controllerObj = new Controller();
 
-        public Search()
-        {
-            InitializeComponent();
-        }
+        //public Search()
+        //{
+        //    InitializeComponent();
+        //    DataTable dt = controllerObj.getramsize();
+        //    comboBox1.DataSource = dt;
+        //    comboBox1.DisplayMember="Size";
+        //    comboBox1.Text = "00";
+        //    //comboBox1.Items.Add("Select size");
+        //    //comboBox1.SelectedItem = "Select Size";
+        //}
 
         private void searchbutton_Click(object sender, EventArgs e)
         {
