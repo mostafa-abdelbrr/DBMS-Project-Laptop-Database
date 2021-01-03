@@ -78,6 +78,18 @@ namespace Laptop_Database_System
             {
                 string message = user + " " + role + " " + userId;
                 MessageBox.Show(message);
+
+                if (role == "Store")
+                {
+                    Hide();
+                    Form foo = new Store_Dashboard(userId, true);
+                    foo.Show();
+                } else if (role == "Store_WAITING_APPROVAL")
+                {
+                    Form foo = new Store_Dashboard(userId, false);
+                    foo.Show();
+                }
+
             }
            
 

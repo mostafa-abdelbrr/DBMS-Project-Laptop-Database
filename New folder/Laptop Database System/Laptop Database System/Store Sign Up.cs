@@ -207,7 +207,7 @@ namespace Laptop_Database_System
             }
             if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "Store_WAITING_APPROVAL") == 0 || controllerObj.addStore(storename.Text, long.Parse(phone.Text), address.Text) == 0 || controllerObj.addStoreOwner(storename.Text, controllerObj.checkUser(user.Text)) == 0)
             {
-                MessageBox.Show("A Problem Happened While Signing Up");
+                MessageBox.Show("A Problem Occured While Signing Up");
                 return;
             }
             else

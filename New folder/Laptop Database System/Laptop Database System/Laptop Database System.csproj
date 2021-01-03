@@ -69,6 +69,12 @@
     <Compile Include="Sign Up.Designer.cs">
       <DependentUpon>Sign Up.cs</DependentUpon>
     </Compile>
+    <Compile Include="Store Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Store Dashboard.Designer.cs">
+      <DependentUpon>Store Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Store Sign Up.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sign Up.resx">
       <DependentUpon>Sign Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Store Dashboard.resx">
+      <DependentUpon>Store Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Store Sign Up.resx">
       <DependentUpon>Store Sign Up.cs</DependentUpon>
