@@ -135,8 +135,8 @@ create table Owner
 	User_ID int,
 	Store_Name varchar(50),
 	primary key (User_ID,Store_Name),
-	foreign key (User_ID) references S_User,
-	foreign key (Store_Name) references Store
+	foreign key (User_ID) references S_User ON DELETE CASCADE,
+	foreign key (Store_Name) references Store ON DELETE CASCADE
 )
 
 create Table Bought_From
