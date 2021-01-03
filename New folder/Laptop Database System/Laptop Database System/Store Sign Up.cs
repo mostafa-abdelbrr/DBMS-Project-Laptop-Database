@@ -171,6 +171,27 @@ namespace Laptop_Database_System
                 return;
             }
 
+            if (controllerObj.checkStorePhone(Convert.ToInt64(phone.Text) )!= "N/A")
+            {
+                validation.Visible = true;
+                validation.Text = "Phone Number Already Exists";
+                return;
+            }
+
+            if(controllerObj.checkStoreName(storename.Text) != "N/A")
+            {
+                validation.Visible = true;
+                validation.Text = "Store Name Exists";
+                return;
+            }
+
+            if(controllerObj.checkStoreAddress(address.Text) != "N/A")
+            {
+                validation.Visible = true;
+                validation.Text = "Store Address Exists";
+                return;
+            }
+
             if (phone.TextLength == 0 || address.TextLength == 0 || storename.TextLength == 0 || password.TextLength == 0 || email.TextLength == 0 || user.TextLength == 0)
             {
                 validation.Text = "Please Enter All Data";
@@ -184,19 +205,14 @@ namespace Laptop_Database_System
                 validation.Text = "Please Enter A Valid Email";
                 return;
             }
-            if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "Store") == 0)
+            if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "Store_WAITING_APPROVAL") == 0 || controllerObj.addStore(storename.Text, long.Parse(phone.Text), address.Text) == 0 || controllerObj.addStoreOwner(storename.Text, controllerObj.checkUser(user.Text)) == 0)
             {
-                MessageBox.Show("Problem while adding to S_Users");
+                MessageBox.Show("A Problem Happened While Signing Up");
+                return;
             }
-
-            if (controllerObj.addStore(storename.Text, long.Parse(phone.Text), address.Text) == 0)
+            else
             {
-                MessageBox.Show("Problem while adding to store");
-            }
-
-            if (controllerObj.addStoreOwner(storename.Text, controllerObj.checkUser(user.Text)) == 0)
-            {
-                MessageBox.Show("Problem while adding to owner");
+                MessageBox.Show("Thank You ," + storename.Text + " For signing up. An Admin will review your request.");
             }
 
 

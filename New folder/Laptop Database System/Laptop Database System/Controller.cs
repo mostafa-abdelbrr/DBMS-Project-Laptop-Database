@@ -59,59 +59,102 @@ namespace Laptop_Database_System
 
         }
 
+        public string checkStorePhone(long phone) // checks if the phone number exists in the DB or not 
+        {
+            string query = "select Name from Store where Phone ='" + phone + "'";
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return "N/A"; // store not found
+            }
+
+            return (string)dbMan.ExecuteScalar(query);
+
+        }
+
+        public string checkStoreAddress(string address) // checks if the address exists in the DB or not 
+        {
+            string query = "select Name from Store where Address ='" + address + "'";
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return "N/A"; // store not found
+            }
+
+            return (string)dbMan.ExecuteScalar(query);
+
+        }
+
+        public string checkStoreName(string name) // checks if the address exists in the DB or not 
+        {
+            string query = "select Name from Store where Name ='" + name + "'";
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return "N/A"; // store not found
+            }
+
+            return (string)dbMan.ExecuteScalar(query);
+
+        }
+
+
         public int getUserDataFromID(int id, ref string username, ref string role)
         {
             username = "n/a";
             role = "n/a";
 
-            if(id == -1)
+            if (id == -1)
             {
-                return -1 ;
+                return -1;
             }
 
             string nameQuery = " select UserName from S_User where ID = '" + id + "'";
             string roleQuery = " select Role from S_User where ID = '" + id + "'";
 
-            username = (string) dbMan.ExecuteScalar(nameQuery);
-            role = (string) dbMan.ExecuteScalar(roleQuery);
+            username = (string)dbMan.ExecuteScalar(nameQuery);
+            role = (string)dbMan.ExecuteScalar(roleQuery);
 
             return checkUser(username);
 
 
         }
 
-        public int getNewID()
+        public long getNewID()
         {
-            return (int) dbMan.ExecuteScalar("select max(ID)+1 from S_User ");
+            if (dbMan.ExecuteScalar("select max(ID)+1 from S_User") == DBNull.Value)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt64(dbMan.ExecuteScalar("select max(ID)+1 from S_User"));
         }
 
-        public int signUp(string email,string username,string password,bool consent,string role)
+        public int signUp(string email, string username, string password, bool consent, string role)
         {
-            string _consent ;
+            string _consent;
 
             if (consent)
             {
                 _consent = "1";
-            } else
+            }
+            else
             {
                 _consent = "0";
             }
 
-            int ID = getNewID();
-            
-            string query = "INSERT INTO S_User Values("+ID.ToString()+",'"+email +"',' "+username+"','"+role+"',"+_consent+",'"+password+"')";
+            long ID = getNewID();
+
+            string query = "INSERT INTO S_User Values(" + ID.ToString() + ",'" + email + "','" + username + "','" + role + "'," + _consent + ",'" + password + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int addStore(string name,long number,string address)
+        public int addStore(string name, long number, string address)
         {
-            string query = "INSERT INTO Store Values('"+name+"',"+number+",'"+address+"')";
+            string query = "INSERT INTO Store Values('" + name + "'," + number + ",'" + address + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int addStoreOwner(string storeName,int id)
+        public int addStoreOwner(string storeName, int id)
         {
-            string query = "INSERT INTO Owner Values ("+id+",'"+storeName+"')";
+            string query = "INSERT INTO Owner Values (" + id + ",'" + storeName + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -121,28 +164,28 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public DataTable getlaptopbyfeatures(string lname,string ktype, string klight,
-                                             string cpubrand, string cpumodel, string ramsize, 
-                                             string ramddr, string gpumodel, string os, string ssize, 
+        public DataTable getlaptopbyfeatures(string lname, string ktype, string klight,
+                                             string cpubrand, string cpumodel, string ramsize,
+                                             string ramddr, string gpumodel, string os, string ssize,
                                              string smanufacturer, string sctype, string scres, string scsize)
         {
 
             /* this block just checks if the passed argument is empty and replaces it with the wildcard "*",
                otherwise it uses the same stored value */
-            lname         = lname         == "" ? "*" : lname;
-            ktype         = ktype         == "" ? "*" : ktype;
-            klight        = klight        == "" ? "*" : klight;
-            cpubrand      = cpubrand      == "" ? "*" : cpubrand;
-            cpumodel      = cpumodel      == "" ? "*" : cpumodel;
-            ramsize       = ramsize       == "" ? "*" : ramsize;
-            ramddr        = ramddr        == "" ? "*" : ramddr;
-            gpumodel      = gpumodel      == "" ? "*" : gpumodel;
-            os            = os            == "" ? "*" : os;
-            ssize         = ssize         == "" ? "*" : ssize;
+            lname = lname == "" ? "*" : lname;
+            ktype = ktype == "" ? "*" : ktype;
+            klight = klight == "" ? "*" : klight;
+            cpubrand = cpubrand == "" ? "*" : cpubrand;
+            cpumodel = cpumodel == "" ? "*" : cpumodel;
+            ramsize = ramsize == "" ? "*" : ramsize;
+            ramddr = ramddr == "" ? "*" : ramddr;
+            gpumodel = gpumodel == "" ? "*" : gpumodel;
+            os = os == "" ? "*" : os;
+            ssize = ssize == "" ? "*" : ssize;
             smanufacturer = smanufacturer == "" ? "*" : smanufacturer;
-            sctype        = sctype        == "" ? "*" : sctype;
-            scres         = scres         == "" ? "*" : scres;
-            scsize        = scsize        == "" ? "*" : scsize;
+            sctype = sctype == "" ? "*" : sctype;
+            scres = scres == "" ? "*" : scres;
+            scsize = scsize == "" ? "*" : scsize;
 
             string query = "Select * from Laptop l, Composed_of c where l.Name like '" + lname
                 + "' and c.Laptop_Model = l.Model and c.K_Type = '" + ktype + "' and c.K_Light = '" + klight
