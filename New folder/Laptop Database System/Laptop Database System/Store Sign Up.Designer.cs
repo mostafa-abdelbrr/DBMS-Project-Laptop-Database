@@ -52,7 +52,7 @@ namespace Laptop_Database_System
             this.signUser.Location = new System.Drawing.Point(415, 395);
             this.signUser.Name = "signUser";
             this.signUser.Size = new System.Drawing.Size(148, 32);
-            this.signUser.TabIndex = 12;
+            this.signUser.TabIndex = 8;
             this.signUser.Text = "Sign Up";
             this.signUser.UseVisualStyleBackColor = true;
             this.signUser.Click += new System.EventHandler(this.signUser_Click);
@@ -62,7 +62,7 @@ namespace Laptop_Database_System
             this.signStore.Location = new System.Drawing.Point(234, 395);
             this.signStore.Name = "signStore";
             this.signStore.Size = new System.Drawing.Size(148, 32);
-            this.signStore.TabIndex = 14;
+            this.signStore.TabIndex = 9;
             this.signStore.Text = "Back";
             this.signStore.UseVisualStyleBackColor = true;
             this.signStore.Click += new System.EventHandler(this.signStore_Click);
@@ -100,7 +100,7 @@ namespace Laptop_Database_System
             this.consent.Location = new System.Drawing.Point(234, 356);
             this.consent.Name = "consent";
             this.consent.Size = new System.Drawing.Size(276, 21);
-            this.consent.TabIndex = 11;
+            this.consent.TabIndex = 7;
             this.consent.Text = "I Agree To Share My Data With LDBS™";
             this.consent.UseVisualStyleBackColor = true;
             // 
@@ -109,7 +109,7 @@ namespace Laptop_Database_System
             this.user.Location = new System.Drawing.Point(340, 87);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(223, 22);
-            this.user.TabIndex = 8;
+            this.user.TabIndex = 2;
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
             // password
@@ -117,7 +117,7 @@ namespace Laptop_Database_System
             this.password.Location = new System.Drawing.Point(340, 132);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(223, 22);
-            this.password.TabIndex = 9;
+            this.password.TabIndex = 3;
             this.password.UseSystemPasswordChar = true;
             // 
             // email
@@ -125,7 +125,7 @@ namespace Laptop_Database_System
             this.email.Location = new System.Drawing.Point(340, 40);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(223, 22);
-            this.email.TabIndex = 7;
+            this.email.TabIndex = 1;
             this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             this.email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.email_KeyPress);
             // 
@@ -134,21 +134,23 @@ namespace Laptop_Database_System
             this.storename.Location = new System.Drawing.Point(340, 183);
             this.storename.Name = "storename";
             this.storename.Size = new System.Drawing.Size(223, 22);
-            this.storename.TabIndex = 16;
+            this.storename.TabIndex = 4;
             // 
             // address
             // 
             this.address.Location = new System.Drawing.Point(340, 233);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(223, 22);
-            this.address.TabIndex = 17;
+            this.address.TabIndex = 5;
             // 
             // phone
             // 
             this.phone.Location = new System.Drawing.Point(340, 279);
+            this.phone.MaxLength = 15;
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(223, 22);
-            this.phone.TabIndex = 18;
+            this.phone.TabIndex = 6;
+            this.phone.TextChanged += new System.EventHandler(this.phone_TextChanged);
             this.phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_KeyPress);
             // 
             // label4

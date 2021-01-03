@@ -45,7 +45,7 @@ create table Manufacturer
 create table Store
 (
 	Name varchar(50) NOT NULL,
-	Phone int UNIQUE NOT NULL,
+	Phone bigint UNIQUE NOT NULL,
 	Address varchar(100) NOT NULL,
 	primary key (Name),
 	constraint AK_Phone Unique (Phone),

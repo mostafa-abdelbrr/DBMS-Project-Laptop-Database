@@ -73,7 +73,7 @@ namespace Laptop_Database_System
             char input;
             input = e.KeyChar;
 
-            if (!char.IsNumber(input))
+            if (!(char.IsNumber(input) || (Keys)e.KeyChar == Keys.Back))
             {
                 e.KeyChar = (char)Keys.None;
                 ToolTip tt = new ToolTip();
@@ -93,6 +93,13 @@ namespace Laptop_Database_System
 
 
                 tt.Show("Please Enter Your Username", this, 400, 65, 2000);
+            }
+
+            if (phone.TextLength < 7 || phone.TextLength > 15)
+            {
+                validation.Visible = true;
+                validation.Text = "Please Enter A Valid Phone Number";
+                return;
             }
 
             if (email.TextLength == 0)
@@ -171,17 +178,32 @@ namespace Laptop_Database_System
                 return;
             }
 
-            if ((email.Text.Contains('@') && email.Text.Contains('.') && email.Text.IndexOf('@') < email.Text.IndexOf('.')))
+            if (!(email.Text.Contains('@') && email.Text.Contains('.') && email.Text.IndexOf('@') < email.Text.IndexOf('.', email.Text.IndexOf('@'))))
             {
                 validation.Visible = true;
                 validation.Text = "Please Enter A Valid Email";
                 return;
             }
+            if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "Store") == 0)
+            {
+                MessageBox.Show("Problem while adding to S_Users");
+            }
 
-            controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "Store");
-            controllerObj.addStore(storename.Text, int.Parse(phone.Text) , address.Text);
-            controllerObj.addStoreOwner(storename.Text, controllerObj.checkUser(user.Text));
+            if (controllerObj.addStore(storename.Text, long.Parse(phone.Text), address.Text) == 0)
+            {
+                MessageBox.Show("Problem while adding to store");
+            }
 
+            if (controllerObj.addStoreOwner(storename.Text, controllerObj.checkUser(user.Text)) == 0)
+            {
+                MessageBox.Show("Problem while adding to owner");
+            }
+
+
+        }
+
+        private void phone_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
