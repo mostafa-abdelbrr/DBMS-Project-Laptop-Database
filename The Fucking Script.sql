@@ -178,7 +178,16 @@ create table K_Languages
 	foreign key (K_Type,K_Light,Laptop_Model) references Keyboard ON DELETE CASCADE
 )
 
+create Table Search_log
+(
+	UserID int not null,
+	Laptop_Model varchar(100) not null,
+	search_Date date not null,
+	primary key(UserID,Laptop_Model),
+	foreign key(UserID) references S_User,
+	foreign Key(Laptop_Model) references Laptop,
 
+)
 
 create Table Composed_Of
 (
