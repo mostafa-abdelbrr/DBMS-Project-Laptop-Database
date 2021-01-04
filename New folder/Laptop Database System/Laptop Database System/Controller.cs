@@ -47,6 +47,8 @@ namespace Laptop_Database_System
 
         }
 
+
+
         public int checkMail(string email) // checks if the email exists in the DB or not and returns their ID
         {
             string query = "select ID from S_User where  email ='" + email + "'";
@@ -82,6 +84,7 @@ namespace Laptop_Database_System
             return (string)dbMan.ExecuteScalar(query);
 
         }
+
 
         public string checkStoreName(string name) // checks if the address exists in the DB or not 
         {
@@ -155,6 +158,62 @@ namespace Laptop_Database_System
         public int addStoreOwner(string storeName, int id)
         {
             string query = "INSERT INTO Owner Values (" + id + ",'" + storeName + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public string getEmail(int ID)
+        {
+            string email;
+            email = (string)dbMan.ExecuteScalar("select email from S_user where ID =" + ID + "");
+            return email;
+        }
+
+        public string getPassword(int ID)
+        {
+            string password;
+            password = (string)dbMan.ExecuteScalar("select Password from S_user where ID =" + ID + "");
+            return password;
+        }
+
+        public string getStoreName(int ID)
+        {
+            string name;
+            name = (string)dbMan.ExecuteScalar("select Name from Store,Owner where User_ID =" + ID + "AND Name = Store_Name");
+            return name;
+        }
+
+        public string getStoreAddress(int ID)
+        {
+            string Address;
+            Address = (string)dbMan.ExecuteScalar("select Address from Store,Owner where User_ID =" + ID + "AND Name = Store_Name");
+            return Address;
+        }
+        public long getStoreNumber(int ID)
+        {
+            long num;
+            num = (Int64)dbMan.ExecuteScalar("select Phone from Store,Owner where User_ID =" + ID + "AND Name = Store_Name");
+            return num;
+        }
+
+        public bool getConsent(int ID)
+        {
+            bool con;
+            con = (bool)dbMan.ExecuteScalar("select DataShareConsent from S_user where ID =" + ID + "");
+
+
+            return con;
+
+        }
+
+        public int editUser(int id,string username, string password, string email, int consent)
+        {
+            string query = "update S_User set UserName = '"+username+"'," +
+                           "password = '"+password+"'," +
+                           "dataShareConsent = "+consent+"," +
+                           "email = '"+email+"'" +
+                           "where ID = "+id+"";
+
+
             return dbMan.ExecuteNonQuery(query);
         }
 

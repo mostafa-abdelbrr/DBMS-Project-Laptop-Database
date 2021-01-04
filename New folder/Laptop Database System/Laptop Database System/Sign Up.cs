@@ -15,6 +15,7 @@ namespace Laptop_Database_System
     {
         Controller controllerObj;
         Form parent;
+        validations validator = new validations();
         public Sign_Up(Form parent)
         {
             controllerObj = new Controller();
@@ -80,7 +81,7 @@ namespace Laptop_Database_System
                 return;
             }
 
-            if (!(email.Text.Contains('@') && email.Text.Contains('.') && email.Text.IndexOf('@') < email.Text.IndexOf('.',email.Text.IndexOf('@'))))
+            if (!validator.email(email.Text))
             {
                 ERR.Visible = true;
                 ERR.Text = "Please Enter A Valid Email";

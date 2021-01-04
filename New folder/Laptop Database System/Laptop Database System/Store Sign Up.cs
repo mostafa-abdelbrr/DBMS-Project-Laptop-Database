@@ -13,6 +13,7 @@ namespace Laptop_Database_System
 
     public partial class Store_Sign_Up : Form
     {
+        validations validator = new validations();
         Controller controllerObj;
         Form parent;
         public Store_Sign_Up(Form parent)
@@ -199,7 +200,7 @@ namespace Laptop_Database_System
                 return;
             }
 
-            if (!(email.Text.Contains('@') && email.Text.Contains('.') && email.Text.IndexOf('@') < email.Text.IndexOf('.', email.Text.IndexOf('@'))))
+            if (!validator.email(email.Text))
             {
                 validation.Visible = true;
                 validation.Text = "Please Enter A Valid Email";
@@ -219,6 +220,11 @@ namespace Laptop_Database_System
         }
 
         private void phone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void user_TextChanged(object sender, EventArgs e)
         {
 
         }

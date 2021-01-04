@@ -1,7 +1,7 @@
 ﻿
 namespace Laptop_Database_System
 {
-    partial class Store_Sign_Up
+    partial class editStore
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,13 @@ namespace Laptop_Database_System
         /// </summary>
         private void InitializeComponent()
         {
+            this.validation = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.phone = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
+            this.storename = new System.Windows.Forms.TextBox();
             this.signUser = new System.Windows.Forms.Button();
             this.signStore = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,31 +45,85 @@ namespace Laptop_Database_System
             this.user = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
-            this.storename = new System.Windows.Forms.TextBox();
-            this.address = new System.Windows.Forms.TextBox();
-            this.phone = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.validation = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // validation
+            // 
+            this.validation.AutoSize = true;
+            this.validation.ForeColor = System.Drawing.Color.Red;
+            this.validation.Location = new System.Drawing.Point(340, 306);
+            this.validation.Name = "validation";
+            this.validation.Size = new System.Drawing.Size(79, 17);
+            this.validation.TabIndex = 38;
+            this.validation.Text = "ERR_LABL";
+            this.validation.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(234, 274);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 17);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Phone Number";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(234, 225);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Address";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(234, 175);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 17);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Store Name";
+            // 
+            // phone
+            // 
+            this.phone.Location = new System.Drawing.Point(343, 271);
+            this.phone.MaxLength = 15;
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(223, 22);
+            this.phone.TabIndex = 28;
+            this.phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_KeyPress);
+            // 
+            // address
+            // 
+            this.address.Location = new System.Drawing.Point(343, 225);
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(223, 22);
+            this.address.TabIndex = 27;
+            // 
+            // storename
+            // 
+            this.storename.Location = new System.Drawing.Point(343, 175);
+            this.storename.Name = "storename";
+            this.storename.Size = new System.Drawing.Size(223, 22);
+            this.storename.TabIndex = 26;
             // 
             // signUser
             // 
-            this.signUser.Location = new System.Drawing.Point(415, 395);
+            this.signUser.Location = new System.Drawing.Point(418, 387);
             this.signUser.Name = "signUser";
             this.signUser.Size = new System.Drawing.Size(148, 32);
-            this.signUser.TabIndex = 8;
-            this.signUser.Text = "Sign Up";
+            this.signUser.TabIndex = 30;
+            this.signUser.Text = "Edit";
             this.signUser.UseVisualStyleBackColor = true;
             this.signUser.Click += new System.EventHandler(this.signUser_Click);
             // 
             // signStore
             // 
-            this.signStore.Location = new System.Drawing.Point(234, 395);
+            this.signStore.Location = new System.Drawing.Point(237, 387);
             this.signStore.Name = "signStore";
             this.signStore.Size = new System.Drawing.Size(148, 32);
-            this.signStore.TabIndex = 9;
+            this.signStore.TabIndex = 31;
             this.signStore.Text = "Back";
             this.signStore.UseVisualStyleBackColor = true;
             this.signStore.Click += new System.EventHandler(this.signStore_Click);
@@ -70,129 +131,66 @@ namespace Laptop_Database_System
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(231, 40);
+            this.label3.Location = new System.Drawing.Point(234, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
-            this.label3.TabIndex = 15;
+            this.label3.TabIndex = 34;
             this.label3.Text = "Email";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 135);
+            this.label2.Location = new System.Drawing.Point(234, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 13;
+            this.label2.TabIndex = 33;
             this.label2.Text = "Password";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 87);
+            this.label1.Location = new System.Drawing.Point(234, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
-            this.label1.TabIndex = 10;
+            this.label1.TabIndex = 32;
             this.label1.Text = "Username";
             // 
             // consent
             // 
             this.consent.AutoSize = true;
-            this.consent.Location = new System.Drawing.Point(234, 356);
+            this.consent.Location = new System.Drawing.Point(237, 348);
             this.consent.Name = "consent";
             this.consent.Size = new System.Drawing.Size(276, 21);
-            this.consent.TabIndex = 7;
+            this.consent.TabIndex = 29;
             this.consent.Text = "I Agree To Share My Data With LDBS™";
             this.consent.UseVisualStyleBackColor = true;
             // 
             // user
             // 
-            this.user.Location = new System.Drawing.Point(340, 87);
+            this.user.Enabled = false;
+            this.user.Location = new System.Drawing.Point(343, 79);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(223, 22);
-            this.user.TabIndex = 2;
-            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
+            this.user.TabIndex = 24;
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(340, 132);
+            this.password.Location = new System.Drawing.Point(343, 124);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(223, 22);
-            this.password.TabIndex = 3;
+            this.password.TabIndex = 25;
             this.password.UseSystemPasswordChar = true;
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(340, 40);
+            this.email.Location = new System.Drawing.Point(343, 32);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(223, 22);
-            this.email.TabIndex = 1;
-            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
+            this.email.TabIndex = 23;
             this.email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.email_KeyPress);
             // 
-            // storename
-            // 
-            this.storename.Location = new System.Drawing.Point(340, 183);
-            this.storename.Name = "storename";
-            this.storename.Size = new System.Drawing.Size(223, 22);
-            this.storename.TabIndex = 4;
-            // 
-            // address
-            // 
-            this.address.Location = new System.Drawing.Point(340, 233);
-            this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(223, 22);
-            this.address.TabIndex = 5;
-            // 
-            // phone
-            // 
-            this.phone.Location = new System.Drawing.Point(340, 279);
-            this.phone.MaxLength = 15;
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(223, 22);
-            this.phone.TabIndex = 6;
-            this.phone.TextChanged += new System.EventHandler(this.phone_TextChanged);
-            this.phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 17);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Store Name";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(231, 233);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Address";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(231, 282);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 17);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Phone Number";
-            // 
-            // validation
-            // 
-            this.validation.AutoSize = true;
-            this.validation.ForeColor = System.Drawing.Color.Red;
-            this.validation.Location = new System.Drawing.Point(337, 314);
-            this.validation.Name = "validation";
-            this.validation.Size = new System.Drawing.Size(79, 17);
-            this.validation.TabIndex = 22;
-            this.validation.Text = "ERR_LABL";
-            this.validation.Visible = false;
-            // 
-            // Store_Sign_Up
+            // editStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,10 +211,11 @@ namespace Laptop_Database_System
             this.Controls.Add(this.user);
             this.Controls.Add(this.password);
             this.Controls.Add(this.email);
-            this.Name = "Store_Sign_Up";
+            this.Name = "editStore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Store Sign Up";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Store_Sign_Up_FormClosed);
+            this.Text = "editStore";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.editStore_FormClosed);
+            this.Load += new System.EventHandler(this.editStore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,6 +223,13 @@ namespace Laptop_Database_System
 
         #endregion
 
+        private System.Windows.Forms.Label validation;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox phone;
+        private System.Windows.Forms.TextBox address;
+        private System.Windows.Forms.TextBox storename;
         private System.Windows.Forms.Button signUser;
         private System.Windows.Forms.Button signStore;
         private System.Windows.Forms.Label label3;
@@ -233,12 +239,5 @@ namespace Laptop_Database_System
         private System.Windows.Forms.TextBox user;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.TextBox storename;
-        private System.Windows.Forms.TextBox address;
-        private System.Windows.Forms.TextBox phone;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label validation;
     }
 }

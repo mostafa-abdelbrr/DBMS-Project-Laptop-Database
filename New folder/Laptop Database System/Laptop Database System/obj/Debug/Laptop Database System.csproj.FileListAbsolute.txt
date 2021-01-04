@@ -39,3 +39,4 @@ G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Databas
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewAll.resources
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.WelcomeForm.resources
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Dashboard.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.editStore.resources

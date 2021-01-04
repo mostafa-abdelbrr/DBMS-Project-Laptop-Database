@@ -94,6 +94,7 @@ namespace Laptop_Database_System
             this.editAcc.TabIndex = 5;
             this.editAcc.Text = "Edit Account";
             this.editAcc.UseVisualStyleBackColor = true;
+            this.editAcc.Click += new System.EventHandler(this.editAcc_Click);
             // 
             // viewAll
             // 
@@ -103,6 +104,7 @@ namespace Laptop_Database_System
             this.viewAll.TabIndex = 6;
             this.viewAll.Text = "View All Laptops";
             this.viewAll.UseVisualStyleBackColor = true;
+            this.viewAll.Click += new System.EventHandler(this.viewAll_Click);
             // 
             // Store_Dashboard
             // 
@@ -120,6 +122,7 @@ namespace Laptop_Database_System
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Store_Dashboard_FormClosed);
+            this.Load += new System.EventHandler(this.Store_Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.laptop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
