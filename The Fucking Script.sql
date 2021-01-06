@@ -26,6 +26,7 @@ create Table Processor
 create Table Graphics_Card
 (	
 	Model_Number varchar(50),
+	Manufacturer varchar(50),
 	Vram float,
 	Clock_Speed float,
 	primary key(Model_number),

@@ -66,7 +66,15 @@ namespace Laptop_Database_System
                 return;
             }
 
-            controllerObj.editUser(userID, user.Text, password.Text, email.Text,con);
+            if (controllerObj.editUser(userID, user.Text, password.Text, email.Text, con) == 0)
+            {
+                MessageBox.Show("An Error Happened While Updating Your Data.");
+            } else
+            {
+                MessageBox.Show("Your Profile Has Been Updated Successfully. Please Re-Login To See The New Changes.");
+                Hide();
+                parent.Show();
+            }
         }
 
         private void email_KeyPress(object sender, KeyPressEventArgs e)

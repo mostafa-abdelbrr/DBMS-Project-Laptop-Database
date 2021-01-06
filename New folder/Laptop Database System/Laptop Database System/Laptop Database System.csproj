@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addLaptop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addLaptop.Designer.cs">
+      <DependentUpon>addLaptop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
     <Compile Include="editStore.cs">
@@ -100,6 +106,9 @@
     <Compile Include="WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addLaptop.resx">
+      <DependentUpon>addLaptop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editStore.resx">
       <DependentUpon>editStore.cs</DependentUpon>
     </EmbeddedResource>
