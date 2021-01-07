@@ -47,16 +47,5 @@ namespace Laptop_Database_System
             search.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            check_search c=new check_search();
-            c.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AddParts a = new AddParts();
-            a.Show();
-        }
     }
 }

@@ -82,13 +82,20 @@ namespace Laptop_Database_System
                 if (role == "Store")
                 {
                     Hide();
-                    Form foo = new Store_Dashboard(userId, 1,username.Text);
+                    Form foo = new Store_Dashboard(userId, 1, username.Text);
                     foo.Show();
-                } else if (role == "Store_WAITING_APPROVAL")
+                }
+                else if (role == "Store_WAITING_APPROVAL")
                 {
-                    Form foo = new Store_Dashboard(userId, 0,username.Text);
+                    Form foo = new Store_Dashboard(userId, 0, username.Text);
                     Hide();
                     foo.Show();
+                }
+                else if (role == "Admin")
+                {
+                    Admin_Dashboard ad = new Admin_Dashboard();
+                    Hide();
+                    ad.Show();
                 }
 
             }
