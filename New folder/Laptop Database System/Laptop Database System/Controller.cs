@@ -119,6 +119,18 @@ namespace Laptop_Database_System
 
 
         }
+        public int addToLaptop(string modelNum, string name,string date)
+        {
+          
+            string query = "INSERT INTO Laptop Values('"+modelNum+"','"+name+"','"+date+"',0,0)";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable fillManufacturerComboBox()
+        {
+            string query = "Select * From Manufacturer_Name";
+            return dbMan.ExecuteReader(query);
+        }
 
         public long getNewID()
         {

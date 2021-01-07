@@ -75,6 +75,7 @@ namespace Laptop_Database_System
             this.addLaptop.TabIndex = 3;
             this.addLaptop.Text = "Add Laptop";
             this.addLaptop.UseVisualStyleBackColor = true;
+            this.addLaptop.Click += new System.EventHandler(this.addLaptop_Click);
             // 
             // laptop
             // 

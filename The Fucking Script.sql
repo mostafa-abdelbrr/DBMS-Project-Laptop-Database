@@ -32,14 +32,23 @@ create Table Graphics_Card
 	primary key(Model_number),
 )
 
-create table Manufacturer
+create table Manufacturer_Data
 (
 	Name varchar(50),
 	Official_service_centre_address varchar(100),
+	primary key(Name),
+	
+)
+
+create table Manufacturered_By
+(
+	Name varchar(50),
+	
 	Laptop_Model varchar(100),
 	Manufacturing_Date date,
-	primary key(Name),
+	primary key(Name,Laptop_Model),
 	foreign key (Laptop_Model) references Laptop, 
+	foreign key (Name) references Manufacturer_Data, 
 )
 
 
@@ -166,7 +175,7 @@ create table M_Contact_Info
 	M_Name varchar(50),
 	Phone int,
 	primary key(M_Name,Phone),
-	foreign key (M_Name) references Manufacturer,
+	foreign key (M_Name) references Manufacturer_Data(Name),
 )
 
 create table K_Languages
@@ -225,3 +234,8 @@ INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')
 INSERT INTO Roles Values (3,'User')
 INSERT INTO Roles Values (0,'Store_WAITING_APPROVAL')
+
+INSERT INTO Manufacturer_Data Values ('ASUS','RAYA: 1 Abdel Hamid Loutfy St, Makram Ebeid, Nasr city, Cairo, Egypt')
+INSERT INTO Manufacturer_Data Values ('Acer','Mantrac: 30 Lebonan St,1st Floor, Mohandseen, Giza')
+INSERT INTO Manufacturer_Data Values ('Lenovo','MAS Egypt: 26 Jeddah St., off Mohi Eldin Abou Elezz,Dokki, Giza')
+INSERT INTO Manufacturer_Data Values ('Samsung','Samsung Service Center: 15 Wadi Al Nile, Gazirat Mit Oqbah, Agouza, Giza Governorate')

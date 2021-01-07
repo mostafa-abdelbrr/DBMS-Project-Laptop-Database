@@ -42,6 +42,8 @@ namespace Laptop_Database_System
             {
                 status.Text = "Awaiting Admin Approval";
                 status.ForeColor = Color.Tomato;
+
+                addLaptop.Enabled = false;
             }
 
             if (approved == 1)
@@ -65,6 +67,13 @@ namespace Laptop_Database_System
         {
             Hide();
             Form foo = new editStore(this,currentUserID);
+            foo.Show();
+        }
+
+        private void addLaptop_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Form foo = new addLaptop(this);
             foo.Show();
         }
     }
