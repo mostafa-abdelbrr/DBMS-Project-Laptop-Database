@@ -52,6 +52,12 @@
     <Compile Include="addLaptop.Designer.cs">
       <DependentUpon>addLaptop.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddParts.Designer.cs">
+      <DependentUpon>AddParts.cs</DependentUpon>
+    </Compile>
     <Compile Include="check_search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="addLaptop.resx">
       <DependentUpon>addLaptop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddParts.resx">
+      <DependentUpon>AddParts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="check_search.resx">
       <DependentUpon>check_search.cs</DependentUpon>

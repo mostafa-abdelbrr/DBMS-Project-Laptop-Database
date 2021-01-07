@@ -31,5 +31,10 @@ namespace Laptop_Database_System
         {
             userSearchDG.DataSource = controllerObj.UserSearched(comboBox1.Text);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchDG.DataSource = controllerObj.SortMostSearched();
+        }
     }
 }

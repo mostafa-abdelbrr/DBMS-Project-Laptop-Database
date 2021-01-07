@@ -61,3 +61,4 @@ C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Lapto
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
+C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.AddParts.resources

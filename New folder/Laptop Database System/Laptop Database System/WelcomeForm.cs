@@ -52,5 +52,11 @@ namespace Laptop_Database_System
             check_search c=new check_search();
             c.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddParts a = new AddParts();
+            a.Show();
+        }
     }
 }

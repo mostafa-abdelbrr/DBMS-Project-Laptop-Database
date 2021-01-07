@@ -290,5 +290,22 @@ namespace Laptop_Database_System
             string query = $"select Laptop_Model,search_date from Search_log where UserID={user};";
             return dbMan.ExecuteReader(query);
         }
+
+        public int addGPU(string mn, string man, string vram, string cs)
+        {
+            string query = $"insert into Graphics_Card values('{mn}','{man}',{vram},{cs});";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int addCPU(string b, string mn)
+        {
+            string query = $"insert into Processor values('{b}','{mn}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int addOS(string n, string man, string v)
+        {
+            string query = $"insert into Operating_System values('{n}','{man}','{v}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }
