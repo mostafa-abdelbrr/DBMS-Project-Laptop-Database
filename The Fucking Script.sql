@@ -25,12 +25,13 @@ create Table Processor
 
 create Table Graphics_Card
 (	
-	Model_Number varchar(50),
-	Manufacturer varchar(50),
-	Vram float,
-	Clock_Speed float,
+	Model_Number varchar(50) NOT NULL ,
+	Manufacturer varchar(50) NOT NULL,
+	Vram float NOT NULL,
+	Clock_Speed float NOT NULL,
 	primary key(Model_number),
 )
+
 
 create table Manufacturer_Data
 (
@@ -153,8 +154,8 @@ create Table Bought_From
 (
 	Laptop_Model varchar(100),
 	Store_Name varchar(50),
-	Price float,
-	InStock bit,
+	Price float NOT NULL,
+	InStock int NOT NULL,
 	primary key(Laptop_Model,Store_Name),
 	foreign key (Laptop_Model) references Laptop,
 	foreign key (Store_Name) references Store,
@@ -239,3 +240,12 @@ INSERT INTO Manufacturer_Data Values ('ASUS','RAYA: 1 Abdel Hamid Loutfy St, Mak
 INSERT INTO Manufacturer_Data Values ('Acer','Mantrac: 30 Lebonan St,1st Floor, Mohandseen, Giza')
 INSERT INTO Manufacturer_Data Values ('Lenovo','MAS Egypt: 26 Jeddah St., off Mohi Eldin Abou Elezz,Dokki, Giza')
 INSERT INTO Manufacturer_Data Values ('Samsung','Samsung Service Center: 15 Wadi Al Nile, Gazirat Mit Oqbah, Agouza, Giza Governorate')
+
+INSERT INTO Processor VALUES('Intel', 'Core i3')
+INSERT INTO Processor VALUES('Intel', 'Core i5')
+INSERT INTO Processor VALUES('Intel', 'Core i7')
+
+
+INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
+INSERT INTO Graphics_Card VALUES ('GTX 3070 8GB','Nvidia',8,1730)
+INSERT INTO Graphics_Card VALUES ('GTX 1070 TI 8GB','Nvidia',8,1683)

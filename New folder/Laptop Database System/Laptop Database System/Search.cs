@@ -43,5 +43,10 @@ namespace Laptop_Database_System
                                                   screstxt.Text, scsizetxt.Text);
             }
         }
+
+        private void Search_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
     }
 }

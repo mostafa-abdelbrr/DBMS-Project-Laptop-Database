@@ -98,6 +98,12 @@ namespace Laptop_Database_System
 
         }
 
+        public int addToRam(string ram,string ddr, string model )
+        {
+            string query = "INSERT INTO RAM VALUES ('"+ram+"','"+ddr+"','"+model+"')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
 
         public int getUserDataFromID(int id, ref string username, ref string role)
         {
@@ -119,18 +125,111 @@ namespace Laptop_Database_System
 
 
         }
-        public int addToLaptop(string modelNum, string name,string date)
+        public int addToLaptop(string modelNum, string name, string date)
         {
-          
-            string query = "INSERT INTO Laptop Values('"+modelNum+"','"+name+"','"+date+"',0,0)";
+
+            string query = "INSERT INTO Laptop Values('" + modelNum + "','" + name + "','" + date + "',0,0)";
             return dbMan.ExecuteNonQuery(query);
         }
 
         public DataTable fillManufacturerComboBox()
         {
-            string query = "Select * From Manufacturer_Name";
+            string query = "Select Name From Manufacturer_Data";
             return dbMan.ExecuteReader(query);
         }
+
+        public int addToManufacturer(string maker, string model, string date)
+        {
+            string query = "INSERT INTO Manufacturered_By Values ('" + maker + "','" + model + "','" + date + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable fillProcMaker()
+        {
+            string query = "SELECT Distinct Brand from Processor";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable fillGFXMaker()
+        {
+            string query = "SELECT DISTINCT Manufacturer from Graphics_Card";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public AutoCompleteStringCollection getProcModelAutoCompSrc(string brand)
+        {
+            string query = "Select ModelNum From Processor Where Brand = '" + brand + "'";
+            DataTable dt = new DataTable();
+            dt = dbMan.ExecuteReader(query);
+
+            AutoCompleteStringCollection autolist = new AutoCompleteStringCollection();
+
+            foreach (DataRow r in dt.Rows)
+            {
+                autolist.Add(r[0].ToString());
+            }
+            return autolist;
+        }
+
+        public AutoCompleteStringCollection getGFXModelAutoCompSrc(string mfc)
+        {
+            string query = "Select Model_Number From Graphics_Card Where Manufacturer = '" + mfc + "'";
+            DataTable dt = new DataTable();
+            dt = dbMan.ExecuteReader(query);
+
+            AutoCompleteStringCollection autolist = new AutoCompleteStringCollection();
+
+            foreach (DataRow r in dt.Rows)
+            {
+                autolist.Add(r[0].ToString());
+            }
+            return autolist;
+        }
+
+        public DataTable checkProc(string brand, string model)
+        {
+            string query = "SELECT Brand,ModelNum FROM Processor Where Brand = '" + brand + "' AND ModelNum = '" + model + "'";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public string checkLaptopModel(string model)
+        {
+            string query = "select Model from Laptop where Model ='" + model + "'";
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return "N/A"; // store not found
+            }
+
+            return (string)dbMan.ExecuteScalar(query);
+
+        }
+        public string getOwner(string id)
+        {
+            string query = "Select Store_Name from Owner where User_ID =  " + id;
+            return (string)dbMan.ExecuteScalar(query);
+        }
+
+        public string checkLaptopName(string name)
+        {
+            string query = "select Name from Laptop where Name ='" + name + "'";
+            if (dbMan.ExecuteScalar(query) == null)
+            {
+                return "N/A"; // store not found
+            }
+
+            return (string)dbMan.ExecuteScalar(query);
+
+        }
+
+
+        public int addToBoughtFrom(string model, string store, string price, string stock)
+        {
+            string query = "INSERT INTO Bought_From VALUES('" + model + "','" + store + "','" + price + "','" + stock + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        
+
 
         public long getNewID()
         {
@@ -217,13 +316,13 @@ namespace Laptop_Database_System
 
         }
 
-        public int editUser(int id,string username, string password, string email, int consent)
+        public int editUser(int id, string username, string password, string email, int consent)
         {
-            string query = "update S_User set UserName = '"+username+"'," +
-                           "password = '"+password+"'," +
-                           "dataShareConsent = "+consent+"," +
-                           "email = '"+email+"'" +
-                           "where ID = "+id+"";
+            string query = "update S_User set UserName = '" + username + "'," +
+                           "password = '" + password + "'," +
+                           "dataShareConsent = " + consent + "," +
+                           "email = '" + email + "'" +
+                           "where ID = " + id + "";
 
 
             return dbMan.ExecuteNonQuery(query);

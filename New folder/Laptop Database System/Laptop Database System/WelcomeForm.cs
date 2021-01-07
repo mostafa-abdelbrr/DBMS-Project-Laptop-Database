@@ -42,9 +42,9 @@ namespace Laptop_Database_System
 
         private void searchbutton_Click(object sender, EventArgs e)
         {
-            Search search = new Search();
-            this.Hide();
-            search.Show();
+            Form foo = new Search();
+            Hide();
+            foo.Show();
         }
     }
 }

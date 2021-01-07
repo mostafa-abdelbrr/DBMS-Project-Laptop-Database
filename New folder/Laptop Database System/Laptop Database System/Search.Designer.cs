@@ -343,6 +343,7 @@ namespace Laptop_Database_System
             this.Controls.Add(this.searchbutton);
             this.Name = "Search";
             this.Text = "Search";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Search_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

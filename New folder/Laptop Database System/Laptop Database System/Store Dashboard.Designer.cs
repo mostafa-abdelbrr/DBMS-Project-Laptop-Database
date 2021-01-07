@@ -62,7 +62,7 @@ namespace Laptop_Database_System
             this.signOut.Location = new System.Drawing.Point(12, 364);
             this.signOut.Name = "signOut";
             this.signOut.Size = new System.Drawing.Size(124, 35);
-            this.signOut.TabIndex = 2;
+            this.signOut.TabIndex = 3;
             this.signOut.Text = "Sign Out";
             this.signOut.UseVisualStyleBackColor = true;
             this.signOut.Click += new System.EventHandler(this.signOut_Click);
@@ -72,7 +72,7 @@ namespace Laptop_Database_System
             this.addLaptop.Location = new System.Drawing.Point(12, 21);
             this.addLaptop.Name = "addLaptop";
             this.addLaptop.Size = new System.Drawing.Size(124, 35);
-            this.addLaptop.TabIndex = 3;
+            this.addLaptop.TabIndex = 0;
             this.addLaptop.Text = "Add Laptop";
             this.addLaptop.UseVisualStyleBackColor = true;
             this.addLaptop.Click += new System.EventHandler(this.addLaptop_Click);
@@ -92,7 +92,7 @@ namespace Laptop_Database_System
             this.editAcc.Location = new System.Drawing.Point(12, 405);
             this.editAcc.Name = "editAcc";
             this.editAcc.Size = new System.Drawing.Size(124, 35);
-            this.editAcc.TabIndex = 5;
+            this.editAcc.TabIndex = 2;
             this.editAcc.Text = "Edit Account";
             this.editAcc.UseVisualStyleBackColor = true;
             this.editAcc.Click += new System.EventHandler(this.editAcc_Click);
@@ -102,7 +102,7 @@ namespace Laptop_Database_System
             this.viewAll.Location = new System.Drawing.Point(12, 72);
             this.viewAll.Name = "viewAll";
             this.viewAll.Size = new System.Drawing.Size(124, 35);
-            this.viewAll.TabIndex = 6;
+            this.viewAll.TabIndex = 1;
             this.viewAll.Text = "View All Laptops";
             this.viewAll.UseVisualStyleBackColor = true;
             this.viewAll.Click += new System.EventHandler(this.viewAll_Click);

@@ -48,6 +48,10 @@ namespace Laptop_Database_System
             this.usb3 = new System.Windows.Forms.NumericUpDown();
             this.gfxMaker = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.price = new System.Windows.Forms.TextBox();
+            this.inStock = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gfxModel = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -72,25 +76,21 @@ namespace Laptop_Database_System
             this.Screen = new System.Windows.Forms.GroupBox();
             this.Inches = new System.Windows.Forms.Label();
             this.resolution = new System.Windows.Forms.ComboBox();
-            this.size = new System.Windows.Forms.TextBox();
+            this.screenSize = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.screenType = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.yes = new System.Windows.Forms.RadioButton();
-            this.no = new System.Windows.Forms.RadioButton();
             this.kbType = new System.Windows.Forms.ComboBox();
+            this.no = new System.Windows.Forms.RadioButton();
+            this.yes = new System.Windows.Forms.RadioButton();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.inStock = new System.Windows.Forms.TextBox();
-            this.price = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.add = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
-            this.dbg_ADDLAPTOP = new System.Windows.Forms.Button();
+            this.err = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usb2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usb3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -201,6 +201,7 @@ namespace Laptop_Database_System
             // 
             // maker
             // 
+            this.maker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.maker.FormattingEnabled = true;
             this.maker.Location = new System.Drawing.Point(123, 23);
             this.maker.Name = "maker";
@@ -248,6 +249,7 @@ namespace Laptop_Database_System
             // 
             // gfxMaker
             // 
+            this.gfxMaker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.gfxMaker.FormattingEnabled = true;
             this.gfxMaker.Location = new System.Drawing.Point(123, 37);
             this.gfxMaker.Name = "gfxMaker";
@@ -277,6 +279,41 @@ namespace Laptop_Database_System
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(334, 241);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(37, 17);
+            this.label26.TabIndex = 21;
+            this.label26.Text = "EGP";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(334, 198);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 17);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Units";
+            // 
+            // price
+            // 
+            this.price.Location = new System.Drawing.Point(123, 238);
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(200, 22);
+            this.price.TabIndex = 19;
+            this.price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price_KeyPress);
+            // 
+            // inStock
+            // 
+            this.inStock.Location = new System.Drawing.Point(123, 195);
+            this.inStock.Name = "inStock";
+            this.inStock.Size = new System.Drawing.Size(200, 22);
+            this.inStock.TabIndex = 18;
+            this.inStock.TextChanged += new System.EventHandler(this.inStock_TextChanged);
+            this.inStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inStock_KeyPress);
             // 
             // groupBox2
             // 
@@ -322,6 +359,7 @@ namespace Laptop_Database_System
             // 
             // procModel
             // 
+            this.procModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.procModel.Location = new System.Drawing.Point(123, 83);
             this.procModel.Name = "procModel";
             this.procModel.Size = new System.Drawing.Size(200, 22);
@@ -338,11 +376,13 @@ namespace Laptop_Database_System
             // 
             // procMaker
             // 
+            this.procMaker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.procMaker.FormattingEnabled = true;
             this.procMaker.Location = new System.Drawing.Point(123, 33);
             this.procMaker.Name = "procMaker";
             this.procMaker.Size = new System.Drawing.Size(200, 24);
             this.procMaker.TabIndex = 22;
+            this.procMaker.SelectedIndexChanged += new System.EventHandler(this.procMaker_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -369,7 +409,13 @@ namespace Laptop_Database_System
             // 
             // ddr
             // 
+            this.ddr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddr.FormattingEnabled = true;
+            this.ddr.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.ddr.Location = new System.Drawing.Point(88, 69);
             this.ddr.Name = "ddr";
             this.ddr.Size = new System.Drawing.Size(100, 24);
@@ -390,6 +436,7 @@ namespace Laptop_Database_System
             this.ram.Name = "ram";
             this.ram.Size = new System.Drawing.Size(100, 22);
             this.ram.TabIndex = 9;
+            this.ram.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ram_KeyPress);
             // 
             // label19
             // 
@@ -476,7 +523,7 @@ namespace Laptop_Database_System
             // 
             this.Screen.Controls.Add(this.Inches);
             this.Screen.Controls.Add(this.resolution);
-            this.Screen.Controls.Add(this.size);
+            this.Screen.Controls.Add(this.screenSize);
             this.Screen.Controls.Add(this.label24);
             this.Screen.Controls.Add(this.label23);
             this.Screen.Controls.Add(this.label22);
@@ -499,18 +546,28 @@ namespace Laptop_Database_System
             // 
             // resolution
             // 
+            this.resolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.resolution.FormattingEnabled = true;
+            this.resolution.Items.AddRange(new object[] {
+            "HD",
+            "Full HD",
+            "2K",
+            "4K",
+            "8K",
+            "10K"});
             this.resolution.Location = new System.Drawing.Point(86, 68);
             this.resolution.Name = "resolution";
             this.resolution.Size = new System.Drawing.Size(121, 24);
             this.resolution.TabIndex = 8;
             // 
-            // size
+            // screenSize
             // 
-            this.size.Location = new System.Drawing.Point(86, 111);
-            this.size.Name = "size";
-            this.size.Size = new System.Drawing.Size(62, 22);
-            this.size.TabIndex = 7;
+            this.screenSize.Location = new System.Drawing.Point(86, 111);
+            this.screenSize.Name = "screenSize";
+            this.screenSize.Size = new System.Drawing.Size(62, 22);
+            this.screenSize.TabIndex = 7;
+            this.screenSize.TextChanged += new System.EventHandler(this.screenSize_TextChanged);
+            this.screenSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.size_KeyPress);
             // 
             // label24
             // 
@@ -541,7 +598,12 @@ namespace Laptop_Database_System
             // 
             // screenType
             // 
+            this.screenType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.screenType.FormattingEnabled = true;
+            this.screenType.Items.AddRange(new object[] {
+            "IPS",
+            "OLED",
+            "TN"});
             this.screenType.Location = new System.Drawing.Point(86, 25);
             this.screenType.Name = "screenType";
             this.screenType.Size = new System.Drawing.Size(121, 24);
@@ -561,34 +623,14 @@ namespace Laptop_Database_System
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Keyboard";
             // 
-            // label6
+            // kbType
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 17);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Type";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(15, 79);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(39, 17);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "Light";
-            // 
-            // yes
-            // 
-            this.yes.AutoSize = true;
-            this.yes.Location = new System.Drawing.Point(90, 75);
-            this.yes.Name = "yes";
-            this.yes.Size = new System.Drawing.Size(53, 21);
-            this.yes.TabIndex = 2;
-            this.yes.TabStop = true;
-            this.yes.Text = "Yes";
-            this.yes.UseVisualStyleBackColor = true;
+            this.kbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kbType.FormattingEnabled = true;
+            this.kbType.Location = new System.Drawing.Point(90, 37);
+            this.kbType.Name = "kbType";
+            this.kbType.Size = new System.Drawing.Size(121, 24);
+            this.kbType.TabIndex = 4;
             // 
             // no
             // 
@@ -601,13 +643,34 @@ namespace Laptop_Database_System
             this.no.Text = "No";
             this.no.UseVisualStyleBackColor = true;
             // 
-            // kbType
+            // yes
             // 
-            this.kbType.FormattingEnabled = true;
-            this.kbType.Location = new System.Drawing.Point(90, 37);
-            this.kbType.Name = "kbType";
-            this.kbType.Size = new System.Drawing.Size(121, 24);
-            this.kbType.TabIndex = 4;
+            this.yes.AutoSize = true;
+            this.yes.Location = new System.Drawing.Point(90, 75);
+            this.yes.Name = "yes";
+            this.yes.Size = new System.Drawing.Size(53, 21);
+            this.yes.TabIndex = 2;
+            this.yes.TabStop = true;
+            this.yes.Text = "Yes";
+            this.yes.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(15, 79);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(39, 17);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Light";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Type";
             // 
             // groupBox8
             // 
@@ -623,38 +686,6 @@ namespace Laptop_Database_System
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "USB";
             // 
-            // inStock
-            // 
-            this.inStock.Location = new System.Drawing.Point(123, 195);
-            this.inStock.Name = "inStock";
-            this.inStock.Size = new System.Drawing.Size(200, 22);
-            this.inStock.TabIndex = 18;
-            // 
-            // price
-            // 
-            this.price.Location = new System.Drawing.Point(123, 238);
-            this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(200, 22);
-            this.price.TabIndex = 19;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(334, 198);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 17);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Units";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(334, 241);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(37, 17);
-            this.label26.TabIndex = 21;
-            this.label26.Text = "EGP";
-            // 
             // add
             // 
             this.add.Location = new System.Drawing.Point(922, 320);
@@ -663,6 +694,7 @@ namespace Laptop_Database_System
             this.add.TabIndex = 32;
             this.add.Text = "Add Laptop";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // back
             // 
@@ -674,22 +706,23 @@ namespace Laptop_Database_System
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
-            // dbg_ADDLAPTOP
+            // err
             // 
-            this.dbg_ADDLAPTOP.Location = new System.Drawing.Point(837, 438);
-            this.dbg_ADDLAPTOP.Name = "dbg_ADDLAPTOP";
-            this.dbg_ADDLAPTOP.Size = new System.Drawing.Size(143, 66);
-            this.dbg_ADDLAPTOP.TabIndex = 34;
-            this.dbg_ADDLAPTOP.Text = "dbg_ADDLAPTOP";
-            this.dbg_ADDLAPTOP.UseVisualStyleBackColor = true;
-            this.dbg_ADDLAPTOP.Click += new System.EventHandler(this.dbg_ADDLAPTOP_Click);
+            this.err.AutoSize = true;
+            this.err.ForeColor = System.Drawing.Color.Red;
+            this.err.Location = new System.Drawing.Point(716, 302);
+            this.err.Name = "err";
+            this.err.Size = new System.Drawing.Size(70, 17);
+            this.err.TabIndex = 36;
+            this.err.Text = "ERR_LBL";
+            this.err.Visible = false;
             // 
             // addLaptop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 676);
-            this.Controls.Add(this.dbg_ADDLAPTOP);
+            this.Controls.Add(this.err);
             this.Controls.Add(this.back);
             this.Controls.Add(this.add);
             this.Controls.Add(this.groupBox8);
@@ -725,6 +758,7 @@ namespace Laptop_Database_System
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -773,7 +807,7 @@ namespace Laptop_Database_System
         private System.Windows.Forms.GroupBox Screen;
         private System.Windows.Forms.Label Inches;
         private System.Windows.Forms.ComboBox resolution;
-        private System.Windows.Forms.TextBox size;
+        private System.Windows.Forms.TextBox screenSize;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
@@ -791,6 +825,6 @@ namespace Laptop_Database_System
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button back;
-        private System.Windows.Forms.Button dbg_ADDLAPTOP;
+        private System.Windows.Forms.Label err;
     }
 }

@@ -89,6 +89,11 @@ namespace Laptop_Database_System
                     Form foo = new Store_Dashboard(userId, 0,username.Text);
                     Hide();
                     foo.Show();
+                } else if (role == "User")
+                {
+                    Form foo = new WelcomeForm();
+                    Hide();
+                    foo.Show();
                 }
 
             }

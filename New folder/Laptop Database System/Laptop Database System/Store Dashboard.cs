@@ -14,10 +14,10 @@ namespace Laptop_Database_System
     {
         public int currentUserID = -1;
         int approved = 0;
-        string storeName;
+        string username;
         public Store_Dashboard(int userID,int approved,string storeName)
         {
-            this.storeName = storeName;
+            this.username = storeName;
             currentUserID = userID;
             this.approved = approved;
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace Laptop_Database_System
 
         private void Store_Dashboard_Load(object sender, EventArgs e)
         {
-            welcome.Text = "Welcome, " + storeName + " !";
+            welcome.Text = "Welcome, " + username + " !";
             if(approved == 0)
             {
                 status.Text = "Awaiting Admin Approval";
@@ -73,7 +73,7 @@ namespace Laptop_Database_System
         private void addLaptop_Click(object sender, EventArgs e)
         {
             Hide();
-            Form foo = new addLaptop(this);
+            Form foo = new addLaptop(this,username,currentUserID);
             foo.Show();
         }
     }
