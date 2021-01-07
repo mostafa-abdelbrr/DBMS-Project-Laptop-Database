@@ -33,13 +33,15 @@ namespace Laptop_Database_System
             this.signupbutton = new System.Windows.Forms.Button();
             this.viewallbutton = new System.Windows.Forms.Button();
             this.searchbutton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginbutton
             // 
-            this.loginbutton.Location = new System.Drawing.Point(91, 41);
+            this.loginbutton.Location = new System.Drawing.Point(68, 33);
+            this.loginbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginbutton.Name = "loginbutton";
-            this.loginbutton.Size = new System.Drawing.Size(75, 23);
+            this.loginbutton.Size = new System.Drawing.Size(56, 19);
             this.loginbutton.TabIndex = 0;
             this.loginbutton.Text = "Login";
             this.loginbutton.UseVisualStyleBackColor = true;
@@ -47,9 +49,10 @@ namespace Laptop_Database_System
             // 
             // signupbutton
             // 
-            this.signupbutton.Location = new System.Drawing.Point(91, 87);
+            this.signupbutton.Location = new System.Drawing.Point(68, 71);
+            this.signupbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.signupbutton.Name = "signupbutton";
-            this.signupbutton.Size = new System.Drawing.Size(75, 23);
+            this.signupbutton.Size = new System.Drawing.Size(56, 19);
             this.signupbutton.TabIndex = 1;
             this.signupbutton.Text = "Sign Up";
             this.signupbutton.UseVisualStyleBackColor = true;
@@ -57,9 +60,10 @@ namespace Laptop_Database_System
             // 
             // viewallbutton
             // 
-            this.viewallbutton.Location = new System.Drawing.Point(91, 136);
+            this.viewallbutton.Location = new System.Drawing.Point(68, 110);
+            this.viewallbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.viewallbutton.Name = "viewallbutton";
-            this.viewallbutton.Size = new System.Drawing.Size(75, 23);
+            this.viewallbutton.Size = new System.Drawing.Size(56, 19);
             this.viewallbutton.TabIndex = 2;
             this.viewallbutton.Text = "View all";
             this.viewallbutton.UseVisualStyleBackColor = true;
@@ -67,23 +71,36 @@ namespace Laptop_Database_System
             // 
             // searchbutton
             // 
-            this.searchbutton.Location = new System.Drawing.Point(91, 189);
+            this.searchbutton.Location = new System.Drawing.Point(68, 154);
+            this.searchbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.searchbutton.Name = "searchbutton";
-            this.searchbutton.Size = new System.Drawing.Size(75, 23);
+            this.searchbutton.Size = new System.Drawing.Size(56, 19);
             this.searchbutton.TabIndex = 3;
             this.searchbutton.Text = "Search";
             this.searchbutton.UseVisualStyleBackColor = true;
             this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(49, 192);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Csearch";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // WelcomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 243);
+            this.ClientSize = new System.Drawing.Size(194, 265);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.viewallbutton);
             this.Controls.Add(this.signupbutton);
             this.Controls.Add(this.loginbutton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "WelcomeForm";
             this.Text = "WelcomeForm";
             this.ResumeLayout(false);
@@ -96,5 +113,6 @@ namespace Laptop_Database_System
         private System.Windows.Forms.Button signupbutton;
         private System.Windows.Forms.Button viewallbutton;
         private System.Windows.Forms.Button searchbutton;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -46,5 +46,11 @@ namespace Laptop_Database_System
             this.Hide();
             search.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            check_search c=new check_search();
+            c.Show();
+        }
     }
 }

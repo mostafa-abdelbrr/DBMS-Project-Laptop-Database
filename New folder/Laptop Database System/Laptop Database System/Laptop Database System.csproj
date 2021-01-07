@@ -52,6 +52,12 @@
     <Compile Include="addLaptop.Designer.cs">
       <DependentUpon>addLaptop.cs</DependentUpon>
     </Compile>
+    <Compile Include="check_search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="check_search.Designer.cs">
+      <DependentUpon>check_search.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
     <Compile Include="editStore.cs">
@@ -61,6 +67,12 @@
       <DependentUpon>editStore.cs</DependentUpon>
     </Compile>
     <Compile Include="enums.cs" />
+    <Compile Include="AdminEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEdit.Designer.cs">
+      <DependentUpon>AdminEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +121,14 @@
     <EmbeddedResource Include="addLaptop.resx">
       <DependentUpon>addLaptop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="check_search.resx">
+      <DependentUpon>check_search.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editStore.resx">
       <DependentUpon>editStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminEdit.resx">
+      <DependentUpon>AdminEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
