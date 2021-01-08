@@ -272,21 +272,21 @@ namespace Laptop_Database_System
             char input;
             input = e.KeyChar;
 
-            if (!((Keys)e.KeyChar == Keys.Decimal) || char.IsNumber(input) || (Keys)e.KeyChar == Keys.Back  )
+            if (!(char.IsNumber(input) || (Keys)e.KeyChar == Keys.Decimal || (Keys)e.KeyChar == Keys.Back))
             {
                 e.KeyChar = (char)Keys.None;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
                 Point locl = screenSize.Location;
-               // tt.SetToolTip(screenSize, "Only numbers allowed");
+                // tt.SetToolTip(screenSize, "Only numbers allowed");
                 tt.Show("Only numbers allowed ", this, 430, 341, 2000);
             }
         }
 
         private void screenSize_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
