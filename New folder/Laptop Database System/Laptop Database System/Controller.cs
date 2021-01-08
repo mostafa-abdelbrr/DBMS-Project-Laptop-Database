@@ -98,12 +98,6 @@ namespace Laptop_Database_System
 
         }
 
-        public int addToRam(string ram,string ddr, string model )
-        {
-            string query = "INSERT INTO RAM VALUES ('"+ram+"','"+ddr+"','"+model+"')";
-            return dbMan.ExecuteNonQuery(query);
-        }
-
 
         public int getUserDataFromID(int id, ref string username, ref string role)
         {
@@ -125,111 +119,18 @@ namespace Laptop_Database_System
 
 
         }
-        public int addToLaptop(string modelNum, string name, string date)
+        public int addToLaptop(string modelNum, string name,string date)
         {
-
-            string query = "INSERT INTO Laptop Values('" + modelNum + "','" + name + "','" + date + "',0,0)";
+          
+            string query = "INSERT INTO Laptop Values('"+modelNum+"','"+name+"','"+date+"',0,0)";
             return dbMan.ExecuteNonQuery(query);
         }
 
         public DataTable fillManufacturerComboBox()
         {
-            string query = "Select Name From Manufacturer_Data";
+            string query = "Select * From Manufacturer_Name";
             return dbMan.ExecuteReader(query);
         }
-
-        public int addToManufacturer(string maker, string model, string date)
-        {
-            string query = "INSERT INTO Manufacturered_By Values ('" + maker + "','" + model + "','" + date + "')";
-            return dbMan.ExecuteNonQuery(query);
-        }
-
-        public DataTable fillProcMaker()
-        {
-            string query = "SELECT Distinct Brand from Processor";
-            return dbMan.ExecuteReader(query);
-        }
-
-        public DataTable fillGFXMaker()
-        {
-            string query = "SELECT DISTINCT Manufacturer from Graphics_Card";
-            return dbMan.ExecuteReader(query);
-        }
-
-        public AutoCompleteStringCollection getProcModelAutoCompSrc(string brand)
-        {
-            string query = "Select ModelNum From Processor Where Brand = '" + brand + "'";
-            DataTable dt = new DataTable();
-            dt = dbMan.ExecuteReader(query);
-
-            AutoCompleteStringCollection autolist = new AutoCompleteStringCollection();
-
-            foreach (DataRow r in dt.Rows)
-            {
-                autolist.Add(r[0].ToString());
-            }
-            return autolist;
-        }
-
-        public AutoCompleteStringCollection getGFXModelAutoCompSrc(string mfc)
-        {
-            string query = "Select Model_Number From Graphics_Card Where Manufacturer = '" + mfc + "'";
-            DataTable dt = new DataTable();
-            dt = dbMan.ExecuteReader(query);
-
-            AutoCompleteStringCollection autolist = new AutoCompleteStringCollection();
-
-            foreach (DataRow r in dt.Rows)
-            {
-                autolist.Add(r[0].ToString());
-            }
-            return autolist;
-        }
-
-        public DataTable checkProc(string brand, string model)
-        {
-            string query = "SELECT Brand,ModelNum FROM Processor Where Brand = '" + brand + "' AND ModelNum = '" + model + "'";
-            return dbMan.ExecuteReader(query);
-        }
-
-        public string checkLaptopModel(string model)
-        {
-            string query = "select Model from Laptop where Model ='" + model + "'";
-            if (dbMan.ExecuteScalar(query) == null)
-            {
-                return "N/A"; // store not found
-            }
-
-            return (string)dbMan.ExecuteScalar(query);
-
-        }
-        public string getOwner(string id)
-        {
-            string query = "Select Store_Name from Owner where User_ID =  " + id;
-            return (string)dbMan.ExecuteScalar(query);
-        }
-
-        public string checkLaptopName(string name)
-        {
-            string query = "select Name from Laptop where Name ='" + name + "'";
-            if (dbMan.ExecuteScalar(query) == null)
-            {
-                return "N/A"; // store not found
-            }
-
-            return (string)dbMan.ExecuteScalar(query);
-
-        }
-
-
-        public int addToBoughtFrom(string model, string store, string price, string stock)
-        {
-            string query = "INSERT INTO Bought_From VALUES('" + model + "','" + store + "','" + price + "','" + stock + "')";
-            return dbMan.ExecuteNonQuery(query);
-        }
-
-        
-
 
         public long getNewID()
         {
@@ -316,13 +217,13 @@ namespace Laptop_Database_System
 
         }
 
-        public int editUser(int id, string username, string password, string email, int consent)
+        public int editUser(int id,string username, string password, string email, int consent)
         {
-            string query = "update S_User set UserName = '" + username + "'," +
-                           "password = '" + password + "'," +
-                           "dataShareConsent = " + consent + "," +
-                           "email = '" + email + "'" +
-                           "where ID = " + id + "";
+            string query = "update S_User set UserName = '"+username+"'," +
+                           "password = '"+password+"'," +
+                           "dataShareConsent = "+consent+"," +
+                           "email = '"+email+"'" +
+                           "where ID = "+id+"";
 
 
             return dbMan.ExecuteNonQuery(query);
@@ -372,51 +273,89 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public DataTable SortMostSearched()
+        public DataTable GetInformation(string Name)
         {
-            string query = "select Laptop_Model,count(Laptop_Model) as Searches from Search_log group by Laptop_Model order by count(Laptop_Model) desc;";
+            string query = "Select * from Laptop where Name=" + Name + ";";
             return dbMan.ExecuteReader(query);
         }
 
-        public DataTable SelectUsers()
+        public DataTable GetProcessor(string Name)
         {
-            string query = "select ID from s_user";
+            string query = "Select Brand, ModelNum From Laptop l,Composed_Of c ,Processor p" +
+                "Where l.Model=c.Laptop_Model AND P.ModelNum=C.P_ModelNum AND l.Name=" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
-        public DataTable UserSearched(string user)
+        public DataTable GetGarphicsCard (string Name)
         {
-            string query = $"select Laptop_Model,search_date from Search_log where UserID={user};";
+            string query = "Select Manufacturer, Vram, Clock_speed  " +
+                "From Laptop l, Composed_Of c, Graphics_Card g " +
+                "Where l.Model = c.Laptop_Model AND GPU_Model_Number = g.Model_Number AND l.Name = '" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
-        public int addGPU(string mn, string man, string vram, string cs)
+        public DataTable GetRAM (string Name)
         {
-            string query = $"insert into Graphics_Card values('{mn}','{man}',{vram},{cs});";
-            return dbMan.ExecuteNonQuery(query);
-        }
-        public int addCPU(string b, string mn)
-        {
-            string query = $"insert into Processor values('{b}','{mn}');";
-            return dbMan.ExecuteNonQuery(query);
-        }
-
-        public int addOS(string n, string man, string v)
-        {
-            string query = $"insert into Operating_System values('{n}','{man}','{v}');";
-            return dbMan.ExecuteNonQuery(query);
-        }
-
-        public DataTable SelectEdits()
-        {
-            string query = "select Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,S_Manufacturer,S_Size,SC_Type,SC_Resolution,SC_Size from Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version;";
+            string query = "Select Size,DDR " +
+                "From Laptop l, RAM r" +
+                "Where l.Model=r.Laptop_Model AND l.Name ='" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
-        public int EditLaps(string lm, string kt, string kl, string pb, string pmn,string rs,string rddr, string gpumn ,string gpuman, string vram, string cs,string osn, string osman, string osv, string sman,string ssize,string sct,string scr,string scs)
+        public DataTable GetOS (string Name)
         {
-            string query = $"Exec Edit @LM ='{lm}',@KT= '{kt}',@KL= '{kl}',@PB= '{pb}',@PMN='{pmn}' ,@RS= '{rs}',@RDDR = '{rddr}' ,@GPUMN= '{gpumn}',@GPUMAN ='{gpuman}',@VRAM= '{vram}',@CS ='{cs}',@OSN ='{osn}',@OSMAN ='{osman}',@OSV ='{osv}',@SMAN ='{sman}',@SSIZE ='{ssize}',@SCT ='{sct}',@SCR ='{scr}',@SCS ='{scs}';";
-            return dbMan.ExecuteNonQuery(query);
+            string query = "Select o.Name, Manufacturer, o.Version " +
+                "from Laptop l, Composed_Of c, Operating_System o " +
+                "Where l.Model = c.Laptop_Model AND c.OS_Name = o.Name AND l.Name ='" + Name + "';";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetStorage(string Name)
+        {
+            string query = "Select s.Size, s.Manufacturer, s.HDD, s.SDD " +
+                "From Laptop l, Storage s " +
+                "where l.Model = s.Laptop_Model AND l.Name = '" + Name + "';";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetScreen (string Name)
+        {
+            string query = "Select s.Type, s.Resolution, s.Size " +
+                "From Laptop l, Screen s " +
+                "Where l.Model = s.Laptop_Model AND l.Name = '" + Name + "'; ";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetManufacturer(string Name)
+        {
+            string query = "Select M_Name, Phone, Official_service_centre_address " +
+                "From Laptop l, Manufacturered_By MB, Manufacturer_Data MD, M_Contact_Info MC" +
+                "WHERE l.Model = MB.Laptop_Model AND MB.Name = MD.Name AND MD.Name = MC.M_Name AND l.Name = '" + Name + "'; ";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetStore (string Name)
+        {
+            string query = "SELECT b.Price, b.InStock, s.Name, s.Address  " +
+                "From Laptop l, Bought_From b, Store s " +
+                "Where l.Model = b.Laptop_Model AND b.Store_Name = s.Name AND l.Name = '" + Name + "'";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetUSB (string Name)
+        {
+            string query = "Select Type , Number  " +
+                "From Laptop l, USB_Type u " +
+                "Where L.Model = u.Laptop_Model AND l.Name = '" + Name + "'";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetKeyboard (string Name)
+        {
+            string query= "Select K_Type, K_Light, Language  " +
+                "From Laptop l, KeyBoard k, K_Languages kl " +
+                "where l.Model = k.Laptop_Model AND k.Laptop_Model = kl.Laptop_Model AND l.Name = '"+Name+"'; ";
+            return dbMan.ExecuteReader(query);
         }
     }
 }
