@@ -40,6 +40,8 @@
             this.EditLTdg.Name = "EditLTdg";
             this.EditLTdg.Size = new System.Drawing.Size(776, 375);
             this.EditLTdg.TabIndex = 0;
+            this.EditLTdg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditLTdg_KeyDown);
+            this.EditLTdg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditLTdg_KeyPress);
             // 
             // ConfirmEdit
             // 

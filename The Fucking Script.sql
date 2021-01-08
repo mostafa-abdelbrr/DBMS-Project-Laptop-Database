@@ -196,7 +196,7 @@ create Table Search_log
 	search_Date date not null,
 	primary key(UserID,Laptop_Model),
 	foreign key(UserID) references S_User,
-	foreign Key(Laptop_Model) references Laptop,
+	foreign Key(Laptop_Model) references Laptop on delete cascade on update cascade,
 
 )
 
@@ -241,6 +241,11 @@ Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS whe
 --update os
 update Storage set Manufacturer=@SMAN , Size=@SSIZE where Laptop_Model=@LM
 update Screen set Type=@SCT , Resolution=@SCR , Size=@SCS where Laptop_Model=@LM
+GO
+create procedure RemoveLaptop @LM varchar(100)
+AS
+Delete from Composed_Of where Laptop_Model=@LM
+Delete from Laptop where Model=@LM
 GO
 
 INSERT INTO Roles Values (1,'Admin')

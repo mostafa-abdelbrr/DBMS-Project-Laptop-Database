@@ -39,5 +39,26 @@ namespace Laptop_Database_System
             EditLTdg.Columns[0].ReadOnly = true;
             EditLTdg.Columns[7].ReadOnly = true;
         }
+
+        private void EditLTdg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void EditLTdg_KeyDown(object sender, KeyEventArgs e)
+        {
+            controllerObj = new Controller();
+            if (e.KeyCode == Keys.Delete)
+            {
+                DialogResult dr = MessageBox.Show("If you delete the search logs will also dissappear. are you sure?","Delete Confirmation",MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    for (int i = 0; i < EditLTdg.SelectedRows.Count; i++)
+                    {
+                        int result = controllerObj.RemoveLaptop(EditLTdg.SelectedRows[i].Cells[0].Value.ToString());
+                    }
+                }
+            }
+        }
     }
 }

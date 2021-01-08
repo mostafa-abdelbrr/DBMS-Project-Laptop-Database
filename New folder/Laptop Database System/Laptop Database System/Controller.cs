@@ -418,5 +418,11 @@ namespace Laptop_Database_System
             string query = $"Exec Edit @LM ='{lm}',@KT= '{kt}',@KL= '{kl}',@PB= '{pb}',@PMN='{pmn}' ,@RS= '{rs}',@RDDR = '{rddr}' ,@GPUMN= '{gpumn}',@GPUMAN ='{gpuman}',@VRAM= '{vram}',@CS ='{cs}',@OSN ='{osn}',@OSMAN ='{osman}',@OSV ='{osv}',@SMAN ='{sman}',@SSIZE ='{ssize}',@SCT ='{sct}',@SCR ='{scr}',@SCS ='{scs}';";
             return dbMan.ExecuteNonQuery(query);
         }
+
+        public int RemoveLaptop(string lm)
+        {
+            string query = $"exec RemoveLaptop @LM='{lm}';";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }
