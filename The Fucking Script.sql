@@ -64,10 +64,10 @@ create table Store
 
 create table Operating_System
 (
-	Name varchar(50),
-	Manufacturer varchar(50),
-	Version varchar(50),
-	primary key(Name),
+	Name varchar(50) NOT NULL ,
+	Manufacturer varchar(50) NOT NULL  ,
+	Version varchar(50) NOT NULL Unique,
+	primary key(Manufacturer,Name,Version),
 )
 create table Roles
 (
@@ -210,7 +210,9 @@ create Table Composed_Of
 	R_Size varchar(50),
 	R_DDR varchar(50),
 	GPU_Model_Number varchar(50),
+	OS_Manufacturer varchar(50),
 	OS_Name varchar(50),
+	OS_Ver varchar (50),
 	S_Size varchar(50),
 	S_Manufacturer varchar(50),
 	SC_Type varchar(50),
@@ -223,7 +225,7 @@ create Table Composed_Of
 	foreign key (P_Brand,P_ModelNum) references Processor ,
 	foreign key (R_Size,R_DDR,Laptop_Model) references RAM ,
 	foreign key (GPU_Model_Number) references Graphics_Card ,
-	foreign key (OS_Name) references Operating_System ,
+	foreign key (OS_Manufacturer,OS_Name,OS_Ver) references Operating_System (Manufacturer,Name,Version) ,
 	foreign key (S_Size,S_Manufacturer,Laptop_Model) references Storage ,
 	foreign key (SC_Type,SC_Resolution,SC_Size,Laptop_Model) references Screen ,
 
@@ -244,8 +246,16 @@ INSERT INTO Manufacturer_Data Values ('Samsung','Samsung Service Center: 15 Wadi
 INSERT INTO Processor VALUES('Intel', 'Core i3')
 INSERT INTO Processor VALUES('Intel', 'Core i5')
 INSERT INTO Processor VALUES('Intel', 'Core i7')
+INSERT INTO Processor VALUES('AMD', 'Ryzen')
 
 
 INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
 INSERT INTO Graphics_Card VALUES ('GTX 3070 8GB','Nvidia',8,1730)
 INSERT INTO Graphics_Card VALUES ('GTX 1070 TI 8GB','Nvidia',8,1683)
+INSERT INTO Graphics_Card VALUES ('Radeon RX470','AMD',4,1206)
+
+
+INSERT INTO Operating_System VALUES	('Windows','Microsoft','8')
+INSERT INTO Operating_System VALUES	('Windows','Microsoft','8.1')
+INSERT INTO Operating_System VALUES	('Windows','Microsoft','10')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Sierra')
