@@ -29,5 +29,11 @@ namespace Laptop_Database_System
             AddParts a = new AddParts();
             a.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AdminEdit a = new AdminEdit();
+            a.Show();
+        }
     }
 }

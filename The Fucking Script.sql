@@ -186,7 +186,7 @@ create table K_Languages
 	K_Light varchar(50),
 	Language varchar(50),
 	primary key (Laptop_Model,K_Type,K_Light,Language),
-	foreign key (K_Type,K_Light,Laptop_Model) references Keyboard ON DELETE CASCADE
+	foreign key (K_Type,K_Light,Laptop_Model) references Keyboard ON DELETE CASCADE on update cascade
 )
 
 create Table Search_log
@@ -221,17 +221,27 @@ create Table Composed_Of
 
 	primary key(Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,GPU_Model_Number,OS_Name,S_Size,S_Manufacturer,SC_Type,SC_Resolution,SC_Size),
 	foreign key (Laptop_model) references Laptop ,
-	foreign key (K_Type,K_Light,Laptop_model) references KeyBoard ,
-	foreign key (P_Brand,P_ModelNum) references Processor ,
-	foreign key (R_Size,R_DDR,Laptop_Model) references RAM ,
-	foreign key (GPU_Model_Number) references Graphics_Card ,
-	foreign key (OS_Manufacturer,OS_Name,OS_Ver) references Operating_System (Manufacturer,Name,Version) ,
-	foreign key (S_Size,S_Manufacturer,Laptop_Model) references Storage ,
-	foreign key (SC_Type,SC_Resolution,SC_Size,Laptop_Model) references Screen ,
+	foreign key (K_Type,K_Light,Laptop_model) references KeyBoard on update cascade,
+	foreign key (P_Brand,P_ModelNum) references Processor on update cascade,
+	foreign key (R_Size,R_DDR,Laptop_Model) references RAM on update cascade,
+	foreign key (GPU_Model_Number) references Graphics_Card on update cascade,
+	foreign key (OS_Manufacturer,OS_Name,OS_Ver) references Operating_System (Manufacturer,Name,Version) on update cascade,
+	foreign key (S_Size,S_Manufacturer,Laptop_Model) references Storage on update cascade,
+	foreign key (SC_Type,SC_Resolution,SC_Size,Laptop_Model) references Screen on update cascade,
 
 	
 )
-
+go
+create procedure Edit @LM varchar(100),@KT varchar(50),@KL varchar(50),@PB varchar(50),@PMN varchar(50),@RS varchar(50),@RDDR varchar(50),@GPUMN varchar(50),@GPUMAN varchar(50),@VRAM float,@CS float,@OSN varchar(50),@OSMAN varchar(50),@OSV varchar(50),@SMAN varchar(50),@SSIZE varchar(50),@SCT varchar(50),@SCR varchar(50),@SCS float
+AS
+update KeyBoard set Type=@KT ,Light=@KL where Laptop_Model=@Lm
+--update Processor set Brand=@PB , ModelNum=@PMN
+update RAM set Size=@RS , DDR=@RDDR
+Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS where Model_Number=@GPUMN
+--update os
+update Storage set Manufacturer=@SMAN , Size=@SSIZE where Laptop_Model=@LM
+update Screen set Type=@SCT , Resolution=@SCR , Size=@SCS where Laptop_Model=@LM
+GO
 
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')
@@ -253,6 +263,7 @@ INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
 INSERT INTO Graphics_Card VALUES ('GTX 3070 8GB','Nvidia',8,1730)
 INSERT INTO Graphics_Card VALUES ('GTX 1070 TI 8GB','Nvidia',8,1683)
 INSERT INTO Graphics_Card VALUES ('Radeon RX470','AMD',4,1206)
+
 
 
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','8')

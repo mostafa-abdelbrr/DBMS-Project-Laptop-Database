@@ -49,16 +49,18 @@
             this.ConfirmEdit.TabIndex = 1;
             this.ConfirmEdit.Text = "Confirm Edits";
             this.ConfirmEdit.UseVisualStyleBackColor = true;
+            this.ConfirmEdit.Click += new System.EventHandler(this.ConfirmEdit_Click);
             // 
-            // Form1
+            // AdminEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ConfirmEdit);
             this.Controls.Add(this.EditLTdg);
-            this.Name = "Form1";
+            this.Name = "AdminEdit";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AdminEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EditLTdg)).EndInit();
             this.ResumeLayout(false);
 
