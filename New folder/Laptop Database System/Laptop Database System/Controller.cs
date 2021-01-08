@@ -371,5 +371,40 @@ namespace Laptop_Database_System
             string query = "Select Size from RAM";
             return dbMan.ExecuteReader(query);
         }
+
+        public DataTable SortMostSearched()
+        {
+            string query = "select Laptop_Model,count(Laptop_Model) as Searches from Search_log group by Laptop_Model order by count(Laptop_Model) desc;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectUsers()
+        {
+            string query = "select ID from s_user";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable UserSearched(string user)
+        {
+            string query = $"select Laptop_Model,search_date from Search_log where UserID={user};";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int addGPU(string mn, string man, string vram, string cs)
+        {
+            string query = $"insert into Graphics_Card values('{mn}','{man}',{vram},{cs});";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int addCPU(string b, string mn)
+        {
+            string query = $"insert into Processor values('{b}','{mn}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int addOS(string n, string man, string v)
+        {
+            string query = $"insert into Operating_System values('{n}','{man}','{v}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }

@@ -46,5 +46,6 @@ namespace Laptop_Database_System
             Hide();
             foo.Show();
         }
+
     }
 }
