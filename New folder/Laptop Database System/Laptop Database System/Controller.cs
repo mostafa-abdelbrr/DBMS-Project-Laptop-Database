@@ -98,12 +98,35 @@ namespace Laptop_Database_System
 
         }
 
-        public int addToRam(string ram,string ddr, string model )
+        public int addToRam(string ram, string ddr, string model)
         {
-            string query = "INSERT INTO RAM VALUES ('"+ram+"','"+ddr+"','"+model+"')";
+            string query = "INSERT INTO RAM VALUES ('" + ram + "','" + ddr + "','" + model + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int addToScreen(string type, string res, string size, string model)
+        {
+            string query = "INSERT INTO Screen Values ('" + type + "','"+res+"','"+size+"','"+model+"')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable fillosManu()
+        {
+            string query = "SELECT DISTINCT Manufacturer From Operating_System";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable fillosName(string manu)
+        {
+            string query = "SELECT  Name From Operating_System WHERE Manufacturer = '"+manu+"' ";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable fillosVer(string os)
+        {
+            string query = "SELECT  Version From Operating_System WHERE Name = '"+os+"'";
+            return dbMan.ExecuteReader(query);
+        }
 
         public int getUserDataFromID(int id, ref string username, ref string role)
         {
@@ -228,7 +251,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        
+
 
 
         public long getNewID()

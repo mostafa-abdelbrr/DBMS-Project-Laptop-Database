@@ -36,9 +36,19 @@ namespace Laptop_Database_System
             gfxMaker.DataSource = controllerObj.fillGFXMaker();
             gfxMaker.DisplayMember = "Manufacturer";
 
+            osMaker.DataSource = controllerObj.fillosManu();
+            osMaker.DisplayMember = "Manufacturer";
+
+            osName.DataSource = controllerObj.fillosName(osMaker.Text);
+            osName.DisplayMember = "Name";
+
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
+            osVer.DisplayMember = "Version";
+
             ddr.SelectedIndex = 2;
             screenType.SelectedIndex = 0;
             resolution.SelectedIndex = 1;
+            osMaker.SelectedIndex = 0;
 
 
             procModel.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -76,6 +86,7 @@ namespace Laptop_Database_System
 
         private void add_Click(object sender, EventArgs e)
         {
+            bool emptyChecker = false;
             if (lapName.TextLength == 0)
             {
                 ToolTip tt = new ToolTip();
@@ -85,6 +96,7 @@ namespace Laptop_Database_System
                 Point lapNameLoc = lapName.Location;
 
                 tt.Show("Please Enter Laptop Name", this, lapNameLoc, 2000);
+                emptyChecker = true;
 
             }
 
@@ -97,7 +109,19 @@ namespace Laptop_Database_System
                 Point lapNameLoc = ram.Location;
 
                 tt.Show("Please Enter The Ram Size In GB ", this, lapNameLoc, 2000);
+                emptyChecker = true;
+            }
 
+            if (screenSize.TextLength == 0)
+            {
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point scr = screenSize.Location;
+
+                tt.Show("Please Enter The Screen Size In Inches ", this, scr, 2000);
+                emptyChecker = true;
             }
 
             if (inStock.TextLength == 0)
@@ -109,7 +133,7 @@ namespace Laptop_Database_System
                 Point lapNameLoc = inStock.Location;
 
                 tt.Show("Please Enter Laptop Name", this, lapNameLoc, 2000);
-
+                emptyChecker = true;
             }
 
             if (price.TextLength == 0)
@@ -121,7 +145,7 @@ namespace Laptop_Database_System
                 Point lapNameLoc = price.Location;
 
                 tt.Show("Please Enter Laptop Name", this, lapNameLoc, 2000);
-
+                emptyChecker = true;
             }
 
             if (model.TextLength == 0)
@@ -133,7 +157,7 @@ namespace Laptop_Database_System
                 Point modelLoc = model.Location;
 
                 tt.Show("Please Enter Laptop Model Number", this, modelLoc, 2000);
-
+                emptyChecker = true;
             }
 
             if (procModel.TextLength == 0)
@@ -145,8 +169,9 @@ namespace Laptop_Database_System
                 Point modelLoc = procModel.Location;
 
                 tt.Show("Please Enter Processor Model Number", this, modelLoc, 2000);
-
+                emptyChecker = true;
             }
+
 
             if (controllerObj.checkLaptopModel(model.Text) != "N/A")
             {
@@ -163,7 +188,10 @@ namespace Laptop_Database_System
                 return;
             }
 
-
+            if (emptyChecker)
+            {
+                return;
+            }
 
             if (controllerObj.addToLaptop(model.Text, lapName.Text, releaseDate.Value.ToShortDateString()) == 0)
             {
@@ -201,6 +229,16 @@ namespace Laptop_Database_System
             else
             {
                 MessageBox.Show("3a4 ysta walahi");
+            }
+
+            if (controllerObj.addToScreen(screenType.Text, resolution.Text, screenSize.Text, model.Text) == 0)
+            {
+                MessageBox.Show("screen");
+
+            }
+            else
+            {
+                MessageBox.Show("allah ❤❤❤");
             }
 
         }
@@ -249,6 +287,7 @@ namespace Laptop_Database_System
         private void procMaker_SelectedIndexChanged(object sender, EventArgs e)
         {
             procModel.AutoCompleteCustomSource = controllerObj.getProcModelAutoCompSrc(procMaker.Text);
+            procModel.Text = "";
         }
 
         private void ram_KeyPress(object sender, KeyPressEventArgs e)
@@ -287,6 +326,31 @@ namespace Laptop_Database_System
         private void screenSize_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void gfxModel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gfxMaker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gfxModel.AutoCompleteCustomSource = controllerObj.getGFXModelAutoCompSrc(gfxMaker.Text);
+            gfxModel.Text = "";
+        }
+
+        private void osName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void osMaker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            osName.DataSource = controllerObj.fillosName(osMaker.Text);
+            osName.DisplayMember = "Name";
+
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
+            osVer.DisplayMember = "Version";
         }
     }
 }

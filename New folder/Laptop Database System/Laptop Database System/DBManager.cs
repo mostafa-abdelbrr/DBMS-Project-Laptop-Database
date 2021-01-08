@@ -12,7 +12,7 @@ namespace Laptop_Database_System
     {
         //TODO: Make Sure to change Connection String to your Database 
 
-        static string DB_Connection_String = @"Data Source=DESKTOP-ADKALLP;Initial Catalog=Laptops;Integrated Security=True";
+        static string DB_Connection_String = @"Data Source=OMARAMER\SQLEXPRESS;Initial Catalog=Laptops;Integrated Security=True";
         SqlConnection myConnection;
 
         public DBManager()
