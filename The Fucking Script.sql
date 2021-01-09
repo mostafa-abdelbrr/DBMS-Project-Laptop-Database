@@ -119,7 +119,7 @@ create table Storage
 	HDD_Size int,
 	SDD_Size int,
 	Laptop_Model varchar(100),
-	primary key(Laptop_Model,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SDD_Size),
+	primary key(HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SDD_Size,Laptop_Model),
 	foreign key (Laptop_Model) references Laptop ON DELETE CASCADE,
 )
 
@@ -169,8 +169,9 @@ create Table USB_Type
 	USB3_Number int,
 
 
-	primary key (Laptop_Model),
-	foreign key (Laptop_Model) references Laptop ON DELETE CASCADE
+	primary key (Laptop_Model,USB2_Number,USB3_Number),
+	foreign key (Laptop_Model) references Laptop ON DELETE CASCADE,
+	constraint AK_LMU Unique (Laptop_Model),
 )
 
 create table M_Contact_Info
@@ -225,16 +226,16 @@ create Table Composed_Of
 	SC_Resolution varchar(50),
 	SC_Size float,
 
-	primary key(Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,GPU_Model_Number,OS_Name,SSD_Manufacturer,HDD_Manufacturer,SC_Type,SC_Resolution,SC_Size),
+	primary key(Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,GPU_Model_Number,OS_Name,SSD_Manufacturer,HDD_Manufacturer,SC_Type,SC_Resolution,SC_Size,USB2,USB3),
 	foreign key (Laptop_model) references Laptop ,
 	foreign key (K_Type,K_Light,Laptop_model) references KeyBoard on update cascade,
 	foreign key (P_Brand,P_ModelNum) references Processor on update cascade,
 	foreign key (R_Size,R_DDR,Laptop_Model) references RAM on update cascade,
 	foreign key (GPU_Model_Number) references Graphics_Card on update cascade,
 	foreign key (OS_Manufacturer,OS_Name,OS_Ver) references Operating_System (Manufacturer,Name,Version) on update cascade,
-	foreign key (Laptop_Model,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size) references Storage(Laptop_Model,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SDD_Size) on update cascade,
+	foreign key (HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size,Laptop_Model) references Storage(HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SDD_Size,Laptop_Model) on update cascade,
 	foreign key (SC_Type,SC_Resolution,SC_Size,Laptop_Model) references Screen on update cascade,
-	foreign key (USB2,USB3,Laptop_Model) references USB_Type (USB2_Number,USB3_Number,Laptop_Model) on update cascade,
+	foreign key (Laptop_Model,USB2,USB3) references USB_Type(Laptop_Model,USB2_Number,USB3_Number) on update cascade,
 
 	
 )
