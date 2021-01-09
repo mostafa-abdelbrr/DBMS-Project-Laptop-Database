@@ -31,7 +31,7 @@ namespace Laptop_Database_System
             {
                 return; 
             }
-            for (int i = 0; i < dataGridView1.SelectedRows.Count - 1; i++)
+            for (int i = 0; i < dataGridView1.SelectedRows.Count ; i++)
             {
                 controllerObj.ApproveStore(dataGridView1.SelectedRows[i].Cells[0].Value.ToString());   
             }
@@ -45,7 +45,7 @@ namespace Laptop_Database_System
             {
                 return;
             }
-            for (int i = 0; i < dataGridView1.SelectedRows.Count - 1; i++)
+            for (int i = 0; i < dataGridView1.SelectedRows.Count ; i++)
             {
                 controllerObj.DenyStore(dataGridView1.SelectedRows[i].Cells[0].Value.ToString());
             }
