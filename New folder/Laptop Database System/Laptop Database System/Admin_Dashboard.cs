@@ -54,5 +54,11 @@ namespace Laptop_Database_System
             Login l = new Login();
             l.Show();
         }
+
+        private void prom_Click(object sender, EventArgs e)
+        {
+            Form foo = new adminProm();
+            foo.Show();
+        }
     }
 }

@@ -114,6 +114,12 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
+        public int promote(string model)
+        {
+            string query = "UPDATE Laptop Set Promoted = 'WAITING' where Model = '"+model+"' ";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public string checkStoreName(string name) // checks if the address exists in the DB or not 
         {
             string query = "select Name from Store where Name ='" + name + "'";
@@ -158,6 +164,18 @@ namespace Laptop_Database_System
 
             string query = "INSERT INTO Laptop Values('" + modelNum + "','" + name + "','" + date + "',0,0)";
             return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable fillPromoBox(string store)
+        {
+            string query = "select Laptop_Model from Bought_From where Store_Name = '" + store + "'";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable fillPromoTable()
+        {
+            string query = "select * From Laptop where  Promoted = 'WAITING' ";
+            return dbMan.ExecuteReader(query);
         }
 
         public DataTable fillManufacturerComboBox()
@@ -487,7 +505,7 @@ namespace Laptop_Database_System
 
         public DataTable SelectEdits()
         {
-            string query = "select Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size,SC_Type,SC_Resolution,SC_Size,USB2,USB3 from Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version;";
+            string query = "select Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size,SC_Type,SC_Resolution,SC_Size,USB2,USB3,Promoted from Laptop, Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version AND Composed_of.Laptop_Model = Laptop.Model ";
             return dbMan.ExecuteReader(query);
         }
 
