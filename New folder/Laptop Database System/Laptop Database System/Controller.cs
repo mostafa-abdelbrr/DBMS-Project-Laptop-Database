@@ -481,13 +481,13 @@ namespace Laptop_Database_System
 
         public DataTable SelectEdits()
         {
-            string query = "select Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,S_Manufacturer,S_Size,SC_Type,SC_Resolution,SC_Size from Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version;";
+            string query = "select Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size,SC_Type,SC_Resolution,SC_Size,USB2,USB3 from Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version;";
             return dbMan.ExecuteReader(query);
         }
 
-        public int EditLaps(string lm, string kt, string kl, string pb, string pmn, string rs, string rddr, string gpumn, string gpuman, string vram, string cs, string osn, string osman, string osv, string sman, string ssize, string sct, string scr, string scs)
+        public int EditLaps(string lm, string kt, string kl, string pb, string pmn, string rs, string rddr, string gpumn, string gpuman, string vram, string cs, string osn, string osman, string osv, string hddman, string ssdman, string hddsize, string ssdsize, string sct, string scr, string scs, string usb2, string usb3)
         {
-            string query = $"Exec Edit @LM ='{lm}',@KT= '{kt}',@KL= '{kl}',@PB= '{pb}',@PMN='{pmn}' ,@RS= '{rs}',@RDDR = '{rddr}' ,@GPUMN= '{gpumn}',@GPUMAN ='{gpuman}',@VRAM= '{vram}',@CS ='{cs}',@OSN ='{osn}',@OSMAN ='{osman}',@OSV ='{osv}',@SMAN ='{sman}',@SSIZE ='{ssize}',@SCT ='{sct}',@SCR ='{scr}',@SCS ='{scs}';";
+            string query = $"Exec Edit @LM ='{lm}',@KT= '{kt}',@KL= '{kl}',@PB= '{pb}',@PMN='{pmn}' ,@RS= '{rs}',@RDDR = '{rddr}' ,@GPUMN= '{gpumn}',@GPUMAN ='{gpuman}',@VRAM= '{vram}',@CS ='{cs}',@OSN ='{osn}',@OSMAN ='{osman}',@OSV ='{osv}',@HDDMAN ='{hddman}',@SSDMAN='{ssdman}',@HDDSIZE='{hddsize}',@SSDSIZE='{ssdsize}',@SCT ='{sct}',@SCR ='{scr}',@SCS ='{scs}',@U2='{usb2}',@U3='{usb3}';";
             return dbMan.ExecuteNonQuery(query);
         }
 

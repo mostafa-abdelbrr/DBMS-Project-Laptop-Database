@@ -239,22 +239,23 @@ create Table Composed_Of
 
 	
 )
---go
---create procedure Edit @LM varchar(100),@KT varchar(50),@KL varchar(50),@PB varchar(50),@PMN varchar(50),@RS varchar(50),@RDDR varchar(50),@GPUMN varchar(50),@GPUMAN varchar(50),@VRAM float,@CS float,@OSN varchar(50),@OSMAN varchar(50),@OSV varchar(50),@SMAN varchar(50),@SSIZE varchar(50),@SCT varchar(50),@SCR varchar(50),@SCS float
---AS
---update KeyBoard set Type=@KT ,Light=@KL where Laptop_Model=@Lm
-----update Processor set Brand=@PB , ModelNum=@PMN
---update RAM set Size=@RS , DDR=@RDDR
---Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS where Model_Number=@GPUMN
-----update os
---update Storage set Manufacturer=@SMAN , Size=@SSIZE where Laptop_Model=@LM
---update Screen set Type=@SCT , Resolution=@SCR , Size=@SCS where Laptop_Model=@LM
---GO
---create procedure RemoveLaptop @LM varchar(100)
---AS
---Delete from Composed_Of where Laptop_Model=@LM
---Delete from Laptop where Model=@LM
---GO
+go
+create procedure Edit @LM varchar(100),@KT varchar(50),@KL varchar(50),@PB varchar(50),@PMN varchar(50),@RS varchar(50),@RDDR varchar(50),@GPUMN varchar(50),@GPUMAN varchar(50),@VRAM float,@CS float,@OSN varchar(50),@OSMAN varchar(50),@OSV varchar(50),@HDDMAN varchar(50),@SSDMAN varchar(50),@HDDSIZE int,@SSDSIZE int,@SCT varchar(50),@SCR varchar(50),@SCS float,@U2 int,@u3 int
+AS
+update KeyBoard set Type=@KT ,Light=@KL where Laptop_Model=@Lm
+--update Processor set Brand=@PB , ModelNum=@PMN
+update RAM set Size=@RS , DDR=@RDDR
+Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS where Model_Number=@GPUMN
+--update os
+update Storage set HDD_Manufacturer=@HDDMAN , SSD_Manufacturer=@SSDMAN ,HDD_Size=@HDDSIZE,SDD_Size=@SSDSIZE where Laptop_Model=@LM
+update USB_Type set USB2_Number=@U2, USB3_Number=@u3 where Laptop_Model=@LM
+update Screen set Type=@SCT , Resolution=@SCR , Size=@SCS where Laptop_Model=@LM
+GO
+create procedure RemoveLaptop @LM varchar(100)
+AS
+Delete from Composed_Of where Laptop_Model=@LM
+Delete from Laptop where Model=@LM
+GO
 
 GO
 CREATE PROCEDURE fillComposedOf @lapModel varchar(50), @procbrand varchar(50),@pnum varchar(50),@gpu varchar(50),@osmanu varchar(50),@osname varchar(50),@osver varchar(50)
