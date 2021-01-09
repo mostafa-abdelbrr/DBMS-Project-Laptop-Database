@@ -47,5 +47,12 @@ namespace Laptop_Database_System
         {
             System.Environment.Exit(0);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login l = new Login();
+            l.Show();
+        }
     }
 }

@@ -581,5 +581,40 @@ namespace Laptop_Database_System
                 "where l.Model = k.Laptop_Model AND k.Laptop_Model = kl.Laptop_Model AND l.Name = '" + Name + "'; ";
             return dbMan.ExecuteReader(query);
         }
+
+        public DataTable SelectGPUs()
+        {
+            string query = "select * from Graphics_card;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectCPUs()
+        {
+            string query = "select * from processor;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectOSs()
+        {
+            string query = "select * from Operating_System;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int EditGpu(string omn,string mn, string man, string vr, string cs)
+        {
+            string query = $"update Graphics_Card set Model_Number='{mn}',Manufacturer='{man}',Vram='{vr}',Clock_Speed='{cs}' where Model_Number='{omn}';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int EditCpu(string omn, string pb, string mn)
+        {
+            string query = $"update Processor set Brand='{pb}',ModelNum='{mn}' where ModelNum='{omn}';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int EditOs(string oosn,string oosman,string oosv, string osn, string osman, string osv)
+        {
+            string query = $"update Operating_system set Name='{osn}',Manufacturer='{osman}',Version='{osv}' where Name='{oosn}' and Manufacturer='{oosman}' and Version='{oosv}'";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }
