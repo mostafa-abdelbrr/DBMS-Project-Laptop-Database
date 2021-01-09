@@ -244,7 +244,7 @@ create procedure Edit @LM varchar(100),@KT varchar(50),@KL varchar(50),@PB varch
 AS
 update KeyBoard set Type=@KT ,Light=@KL where Laptop_Model=@Lm
 --update Processor set Brand=@PB , ModelNum=@PMN
-update RAM set Size=@RS , DDR=@RDDR
+update RAM set Size=@RS , DDR=@RDDR where Laptop_Model=@LM
 Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS where Model_Number=@GPUMN
 --update os
 update Storage set HDD_Manufacturer=@HDDMAN , SSD_Manufacturer=@SSDMAN ,HDD_Size=@HDDSIZE,SDD_Size=@SSDSIZE where Laptop_Model=@LM
