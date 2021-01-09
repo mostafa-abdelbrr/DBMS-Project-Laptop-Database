@@ -124,8 +124,7 @@ namespace Laptop_Database_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form foo = new promotion();
-            foo.Show();
+
         }
     }
 }

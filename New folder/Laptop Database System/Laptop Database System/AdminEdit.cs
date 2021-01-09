@@ -47,8 +47,6 @@ namespace Laptop_Database_System
             comboBox1.SelectedIndex = 0;
             } else if (role == "Store")
             {
-                comboBox1.Visible = false;
-                label3.Visible = false;
                 EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
                  if (EditLTdg.Rows.Count > 1)
             {
