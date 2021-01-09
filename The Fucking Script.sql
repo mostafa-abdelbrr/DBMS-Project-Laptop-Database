@@ -9,7 +9,7 @@ create Table Laptop
 	Name varchar(50) UNIQUE,
 	Release_Date date,
 	Approved bit,
-	Promoted bit,
+	Promoted varchar(50),
 	--Usb_Ports_Num int,
 	--Processer_Mnum varchar(50),
 	--GPU_Mnum varchar(50),

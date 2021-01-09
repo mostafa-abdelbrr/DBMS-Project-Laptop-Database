@@ -55,10 +55,10 @@ namespace Laptop_Database_System
             l.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void prom_Click(object sender, EventArgs e)
         {
-            Stores_To_Approve s = new Stores_To_Approve();
-            s.Show();
+            Form foo = new adminProm();
+            foo.Show();
         }
     }
 }
