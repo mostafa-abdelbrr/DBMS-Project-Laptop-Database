@@ -36,13 +36,15 @@ namespace Laptop_Database_System
             this.laptop = new System.Windows.Forms.DataGridView();
             this.editAcc = new System.Windows.Forms.Button();
             this.viewAll = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.laptop)).BeginInit();
             this.SuspendLayout();
             // 
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Location = new System.Drawing.Point(7, 280);
+            this.status.Location = new System.Drawing.Point(7, 565);
             this.status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(75, 13);
@@ -52,7 +54,7 @@ namespace Laptop_Database_System
             // welcome
             // 
             this.welcome.AutoSize = true;
-            this.welcome.Location = new System.Drawing.Point(7, 266);
+            this.welcome.Location = new System.Drawing.Point(7, 551);
             this.welcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcome.Name = "welcome";
             this.welcome.Size = new System.Drawing.Size(87, 13);
@@ -61,8 +63,8 @@ namespace Laptop_Database_System
             // 
             // signOut
             // 
-            this.signOut.Location = new System.Drawing.Point(9, 296);
-            this.signOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signOut.Location = new System.Drawing.Point(9, 581);
+            this.signOut.Margin = new System.Windows.Forms.Padding(2);
             this.signOut.Name = "signOut";
             this.signOut.Size = new System.Drawing.Size(93, 28);
             this.signOut.TabIndex = 3;
@@ -73,7 +75,7 @@ namespace Laptop_Database_System
             // addLaptop
             // 
             this.addLaptop.Location = new System.Drawing.Point(9, 17);
-            this.addLaptop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addLaptop.Margin = new System.Windows.Forms.Padding(2);
             this.addLaptop.Name = "addLaptop";
             this.addLaptop.Size = new System.Drawing.Size(93, 28);
             this.addLaptop.TabIndex = 0;
@@ -83,19 +85,24 @@ namespace Laptop_Database_System
             // 
             // laptop
             // 
+            this.laptop.AllowUserToAddRows = false;
+            this.laptop.AllowUserToDeleteRows = false;
+            this.laptop.BackgroundColor = System.Drawing.SystemColors.Control;
             this.laptop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.laptop.GridColor = System.Drawing.SystemColors.Control;
             this.laptop.Location = new System.Drawing.Point(176, 17);
-            this.laptop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.laptop.Margin = new System.Windows.Forms.Padding(2);
             this.laptop.Name = "laptop";
             this.laptop.RowHeadersWidth = 51;
             this.laptop.RowTemplate.Height = 24;
-            this.laptop.Size = new System.Drawing.Size(415, 339);
+            this.laptop.Size = new System.Drawing.Size(1062, 610);
             this.laptop.TabIndex = 4;
+            this.laptop.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.laptop_CellContentClick);
             // 
             // editAcc
             // 
-            this.editAcc.Location = new System.Drawing.Point(9, 329);
-            this.editAcc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editAcc.Location = new System.Drawing.Point(9, 614);
+            this.editAcc.Margin = new System.Windows.Forms.Padding(2);
             this.editAcc.Name = "editAcc";
             this.editAcc.Size = new System.Drawing.Size(93, 28);
             this.editAcc.TabIndex = 2;
@@ -105,8 +112,8 @@ namespace Laptop_Database_System
             // 
             // viewAll
             // 
-            this.viewAll.Location = new System.Drawing.Point(9, 58);
-            this.viewAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewAll.Location = new System.Drawing.Point(9, 105);
+            this.viewAll.Margin = new System.Windows.Forms.Padding(2);
             this.viewAll.Name = "viewAll";
             this.viewAll.Size = new System.Drawing.Size(93, 28);
             this.viewAll.TabIndex = 1;
@@ -114,11 +121,33 @@ namespace Laptop_Database_System
             this.viewAll.UseVisualStyleBackColor = true;
             this.viewAll.Click += new System.EventHandler(this.viewAll_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 28);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Modify Laptops";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(9, 150);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 28);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Promote ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Store_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(1338, 653);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.viewAll);
             this.Controls.Add(this.editAcc);
             this.Controls.Add(this.laptop);
@@ -126,12 +155,14 @@ namespace Laptop_Database_System
             this.Controls.Add(this.signOut);
             this.Controls.Add(this.welcome);
             this.Controls.Add(this.status);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Store_Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Store_Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Store_Dashboard_Load);
+            this.Shown += new System.EventHandler(this.Store_Dashboard_Shown);
+            this.Enter += new System.EventHandler(this.Store_Dashboard_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.laptop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,5 +178,7 @@ namespace Laptop_Database_System
         private System.Windows.Forms.DataGridView laptop;
         private System.Windows.Forms.Button editAcc;
         private System.Windows.Forms.Button viewAll;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

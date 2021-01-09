@@ -304,7 +304,7 @@ GO
 
 
 
-exec fillComposedOf 'eqwes2','Intel','Core i3','Radeon RX470','Microsoft','Windows','10'
+
 
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')

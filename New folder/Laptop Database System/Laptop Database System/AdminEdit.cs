@@ -14,15 +14,31 @@ namespace Laptop_Database_System
     public partial class AdminEdit : Form
     {
         Controller controllerObj;
-        public AdminEdit()
+        string role; // 34an nefara2 been store aw admin
+        int id;
+        string username;
+        public AdminEdit(int id)
         {
             InitializeComponent();
+            this.id = id;
+            role = "";
+            username = "";
         }
 
         private void AdminEdit_Load(object sender, EventArgs e)
         {
             controllerObj = new Controller();
-            EditLTdg.DataSource = controllerObj.SelectEdits();
+          
+            controllerObj.getUserDataFromID(id,ref username,ref role);
+
+            if (role == "Admin")
+            {
+
+                EditLTdg.DataSource = controllerObj.SelectEdits();
+            } else if (role == "Store")
+            {
+                EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
+            }
             EditLTdg.Columns[0].ReadOnly = true;
             EditLTdg.Columns[7].ReadOnly = true;
         }
@@ -35,7 +51,15 @@ namespace Laptop_Database_System
                 int result = controllerObj.EditLaps(EditLTdg.Rows[i].Cells[0].Value.ToString(), EditLTdg.Rows[i].Cells[1].Value.ToString(), EditLTdg.Rows[i].Cells[2].Value.ToString(), EditLTdg.Rows[i].Cells[3].Value.ToString(), EditLTdg.Rows[i].Cells[4].Value.ToString(), EditLTdg.Rows[i].Cells[5].Value.ToString(), EditLTdg.Rows[i].Cells[6].Value.ToString(), EditLTdg.Rows[i].Cells[7].Value.ToString(), EditLTdg.Rows[i].Cells[8].Value.ToString(), EditLTdg.Rows[i].Cells[9].Value.ToString(), EditLTdg.Rows[i].Cells[10].Value.ToString(), EditLTdg.Rows[i].Cells[11].Value.ToString(), EditLTdg.Rows[i].Cells[12].Value.ToString(), EditLTdg.Rows[i].Cells[13].Value.ToString(), EditLTdg.Rows[i].Cells[14].Value.ToString(), EditLTdg.Rows[i].Cells[15].Value.ToString(), EditLTdg.Rows[i].Cells[16].Value.ToString(), EditLTdg.Rows[i].Cells[17].Value.ToString(), EditLTdg.Rows[i].Cells[18].Value.ToString(), EditLTdg.Rows[i].Cells[19].Value.ToString(), EditLTdg.Rows[i].Cells[20].Value.ToString(), EditLTdg.Rows[i].Cells[21].Value.ToString(), EditLTdg.Rows[i].Cells[22].Value.ToString());
             }
 
-            EditLTdg.DataSource = controllerObj.SelectEdits();
+            if (role == "Admin")
+            {
+
+                EditLTdg.DataSource = controllerObj.SelectEdits();
+            }
+            else if (role == "Store")
+            {
+                EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
+            }
             EditLTdg.Columns[0].ReadOnly = true;
             EditLTdg.Columns[7].ReadOnly = true;
         }
@@ -59,6 +83,11 @@ namespace Laptop_Database_System
                     }
                 }
             }
+        }
+
+        private void EditLTdg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

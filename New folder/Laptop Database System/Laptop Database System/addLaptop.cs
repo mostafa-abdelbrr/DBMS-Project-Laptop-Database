@@ -89,29 +89,15 @@ namespace Laptop_Database_System
         private void add_Click(object sender, EventArgs e)
         {
             bool emptyChecker = false;
-            if (lapName.TextLength == 0)
-            {
-                emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
-
-                Point lapNameLoc = lapName.Location;
-
-                tt.Show("Please Enter Laptop Name", this, lapNameLoc, 2000);
-
-            }
+            
 
             if (ram.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
+                
 
-                Point lapNameLoc = ram.Location;
-
-                tt.Show("Please Enter The Ram Size In GB ", this, lapNameLoc, 2000);
+                err.Text = "Pleae Enter Ram Size";
 
             }
 
@@ -120,116 +106,81 @@ namespace Laptop_Database_System
             if (inStock.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
 
-                Point lapNameLoc = inStock.Location;
 
-                tt.Show("Please Enter Laptop Name", this, lapNameLoc, 2000);
+                err.Text = "Please Enter Stock";
 
             }
 
             if (price.TextLength == 0)
             {
-                emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                 emptyChecker = true;
+                err.Visible = true;
 
-                Point lapNameLoc = price.Location;
 
-                tt.Show("Please Enter Laptop Name", this, lapNameLoc, 2000);
+                err.Text = "Please Enter Price";
 
             }
 
-            if (model.TextLength == 0)
-            {
-                emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
-
-                Point modelLoc = model.Location;
-
-                tt.Show("Please Enter Laptop Model Number", this, modelLoc, 2000);
-
-            }
+         
 
             if (procModel.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
 
-                Point modelLoc = procModel.Location;
 
-                tt.Show("Please Enter Processor Model Number", this, modelLoc, 2000);
+                err.Text = "Please Enter Processor Model Number";
 
             }
 
             if (hddM.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
 
-                Point modelLoc = procModel.Location;
 
-                tt.Show("Please Enter HDD Manufacturer", this, modelLoc, 2000);
+                err.Text = "Please Enter HDD Manufacturer";
 
             }
 
             if (ssdM.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
 
-                Point modelLoc = procModel.Location;
 
-                tt.Show("Please Enter SSD Manufacturer", this, modelLoc, 2000);
+                err.Text = "Please Enter SSD Manufacturer";
 
             }
             if (hddSize.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
 
-                Point modelLoc = procModel.Location;
 
-                tt.Show("Please Enter HDD Size", this, modelLoc, 2000);
+                err.Text = "Please Enter HDD Size";
 
             }
 
             if (ssdSize.TextLength == 0)
             {
                 emptyChecker = true;
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
+                err.Visible = true;
 
-                Point modelLoc = procModel.Location;
 
-                tt.Show("Please Enter SSD Size", this, modelLoc, 2000);
+                err.Text = "Please Enter SSD Size";
 
             }
 
             if (screenSize.TextLength == 0)
             {
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
-
-                Point scr = screenSize.Location;
-
-                tt.Show("Please Enter The Screen Size In Inches ", this, scr, 2000);
                 emptyChecker = true;
+                err.Visible = true;
+
+
+                err.Text = "Please Enter Screen Size";
             }
 
             if (controllerObj.checkLaptopModel(model.Text) != "N/A")
@@ -247,6 +198,23 @@ namespace Laptop_Database_System
                 return;
             }
 
+            if (lapName.TextLength == 0)
+            {
+                emptyChecker = true;
+                err.Visible = true;
+                err.Text = "Please Enter Laptop Name";
+
+            }
+
+            if (model.TextLength == 0)
+            {
+                emptyChecker = true;
+                err.Visible = true;
+
+
+                err.Text = "Please Enter Laptop Model Number";
+
+            }
 
 
             if (emptyChecker)
@@ -283,8 +251,10 @@ namespace Laptop_Database_System
             } else
             {
                 MessageBox.Show("Thank You For Choosing LDBS! An Admin Will Review Your Request Shortly");
-                Hide();
-                parent.Show();
+               // Hide();
+                
+              //  parent.Show();
+
             }
 
 
@@ -552,6 +522,11 @@ namespace Laptop_Database_System
                 // tt.SetToolTip(screenSize, "Only numbers allowed");
                 tt.Show("Only numbers allowed ", this, 430, 341, 2000);
             }
+        }
+
+        private void addLaptop_Shown(object sender, EventArgs e)
+        {
+
         }
     }
 }

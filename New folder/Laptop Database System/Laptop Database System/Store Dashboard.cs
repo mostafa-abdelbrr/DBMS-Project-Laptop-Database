@@ -15,12 +15,14 @@ namespace Laptop_Database_System
         public int currentUserID = -1;
         int approved = 0;
         string username;
+        Controller controllerObj;
         public Store_Dashboard(int userID,int approved,string storeName)
         {
             this.username = storeName;
             currentUserID = userID;
             this.approved = approved;
             InitializeComponent();
+            controllerObj = new Controller();
         }
 
         private void Store_Dashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -35,24 +37,34 @@ namespace Laptop_Database_System
             foo.Show();
         }
 
-        private void Store_Dashboard_Load(object sender, EventArgs e)
+        public void Store_Dashboard_Load(object sender, EventArgs e)
         {
-            welcome.Text = "Welcome, " + username + " !";
+            //WindowState = FormWindowState.Maximized;
+            
+            
+  
+
+
+
+              welcome.Text = "Welcome, " + username + " !";
             if(approved == 0)
             {
                 status.Text = "Awaiting Admin Approval";
                 status.ForeColor = Color.Tomato;
 
                 addLaptop.Enabled = false;
+                button1.Enabled = false;
             }
 
             if (approved == 1)
             {
                 status.Text = "Verified By LDBS";
                 status.ForeColor = Color.MidnightBlue;
+
+                laptop.DataSource = controllerObj.fillDashStore(controllerObj.getOwner(currentUserID.ToString()));
             }
 
-
+            
         }
 
         private void viewAll_Click(object sender, EventArgs e)
@@ -81,6 +93,38 @@ namespace Laptop_Database_System
         {
             Form foo = new ViewLaptop("yay");
             foo.Show();
+        }
+
+        private void laptop_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form foo = new AdminEdit(currentUserID);
+            foo.Show();
+        }
+
+        private void Store_Dashboard_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Store_Dashboard_Shown(object sender, EventArgs e)
+        {
+            if (approved == 1)
+            {
+                status.Text = "Verified By LDBS";
+                status.ForeColor = Color.MidnightBlue;
+
+                laptop.DataSource = controllerObj.fillDashStore(controllerObj.getOwner(currentUserID.ToString()));
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

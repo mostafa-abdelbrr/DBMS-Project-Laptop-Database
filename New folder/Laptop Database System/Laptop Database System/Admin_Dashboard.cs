@@ -34,7 +34,7 @@ namespace Laptop_Database_System
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AdminEdit a = new AdminEdit();
+            AdminEdit a = new AdminEdit(id);
             a.Show();
         }
 
