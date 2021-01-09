@@ -44,7 +44,6 @@
             this.EditLTdg.Name = "EditLTdg";
             this.EditLTdg.Size = new System.Drawing.Size(776, 375);
             this.EditLTdg.TabIndex = 0;
-           // this.EditLTdg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditLTdg_CellContentClick);
             this.EditLTdg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditLTdg_KeyDown);
             this.EditLTdg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditLTdg_KeyPress);
             // 
@@ -61,11 +60,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 17);
+            this.label1.Location = new System.Drawing.Point(219, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.Size = new System.Drawing.Size(163, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Press (DEL) to delete";
+            this.label1.Text = "Press (DEL) to delete (Laps Only)";
             // 
             // label2
             // 

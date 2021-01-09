@@ -42,7 +42,12 @@ namespace Laptop_Database_System
             if (EditLTdg.Rows.Count > 1)
             {
                 EditLTdg.Columns[0].ReadOnly = true;
-                EditLTdg.Columns[7].ReadOnly = true;
+                    EditLTdg.Columns[3].ReadOnly = true;
+                    EditLTdg.Columns[11].ReadOnly = true;
+                    EditLTdg.Columns[12].ReadOnly = true;
+                    EditLTdg.Columns[13].ReadOnly = true;
+                    EditLTdg.Columns[4].ReadOnly = true;
+                    EditLTdg.Columns[7].ReadOnly = true;
             }
             comboBox1.SelectedIndex = 0;
             } else if (role == "Store")
@@ -81,6 +86,11 @@ namespace Laptop_Database_System
                     EditLTdg.DataSource = null;
                     EditLTdg.DataSource = controllerObj.SelectEdits();
                     EditLTdg.Columns[0].ReadOnly = true;
+                    EditLTdg.Columns[3].ReadOnly = true;
+                    EditLTdg.Columns[4].ReadOnly = true;
+                    EditLTdg.Columns[11].ReadOnly = true;
+                    EditLTdg.Columns[12].ReadOnly = true;
+                    EditLTdg.Columns[13].ReadOnly = true;
                     EditLTdg.Columns[7].ReadOnly = true;
                     break;
                 case "GPU":
@@ -195,6 +205,11 @@ namespace Laptop_Database_System
                     if (EditLTdg.Rows.Count > 1)
                     {
                         EditLTdg.Columns[0].ReadOnly = true;
+                        EditLTdg.Columns[3].ReadOnly = true;
+                        EditLTdg.Columns[4].ReadOnly = true;
+                        EditLTdg.Columns[11].ReadOnly = true;
+                        EditLTdg.Columns[12].ReadOnly = true;
+                        EditLTdg.Columns[13].ReadOnly = true;
                         EditLTdg.Columns[7].ReadOnly = true;
                     }
                     break;
