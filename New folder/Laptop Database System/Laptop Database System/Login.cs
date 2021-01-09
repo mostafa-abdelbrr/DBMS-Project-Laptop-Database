@@ -98,7 +98,7 @@ namespace Laptop_Database_System
                 }
                 else if (role == "Admin")
                 {
-                    Admin_Dashboard ad = new Admin_Dashboard();
+                    Admin_Dashboard ad = new Admin_Dashboard(userId);
                     Hide();
                     ad.Show();
                 }

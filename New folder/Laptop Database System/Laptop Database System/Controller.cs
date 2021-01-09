@@ -84,7 +84,7 @@ namespace Laptop_Database_System
             return (string)dbMan.ExecuteScalar(query);
 
         }
-        public int addToScreen(string type, string res, string size, string model)
+         int addToScreen(string type, string res, string size, string model)
         {
             string query = "INSERT INTO Screen Values ('" + type + "','" + res + "','" + size + "','" + model + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -121,9 +121,9 @@ namespace Laptop_Database_System
 
         }
 
-        public int addToRam(string ram,string ddr, string model )
+         int addToRam(string ram, string ddr, string model)
         {
-            string query = "INSERT INTO RAM VALUES ('"+ram+"','"+ddr+"','"+model+"')";
+            string query = "INSERT INTO RAM VALUES ('" + ram + "','" + ddr + "','" + model + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -148,7 +148,7 @@ namespace Laptop_Database_System
 
 
         }
-        public int addToLaptop(string modelNum, string name, string date)
+         int addToLaptop(string modelNum, string name, string date)
         {
 
             string query = "INSERT INTO Laptop Values('" + modelNum + "','" + name + "','" + date + "',0,0)";
@@ -161,7 +161,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public int addToManufacturer(string maker, string model, string date)
+         int addToManufacturer(string maker, string model, string date)
         {
             string query = "INSERT INTO Manufacturered_By Values ('" + maker + "','" + model + "','" + date + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -215,6 +215,12 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable checkGPU(string brand, string model)
+        {
+            string query = "SELECT Manufacturer,Model_Number FROM Graphics_Card Where Manufacturer = '" + brand + "' AND Model_Number = '" + model + "'";
+            return dbMan.ExecuteReader(query);
+        }
+
         public string checkLaptopModel(string model)
         {
             string query = "select Model from Laptop where Model ='" + model + "'";
@@ -245,15 +251,15 @@ namespace Laptop_Database_System
         }
 
 
-        public int addToBoughtFrom(string model, string store, string price, string stock)
+         int addToBoughtFrom(string model, string store, string price, string stock)
         {
             string query = "INSERT INTO Bought_From VALUES('" + model + "','" + store + "','" + price + "','" + stock + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
-       public int addToKeyBoard(string type,string light,string lapModel)
+         int addToKeyBoard(string type, string light, string lapModel)
         {
-            string query = "INSERT INTO KeyBoard VALUES('"+type+"','"+light+"','"+lapModel+"')";
+            string query = "INSERT INTO KeyBoard VALUES('" + type + "','" + light + "','" + lapModel + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -343,7 +349,11 @@ namespace Laptop_Database_System
 
         }
 
-
+         int addToStorage(string hddM, string ssdM, string hdd, string ssd, string lapModel)
+        {
+            string query = "insert into Storage VALUES ('" + hddM + "','" + ssdM + "','" + hdd + "','" + ssd + "','" + lapModel + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
         public int editUser(int id, string username, string password, string email, int consent)
         {
@@ -357,9 +367,9 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int addToUSB(string lapModel,string usb2,string usb3 )
+         int addToUSB(string lapModel, string usb2, string usb3)
         {
-            string query = "INSERT INTO USB_Type VALUES ('"+lapModel+"', '"+usb2+"','"+usb3+"')";
+            string query = "INSERT INTO USB_Type VALUES ('" + lapModel + "', '" + usb2 + "','" + usb3 + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -367,6 +377,33 @@ namespace Laptop_Database_System
         {
             string query = "Select * from Laptop"; // TODO: Add a select all feature
             return dbMan.ExecuteReader(query);
+        }
+
+         int addToComposedOf(string model, string procMaker, string procModel, string gpu, string osManu, string os, string osVer)
+        {
+            string query = "exec fillComposedOf '" + model + "','" + procMaker + "','" + procModel + "','" + gpu + "','" + osManu + "','" + os + "','" + osVer + "'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int newLaptop(string lapModel, string lapName, string date, string manu, string store, string price, string stock, string ram, string ddr, string hddM, string ssdM, string hdd, string ssd, string kbType, string kbLight, string usb2, string usb3, string screenType, string screenRes, string screenSize, string procManu, string procModel, string gpu, string osManu, string os, string osVer)
+        {
+            int lap = addToLaptop(lapModel, lapName, date);
+            int manufacturer = addToManufacturer(manu, lapModel, date);
+            int bought = addToBoughtFrom(lapModel, store, price, stock);
+            int _ram = addToRam(ram, ddr, lapModel);
+            int storage = addToStorage(hddM, ssdM, hdd, ssd, lapModel);
+            int kb = addToKeyBoard(kbType, kbLight, lapModel);
+            int usb = addToUSB(lapModel, usb2, usb3);
+            int screen = addToScreen(screenType, screenRes, screenSize, lapModel);
+
+            int comp = addToComposedOf(lapModel, procManu, procModel, gpu, osManu, os, osVer);
+
+            if (lap + manufacturer + bought + _ram + storage + kb + usb + screen + comp != 9)
+            {
+                return -1;
+            }
+
+            return 0;
         }
 
         public DataTable getlaptopbyfeatures(string lname, string ktype, string klight,
@@ -448,7 +485,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public int EditLaps(string lm, string kt, string kl, string pb, string pmn,string rs,string rddr, string gpumn ,string gpuman, string vram, string cs,string osn, string osman, string osv, string sman,string ssize,string sct,string scr,string scs)
+        public int EditLaps(string lm, string kt, string kl, string pb, string pmn, string rs, string rddr, string gpumn, string gpuman, string vram, string cs, string osn, string osman, string osv, string sman, string ssize, string sct, string scr, string scs)
         {
             string query = $"Exec Edit @LM ='{lm}',@KT= '{kt}',@KL= '{kl}',@PB= '{pb}',@PMN='{pmn}' ,@RS= '{rs}',@RDDR = '{rddr}' ,@GPUMN= '{gpumn}',@GPUMAN ='{gpuman}',@VRAM= '{vram}',@CS ='{cs}',@OSN ='{osn}',@OSMAN ='{osman}',@OSV ='{osv}',@SMAN ='{sman}',@SSIZE ='{ssize}',@SCT ='{sct}',@SCR ='{scr}',@SCS ='{scs}';";
             return dbMan.ExecuteNonQuery(query);

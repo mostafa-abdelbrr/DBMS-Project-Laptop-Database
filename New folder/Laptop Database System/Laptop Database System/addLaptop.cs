@@ -30,7 +30,7 @@ namespace Laptop_Database_System
             maker.DataSource = controllerObj.fillManufacturerComboBox();
             maker.DisplayMember = "Name";
 
-           
+
 
             procMaker.DataSource = controllerObj.fillProcMaker();
             procMaker.DisplayMember = "Brand";
@@ -41,7 +41,7 @@ namespace Laptop_Database_System
             ddr.SelectedIndex = 2;
             screenType.SelectedIndex = 0;
             resolution.SelectedIndex = 1;
-         
+
 
             osMaker.DataSource = controllerObj.fillosManu();
             osMaker.DisplayMember = "Manufacturer";
@@ -65,7 +65,7 @@ namespace Laptop_Database_System
             kbType.SelectedIndex = 0;
         }
 
-     
+
 
         private void addLaptop_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -115,7 +115,7 @@ namespace Laptop_Database_System
 
             }
 
-            
+
 
             if (inStock.TextLength == 0)
             {
@@ -169,6 +169,69 @@ namespace Laptop_Database_System
 
             }
 
+            if (hddM.TextLength == 0)
+            {
+                emptyChecker = true;
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point modelLoc = procModel.Location;
+
+                tt.Show("Please Enter HDD Manufacturer", this, modelLoc, 2000);
+
+            }
+
+            if (ssdM.TextLength == 0)
+            {
+                emptyChecker = true;
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point modelLoc = procModel.Location;
+
+                tt.Show("Please Enter SSD Manufacturer", this, modelLoc, 2000);
+
+            }
+            if (hddSize.TextLength == 0)
+            {
+                emptyChecker = true;
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point modelLoc = procModel.Location;
+
+                tt.Show("Please Enter HDD Size", this, modelLoc, 2000);
+
+            }
+
+            if (ssdSize.TextLength == 0)
+            {
+                emptyChecker = true;
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point modelLoc = procModel.Location;
+
+                tt.Show("Please Enter SSD Size", this, modelLoc, 2000);
+
+            }
+
+            if (screenSize.TextLength == 0)
+            {
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point scr = screenSize.Location;
+
+                tt.Show("Please Enter The Screen Size In Inches ", this, scr, 2000);
+                emptyChecker = true;
+            }
+
             if (controllerObj.checkLaptopModel(model.Text) != "N/A")
             {
                 err.Visible = true;
@@ -184,70 +247,11 @@ namespace Laptop_Database_System
                 return;
             }
 
-            if (screenSize.TextLength == 0)
-            {
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.InitialDelay = 0;
 
-                Point scr = screenSize.Location;
-
-                tt.Show("Please Enter The Screen Size In Inches ", this, scr, 2000);
-                emptyChecker = true;
-            }
 
             if (emptyChecker)
             {
                 return;
-            }
-
-
-            if (controllerObj.addToLaptop(model.Text, lapName.Text, releaseDate.Value.ToShortDateString()) == 0)
-            {
-                MessageBox.Show("laptop");
-            }
-            else
-            {
-                MessageBox.Show("gg");
-            }
-
-            if (controllerObj.addToManufacturer(maker.Text, model.Text, releaseDate.Value.ToShortDateString()) == 0)
-            {
-                MessageBox.Show("manufacturer");
-            }
-            else
-            {
-                MessageBox.Show("fola");
-            }
-
-
-
-            if (controllerObj.addToBoughtFrom(model.Text, controllerObj.getOwner(id.ToString()), price.Text, inStock.Text) == 0)
-            {
-                MessageBox.Show("instock");
-            }
-            else
-            {
-                MessageBox.Show("3a444");
-            }
-
-            if (controllerObj.addToRam(ram.Text, ddr.SelectedItem.ToString(), model.Text) == 0)
-            {
-                MessageBox.Show("ram");
-            }
-            else
-            {
-                MessageBox.Show("3a4 ysta walahi");
-            }
-
-            if (controllerObj.addToScreen(screenType.Text, resolution.Text, screenSize.Text, model.Text) == 0)
-            {
-                MessageBox.Show("screen");
-
-            }
-            else
-            {
-                MessageBox.Show("allah ❤❤❤");
             }
 
             string light = "No";
@@ -256,22 +260,109 @@ namespace Laptop_Database_System
                 light = "Yes";
             }
 
-            if (controllerObj.addToKeyBoard(kbType.Text,light,model.Text) == 0)
-            {
-                MessageBox.Show("kb");
-            } else
-            {
-                MessageBox.Show("iam so proud of you omar");
+            if (controllerObj.checkProc(procMaker.Text, procModel.Text) == null){
+                err.Visible = true;
+                err.Text = "Please Check Processor Model Number";
+                return;
             }
 
-            if (controllerObj.addToUSB(model.Text,usb2.Value.ToString(),usb3.Value.ToString()) == 0)
+            if (controllerObj.checkGPU(gfxMaker.Text, gfxModel.Text) == null)
             {
-                MessageBox.Show("usb");
+                err.Visible = true;
+                err.Text = "Please Check GPU Model Number";
+                return;
             }
-            else
+
+
+
+            int laptopStatus = controllerObj.newLaptop(model.Text, lapName.Text, releaseDate.Value.ToShortDateString(), maker.Text, controllerObj.getOwner(id.ToString()), price.Text, inStock.Text, ram.Text, ddr.Text, hddM.Text, ssdM.Text, hddSize.Text, ssdSize.Text, kbType.Text, light, usb2.Value.ToString(), usb3.Value.ToString(), screenType.Text, resolution.Text, screenSize.Text, procMaker.Text, procModel.Text, gfxModel.Text, osMaker.Text, osName.Text, osVer.Text);
+
+            if (laptopStatus == -1)
             {
-                MessageBox.Show("omar = madfa3 bfadl rabena");
+                MessageBox.Show("An Error Has Occured While Adding Laptop. Please Check Your data And Try Again Shortly");
+            } else
+            {
+                MessageBox.Show("Thank You For Choosing LDBS! An Admin Will Review Your Request Shortly");
+                Hide();
+                parent.Show();
             }
+
+
+            //if (controllerObj.addToLaptop(model.Text, lapName.Text, releaseDate.Value.ToShortDateString()) == 0)
+            //{
+            //    MessageBox.Show("laptop");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("gg");
+            //}
+
+            //if (controllerObj.addToManufacturer(maker.Text, model.Text, releaseDate.Value.ToShortDateString()) == 0)
+            //{
+            //    MessageBox.Show("manufacturer");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("fola");
+            //}
+
+
+
+            //if (controllerObj.addToBoughtFrom(model.Text, controllerObj.getOwner(id.ToString()), price.Text, inStock.Text) == 0)
+            //{
+            //    MessageBox.Show("instock");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("3a444");
+            //}
+
+            //if (controllerObj.addToRam(ram.Text, ddr.SelectedItem.ToString(), model.Text) == 0)
+            //{
+            //    MessageBox.Show("ram");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("3a4 ysta walahi");
+            //}
+
+            //if (controllerObj.addToScreen(screenType.Text, resolution.Text, screenSize.Text, model.Text) == 0)
+            //{
+            //    MessageBox.Show("screen");
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("allah ❤❤❤");
+            //}
+
+            //if (controllerObj.addToKeyBoard(kbType.Text, light, model.Text) == 0)
+            //{
+            //    MessageBox.Show("kb");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("iam so proud of you omar");
+            //}
+
+            //if (controllerObj.addToUSB(model.Text, usb2.Value.ToString(), usb3.Value.ToString()) == 0)
+            //{
+            //    MessageBox.Show("usb");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("omar = madfa3 bfadl rabena");
+            //}
+
+            //if (controllerObj.addToStorage(hddM.Text, ssdM.Text, hddSize.Text, ssdSize.Text, model.Text) == 0)
+            //{
+            //    MessageBox.Show("storage");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("half done");
+            //}
+
         }
 
         private void inStock_TextChanged(object sender, EventArgs e)
@@ -279,7 +370,7 @@ namespace Laptop_Database_System
 
         }
 
-   
+
 
         private void inStock_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -324,8 +415,8 @@ namespace Laptop_Database_System
 
         private void gfxMaker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-           
+
+
         }
 
         private void osName_SelectedIndexChanged(object sender, EventArgs e)
@@ -344,7 +435,7 @@ namespace Laptop_Database_System
 
         private void procMaker_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             procModel.AutoCompleteCustomSource = controllerObj.getProcModelAutoCompSrc(procMaker.Text);
             procModel.Text = "";
         }
@@ -389,7 +480,7 @@ namespace Laptop_Database_System
 
         private void osMaker_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void gfxMaker_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -402,6 +493,65 @@ namespace Laptop_Database_System
         {
             osName.DataSource = controllerObj.fillosName(osMaker.Text);
             osVer.DataSource = controllerObj.fillosVer(osName.Text);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gfxModel_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char input;
+            input = e.KeyChar;
+
+            if (!(char.IsNumber(input) || (Keys)e.KeyChar == Keys.Decimal || (Keys)e.KeyChar == Keys.Back))
+            {
+                e.KeyChar = (char)Keys.None;
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+                Point locl = screenSize.Location;
+                // tt.SetToolTip(screenSize, "Only numbers allowed");
+                tt.Show("Only numbers allowed ", this, 430, 341, 2000);
+            }
+        }
+
+        private void ssdSize_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ssdSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char input;
+            input = e.KeyChar;
+
+            if (!(char.IsNumber(input) || (Keys)e.KeyChar == Keys.Decimal || (Keys)e.KeyChar == Keys.Back))
+            {
+                e.KeyChar = (char)Keys.None;
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+                Point locl = screenSize.Location;
+                // tt.SetToolTip(screenSize, "Only numbers allowed");
+                tt.Show("Only numbers allowed ", this, 430, 341, 2000);
+            }
         }
     }
 }

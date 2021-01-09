@@ -256,6 +256,55 @@ create Table Composed_Of
 --Delete from Laptop where Model=@LM
 --GO
 
+GO
+CREATE PROCEDURE fillComposedOf @lapModel varchar(50), @procbrand varchar(50),@pnum varchar(50),@gpu varchar(50),@osmanu varchar(50),@osname varchar(50),@osver varchar(50)
+AS
+Begin
+declare @ktype varchar (50)
+declare @klight varchar(50)
+
+declare @rsize varchar(50)
+declare @ddr varchar(50)
+
+
+declare @hddmanu varchar(50)
+declare @hddsize int
+declare @ssdsize int
+declare @ssdmanu varchar(50)
+
+declare @usb2 int
+declare @usb3 int
+
+declare @screentype varchar(50)
+declare @screenres varchar(50)
+declare @screensize float
+
+SELECT @ktype = Type From KeyBoard Where Laptop_Model = @lapModel
+
+select @klight = Light From KeyBoard Where Laptop_Model = @lapModel
+select @rsize = Size From RAM where Laptop_Model = @lapModel
+select @ddr = DDR From RAM where Laptop_Model = @lapModel
+select @hddmanu = HDD_Manufacturer FROM Storage where Laptop_Model = @lapModel
+select @hddsize = HDD_Size FROM Storage where Laptop_Model = @lapModel
+select @ssdsize = SDD_Size FROM Storage where Laptop_Model = @lapModel
+select @ssdmanu = SSD_Manufacturer FROM Storage where Laptop_Model = @lapModel
+select @usb2 = USB2_Number From USB_Type WHere Laptop_Model = @lapModel
+select @usb3 = USB3_Number From USB_Type WHere Laptop_Model = @lapModel
+
+select @screentype = Type From Screen Where Laptop_Model = @lapModel
+select @screenres = Resolution From Screen Where Laptop_Model = @lapModel
+select @screensize = Size From Screen Where Laptop_Model = @lapModel
+
+INSERT INTO Composed_Of VALUES (@lapModel,@ktype,@klight,@procbrand,@pnum,@rsize,@ddr,@gpu,@osmanu,@osname,@osver,@hddmanu,@hddsize,@ssdsize,@ssdmanu,@usb2,@usb3,@screentype,@screenres,@screensize)
+
+END
+GO
+
+
+
+
+exec fillComposedOf 'eqwes2','Intel','Core i3','Radeon RX470','Microsoft','Windows','10'
+
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')
 INSERT INTO Roles Values (3,'User')

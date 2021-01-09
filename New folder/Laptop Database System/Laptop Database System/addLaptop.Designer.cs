@@ -66,6 +66,14 @@ namespace Laptop_Database_System
             this.ram = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.ssdSize = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.hddSize = new System.Windows.Forms.TextBox();
+            this.ssdM = new System.Windows.Forms.TextBox();
+            this.hddM = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.osVer = new System.Windows.Forms.ComboBox();
             this.osName = new System.Windows.Forms.ComboBox();
@@ -91,14 +99,6 @@ namespace Laptop_Database_System
             this.add = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.err = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usb2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usb3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -336,6 +336,7 @@ namespace Laptop_Database_System
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(151, 20);
             this.price.TabIndex = 19;
+            this.price.TextChanged += new System.EventHandler(this.price_TextChanged);
             this.price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price_KeyPress);
             // 
             // inStock
@@ -358,7 +359,7 @@ namespace Laptop_Database_System
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(307, 115);
+            this.groupBox2.Size = new System.Drawing.Size(307, 137);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Graphics Card";
@@ -370,6 +371,7 @@ namespace Laptop_Database_System
             this.gfxModel.Name = "gfxModel";
             this.gfxModel.Size = new System.Drawing.Size(151, 20);
             this.gfxModel.TabIndex = 24;
+            this.gfxModel.TextChanged += new System.EventHandler(this.gfxModel_TextChanged_1);
             // 
             // label17
             // 
@@ -447,7 +449,7 @@ namespace Laptop_Database_System
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(198, 106);
+            this.groupBox4.Size = new System.Drawing.Size(289, 106);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ram";
@@ -499,21 +501,90 @@ namespace Laptop_Database_System
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label30);
-            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.ssdSize);
             this.groupBox5.Controls.Add(this.label29);
             this.groupBox5.Controls.Add(this.label28);
             this.groupBox5.Controls.Add(this.label27);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.hddSize);
+            this.groupBox5.Controls.Add(this.ssdM);
+            this.groupBox5.Controls.Add(this.hddM);
             this.groupBox5.Location = new System.Drawing.Point(328, 132);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Size = new System.Drawing.Size(197, 243);
+            this.groupBox5.Size = new System.Drawing.Size(289, 243);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Storage";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(10, 163);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(52, 13);
+            this.label30.TabIndex = 44;
+            this.label30.Text = "SSD Size";
+            // 
+            // ssdSize
+            // 
+            this.ssdSize.Location = new System.Drawing.Point(120, 156);
+            this.ssdSize.Name = "ssdSize";
+            this.ssdSize.Size = new System.Drawing.Size(100, 20);
+            this.ssdSize.TabIndex = 43;
+            this.ssdSize.TextChanged += new System.EventHandler(this.ssdSize_TextChanged);
+            this.ssdSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ssdSize_KeyPress);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(10, 74);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(95, 13);
+            this.label29.TabIndex = 42;
+            this.label29.Text = "SSD Manufacturer";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(10, 119);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(54, 13);
+            this.label28.TabIndex = 41;
+            this.label28.Text = "HDD Size";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(10, 39);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(97, 13);
+            this.label27.TabIndex = 40;
+            this.label27.Text = "HDD Manufacturer";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
+            // 
+            // hddSize
+            // 
+            this.hddSize.Location = new System.Drawing.Point(120, 116);
+            this.hddSize.Name = "hddSize";
+            this.hddSize.Size = new System.Drawing.Size(100, 20);
+            this.hddSize.TabIndex = 39;
+            this.hddSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            // 
+            // ssdM
+            // 
+            this.ssdM.Location = new System.Drawing.Point(120, 71);
+            this.ssdM.Name = "ssdM";
+            this.ssdM.Size = new System.Drawing.Size(100, 20);
+            this.ssdM.TabIndex = 38;
+            // 
+            // hddM
+            // 
+            this.hddM.Location = new System.Drawing.Point(120, 36);
+            this.hddM.Name = "hddM";
+            this.hddM.Size = new System.Drawing.Size(100, 20);
+            this.hddM.TabIndex = 37;
+            this.hddM.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox6
             // 
@@ -527,7 +598,7 @@ namespace Laptop_Database_System
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Size = new System.Drawing.Size(197, 110);
+            this.groupBox6.Size = new System.Drawing.Size(288, 132);
             this.groupBox6.TabIndex = 28;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Operating System";
@@ -536,7 +607,7 @@ namespace Laptop_Database_System
             // 
             this.osVer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.osVer.FormattingEnabled = true;
-            this.osVer.Location = new System.Drawing.Point(89, 76);
+            this.osVer.Location = new System.Drawing.Point(89, 99);
             this.osVer.Name = "osVer";
             this.osVer.Size = new System.Drawing.Size(92, 21);
             this.osVer.TabIndex = 5;
@@ -545,7 +616,7 @@ namespace Laptop_Database_System
             // 
             this.osName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.osName.FormattingEnabled = true;
-            this.osName.Location = new System.Drawing.Point(89, 54);
+            this.osName.Location = new System.Drawing.Point(89, 64);
             this.osName.Name = "osName";
             this.osName.Size = new System.Drawing.Size(92, 21);
             this.osName.TabIndex = 4;
@@ -563,7 +634,7 @@ namespace Laptop_Database_System
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(14, 76);
+            this.label21.Location = new System.Drawing.Point(14, 102);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(42, 13);
@@ -573,7 +644,7 @@ namespace Laptop_Database_System
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 54);
+            this.label11.Location = new System.Drawing.Point(14, 67);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
@@ -599,7 +670,7 @@ namespace Laptop_Database_System
             this.Screen.Controls.Add(this.label23);
             this.Screen.Controls.Add(this.label22);
             this.Screen.Controls.Add(this.screenType);
-            this.Screen.Location = new System.Drawing.Point(537, 246);
+            this.Screen.Location = new System.Drawing.Point(640, 249);
             this.Screen.Margin = new System.Windows.Forms.Padding(2);
             this.Screen.Name = "Screen";
             this.Screen.Padding = new System.Windows.Forms.Padding(2);
@@ -696,7 +767,7 @@ namespace Laptop_Database_System
             this.groupBox7.Controls.Add(this.yes);
             this.groupBox7.Controls.Add(this.label25);
             this.groupBox7.Controls.Add(this.label6);
-            this.groupBox7.Location = new System.Drawing.Point(537, 10);
+            this.groupBox7.Location = new System.Drawing.Point(640, 13);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
@@ -771,7 +842,7 @@ namespace Laptop_Database_System
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.label16);
             this.groupBox8.Controls.Add(this.usb2);
-            this.groupBox8.Location = new System.Drawing.Point(537, 132);
+            this.groupBox8.Location = new System.Drawing.Point(640, 135);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
@@ -782,7 +853,7 @@ namespace Laptop_Database_System
             // 
             // add
             // 
-            this.add.Location = new System.Drawing.Point(706, 438);
+            this.add.Location = new System.Drawing.Point(794, 427);
             this.add.Margin = new System.Windows.Forms.Padding(2);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(72, 27);
@@ -793,7 +864,7 @@ namespace Laptop_Database_System
             // 
             // back
             // 
-            this.back.Location = new System.Drawing.Point(706, 480);
+            this.back.Location = new System.Drawing.Point(794, 469);
             this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(72, 27);
@@ -806,7 +877,7 @@ namespace Laptop_Database_System
             // 
             this.err.AutoSize = true;
             this.err.ForeColor = System.Drawing.Color.Red;
-            this.err.Location = new System.Drawing.Point(551, 423);
+            this.err.Location = new System.Drawing.Point(637, 395);
             this.err.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.err.Name = "err";
             this.err.Size = new System.Drawing.Size(55, 13);
@@ -814,75 +885,11 @@ namespace Laptop_Database_System
             this.err.Text = "ERR_LBL";
             this.err.Visible = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(66, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 37;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(66, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 38;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(66, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 39;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(14, 28);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 13);
-            this.label27.TabIndex = 40;
-            this.label27.Text = "label27";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(10, 153);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(41, 13);
-            this.label28.TabIndex = 41;
-            this.label28.Text = "label28";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(14, 74);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
-            this.label29.TabIndex = 42;
-            this.label29.Text = "label29";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(66, 201);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 43;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(14, 208);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 13);
-            this.label30.TabIndex = 44;
-            this.label30.Text = "label30";
-            // 
             // addLaptop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 549);
+            this.ClientSize = new System.Drawing.Size(935, 552);
             this.Controls.Add(this.err);
             this.Controls.Add(this.back);
             this.Controls.Add(this.add);
@@ -990,11 +997,11 @@ namespace Laptop_Database_System
         private System.Windows.Forms.ComboBox osVer;
         private System.Windows.Forms.ComboBox osName;
         private System.Windows.Forms.ComboBox osMaker;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox hddSize;
+        private System.Windows.Forms.TextBox ssdM;
+        private System.Windows.Forms.TextBox hddM;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ssdSize;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;

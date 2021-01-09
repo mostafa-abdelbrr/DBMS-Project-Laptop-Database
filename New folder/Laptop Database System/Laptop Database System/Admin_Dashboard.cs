@@ -12,9 +12,11 @@ namespace Laptop_Database_System
 {
     public partial class Admin_Dashboard : Form
     {
-        public Admin_Dashboard()
+        int id;
+        public Admin_Dashboard(int id)
         {
             InitializeComponent();
+            this.id = id;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,6 +36,16 @@ namespace Laptop_Database_System
         {
             AdminEdit a = new AdminEdit();
             a.Show();
+        }
+
+        private void Admin_Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Admin_Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(0);
         }
     }
 }
