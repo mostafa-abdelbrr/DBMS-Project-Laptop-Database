@@ -91,7 +91,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(120, 186);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.Controls.Add(this.button5);
+=======
+>>>>>>> parent of d599b0b... ADDED LAPTOP PROMOTIONS AND UPDATED SCRIPT
 =======
 >>>>>>> parent of d599b0b... ADDED LAPTOP PROMOTIONS AND UPDATED SCRIPT
             this.Controls.Add(this.button4);
