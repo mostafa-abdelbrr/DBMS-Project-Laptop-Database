@@ -84,6 +84,29 @@ namespace Laptop_Database_System
             return (string)dbMan.ExecuteScalar(query);
 
         }
+        public int addToScreen(string type, string res, string size, string model)
+        {
+            string query = "INSERT INTO Screen Values ('" + type + "','" + res + "','" + size + "','" + model + "')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable fillosManu()
+        {
+            string query = "SELECT DISTINCT Manufacturer From Operating_System";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable fillosName(string manu)
+        {
+            string query = "SELECT Distinct Name From Operating_System WHERE Manufacturer = '" + manu + "' ";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable fillosVer(string os)
+        {
+            string query = "SELECT  Version From Operating_System WHERE Name = '" + os + "'";
+            return dbMan.ExecuteReader(query);
+        }
 
 
         public string checkStoreName(string name) // checks if the address exists in the DB or not 
@@ -228,7 +251,11 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        
+       public int addToKeyBoard(string type,string light,string lapModel)
+        {
+            string query = "INSERT INTO KeyBoard VALUES('"+type+"','"+light+"','"+lapModel+"')";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
 
         public long getNewID()
@@ -316,6 +343,8 @@ namespace Laptop_Database_System
 
         }
 
+
+
         public int editUser(int id, string username, string password, string email, int consent)
         {
             string query = "update S_User set UserName = '" + username + "'," +
@@ -325,6 +354,12 @@ namespace Laptop_Database_System
                            "where ID = " + id + "";
 
 
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int addToUSB(string lapModel,string usb2,string usb3 )
+        {
+            string query = "INSERT INTO USB_Type VALUES ('"+lapModel+"', '"+usb2+"','"+usb3+"')";
             return dbMan.ExecuteNonQuery(query);
         }
 

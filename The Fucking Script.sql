@@ -113,12 +113,13 @@ create Table Screen
 
 create table Storage
 (
-	Size varchar(50),
-	Manufacturer varchar(50),
-	HDD varchar(50),
-	SDD varchar(50),
+	
+	HDD_Manufacturer varchar(50),
+	SSD_Manufacturer varchar (50),
+	HDD_Size int,
+	SDD_Size int,
 	Laptop_Model varchar(100),
-	primary key(Size,Manufacturer,Laptop_Model),
+	primary key(Laptop_Model,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SDD_Size),
 	foreign key (Laptop_Model) references Laptop ON DELETE CASCADE,
 )
 
@@ -164,10 +165,11 @@ create Table Bought_From
 create Table USB_Type
 (
 	Laptop_Model varchar(100),
-	Type varchar(50),
-	number int,
+	USB2_Number int,
+	USB3_Number int,
 
-	primary key (Laptop_Model,Type),
+
+	primary key (Laptop_Model),
 	foreign key (Laptop_Model) references Laptop ON DELETE CASCADE
 )
 
@@ -213,40 +215,45 @@ create Table Composed_Of
 	OS_Manufacturer varchar(50),
 	OS_Name varchar(50),
 	OS_Ver varchar (50),
-	S_Size varchar(50),
-	S_Manufacturer varchar(50),
+	HDD_Manufacturer varchar(50),
+	HDD_Size int,
+	SSD_Size int,
+	SSD_Manufacturer varchar(50),
+	USB2 int,
+	USB3 int,
 	SC_Type varchar(50),
 	SC_Resolution varchar(50),
 	SC_Size float,
 
-	primary key(Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,GPU_Model_Number,OS_Name,S_Size,S_Manufacturer,SC_Type,SC_Resolution,SC_Size),
+	primary key(Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,GPU_Model_Number,OS_Name,SSD_Manufacturer,HDD_Manufacturer,SC_Type,SC_Resolution,SC_Size),
 	foreign key (Laptop_model) references Laptop ,
 	foreign key (K_Type,K_Light,Laptop_model) references KeyBoard on update cascade,
 	foreign key (P_Brand,P_ModelNum) references Processor on update cascade,
 	foreign key (R_Size,R_DDR,Laptop_Model) references RAM on update cascade,
 	foreign key (GPU_Model_Number) references Graphics_Card on update cascade,
 	foreign key (OS_Manufacturer,OS_Name,OS_Ver) references Operating_System (Manufacturer,Name,Version) on update cascade,
-	foreign key (S_Size,S_Manufacturer,Laptop_Model) references Storage on update cascade,
+	foreign key (Laptop_Model,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size) references Storage(Laptop_Model,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SDD_Size) on update cascade,
 	foreign key (SC_Type,SC_Resolution,SC_Size,Laptop_Model) references Screen on update cascade,
+	foreign key (USB2,USB3,Laptop_Model) references USB_Type (USB2_Number,USB3_Number,Laptop_Model) on update cascade,
 
 	
 )
-go
-create procedure Edit @LM varchar(100),@KT varchar(50),@KL varchar(50),@PB varchar(50),@PMN varchar(50),@RS varchar(50),@RDDR varchar(50),@GPUMN varchar(50),@GPUMAN varchar(50),@VRAM float,@CS float,@OSN varchar(50),@OSMAN varchar(50),@OSV varchar(50),@SMAN varchar(50),@SSIZE varchar(50),@SCT varchar(50),@SCR varchar(50),@SCS float
-AS
-update KeyBoard set Type=@KT ,Light=@KL where Laptop_Model=@Lm
---update Processor set Brand=@PB , ModelNum=@PMN
-update RAM set Size=@RS , DDR=@RDDR
-Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS where Model_Number=@GPUMN
---update os
-update Storage set Manufacturer=@SMAN , Size=@SSIZE where Laptop_Model=@LM
-update Screen set Type=@SCT , Resolution=@SCR , Size=@SCS where Laptop_Model=@LM
-GO
-create procedure RemoveLaptop @LM varchar(100)
-AS
-Delete from Composed_Of where Laptop_Model=@LM
-Delete from Laptop where Model=@LM
-GO
+--go
+--create procedure Edit @LM varchar(100),@KT varchar(50),@KL varchar(50),@PB varchar(50),@PMN varchar(50),@RS varchar(50),@RDDR varchar(50),@GPUMN varchar(50),@GPUMAN varchar(50),@VRAM float,@CS float,@OSN varchar(50),@OSMAN varchar(50),@OSV varchar(50),@SMAN varchar(50),@SSIZE varchar(50),@SCT varchar(50),@SCR varchar(50),@SCS float
+--AS
+--update KeyBoard set Type=@KT ,Light=@KL where Laptop_Model=@Lm
+----update Processor set Brand=@PB , ModelNum=@PMN
+--update RAM set Size=@RS , DDR=@RDDR
+--Update Graphics_Card set Manufacturer=@GPUMAN , Vram=@VRAM , Clock_Speed=@CS where Model_Number=@GPUMN
+----update os
+--update Storage set Manufacturer=@SMAN , Size=@SSIZE where Laptop_Model=@LM
+--update Screen set Type=@SCT , Resolution=@SCR , Size=@SCS where Laptop_Model=@LM
+--GO
+--create procedure RemoveLaptop @LM varchar(100)
+--AS
+--Delete from Composed_Of where Laptop_Model=@LM
+--Delete from Laptop where Model=@LM
+--GO
 
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')

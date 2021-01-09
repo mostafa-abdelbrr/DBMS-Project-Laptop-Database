@@ -76,5 +76,11 @@ namespace Laptop_Database_System
             Form foo = new addLaptop(this,username,currentUserID);
             foo.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form foo = new ViewLaptop("yay");
+            foo.Show();
+        }
     }
 }

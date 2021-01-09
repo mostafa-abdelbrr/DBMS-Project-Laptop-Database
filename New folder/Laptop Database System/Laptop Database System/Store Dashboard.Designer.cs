@@ -42,26 +42,29 @@ namespace Laptop_Database_System
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Location = new System.Drawing.Point(9, 344);
+            this.status.Location = new System.Drawing.Point(7, 280);
+            this.status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(96, 17);
+            this.status.Size = new System.Drawing.Size(75, 13);
             this.status.TabIndex = 0;
             this.status.Text = "STATUS_LBL";
             // 
             // welcome
             // 
             this.welcome.AutoSize = true;
-            this.welcome.Location = new System.Drawing.Point(9, 327);
+            this.welcome.Location = new System.Drawing.Point(7, 266);
+            this.welcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(111, 17);
+            this.welcome.Size = new System.Drawing.Size(87, 13);
             this.welcome.TabIndex = 1;
             this.welcome.Text = "WELCOME_LBL";
             // 
             // signOut
             // 
-            this.signOut.Location = new System.Drawing.Point(12, 364);
+            this.signOut.Location = new System.Drawing.Point(9, 296);
+            this.signOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.signOut.Name = "signOut";
-            this.signOut.Size = new System.Drawing.Size(124, 35);
+            this.signOut.Size = new System.Drawing.Size(93, 28);
             this.signOut.TabIndex = 3;
             this.signOut.Text = "Sign Out";
             this.signOut.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@ namespace Laptop_Database_System
             // 
             // addLaptop
             // 
-            this.addLaptop.Location = new System.Drawing.Point(12, 21);
+            this.addLaptop.Location = new System.Drawing.Point(9, 17);
+            this.addLaptop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addLaptop.Name = "addLaptop";
-            this.addLaptop.Size = new System.Drawing.Size(124, 35);
+            this.addLaptop.Size = new System.Drawing.Size(93, 28);
             this.addLaptop.TabIndex = 0;
             this.addLaptop.Text = "Add Laptop";
             this.addLaptop.UseVisualStyleBackColor = true;
@@ -80,18 +84,20 @@ namespace Laptop_Database_System
             // laptop
             // 
             this.laptop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.laptop.Location = new System.Drawing.Point(235, 21);
+            this.laptop.Location = new System.Drawing.Point(176, 17);
+            this.laptop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.laptop.Name = "laptop";
             this.laptop.RowHeadersWidth = 51;
             this.laptop.RowTemplate.Height = 24;
-            this.laptop.Size = new System.Drawing.Size(553, 417);
+            this.laptop.Size = new System.Drawing.Size(415, 339);
             this.laptop.TabIndex = 4;
             // 
             // editAcc
             // 
-            this.editAcc.Location = new System.Drawing.Point(12, 405);
+            this.editAcc.Location = new System.Drawing.Point(9, 329);
+            this.editAcc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editAcc.Name = "editAcc";
-            this.editAcc.Size = new System.Drawing.Size(124, 35);
+            this.editAcc.Size = new System.Drawing.Size(93, 28);
             this.editAcc.TabIndex = 2;
             this.editAcc.Text = "Edit Account";
             this.editAcc.UseVisualStyleBackColor = true;
@@ -99,9 +105,10 @@ namespace Laptop_Database_System
             // 
             // viewAll
             // 
-            this.viewAll.Location = new System.Drawing.Point(12, 72);
+            this.viewAll.Location = new System.Drawing.Point(9, 58);
+            this.viewAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.viewAll.Name = "viewAll";
-            this.viewAll.Size = new System.Drawing.Size(124, 35);
+            this.viewAll.Size = new System.Drawing.Size(93, 28);
             this.viewAll.TabIndex = 1;
             this.viewAll.Text = "View All Laptops";
             this.viewAll.UseVisualStyleBackColor = true;
@@ -109,9 +116,9 @@ namespace Laptop_Database_System
             // 
             // Store_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.viewAll);
             this.Controls.Add(this.editAcc);
             this.Controls.Add(this.laptop);
@@ -119,6 +126,7 @@ namespace Laptop_Database_System
             this.Controls.Add(this.signOut);
             this.Controls.Add(this.welcome);
             this.Controls.Add(this.status);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Store_Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

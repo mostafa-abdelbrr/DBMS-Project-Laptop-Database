@@ -124,6 +124,12 @@
     <Compile Include="ViewAll.Designer.cs">
       <DependentUpon>ViewAll.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewLaptop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewLaptop.Designer.cs">
+      <DependentUpon>ViewLaptop.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAll.resx">
       <DependentUpon>ViewAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewLaptop.resx">
+      <DependentUpon>ViewLaptop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>

@@ -30,6 +30,8 @@ namespace Laptop_Database_System
             maker.DataSource = controllerObj.fillManufacturerComboBox();
             maker.DisplayMember = "Name";
 
+           
+
             procMaker.DataSource = controllerObj.fillProcMaker();
             procMaker.DisplayMember = "Brand";
 
@@ -39,7 +41,18 @@ namespace Laptop_Database_System
             ddr.SelectedIndex = 2;
             screenType.SelectedIndex = 0;
             resolution.SelectedIndex = 1;
+         
 
+            osMaker.DataSource = controllerObj.fillosManu();
+            osMaker.DisplayMember = "Manufacturer";
+
+            osName.DataSource = controllerObj.fillosName(osMaker.Text);
+            osName.DisplayMember = "Name";
+
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
+            osVer.DisplayMember = "Version";
+
+            osMaker.SelectedIndex = 0;
 
             procModel.AutoCompleteSource = AutoCompleteSource.CustomSource;
             procModel.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -48,12 +61,11 @@ namespace Laptop_Database_System
             gfxModel.AutoCompleteSource = AutoCompleteSource.CustomSource;
             gfxModel.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             gfxModel.AutoCompleteCustomSource = controllerObj.getGFXModelAutoCompSrc(gfxMaker.Text);
+
+            kbType.SelectedIndex = 0;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void addLaptop_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -76,8 +88,10 @@ namespace Laptop_Database_System
 
         private void add_Click(object sender, EventArgs e)
         {
+            bool emptyChecker = false;
             if (lapName.TextLength == 0)
             {
+                emptyChecker = true;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
@@ -90,6 +104,7 @@ namespace Laptop_Database_System
 
             if (ram.TextLength == 0)
             {
+                emptyChecker = true;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
@@ -100,8 +115,11 @@ namespace Laptop_Database_System
 
             }
 
+            
+
             if (inStock.TextLength == 0)
             {
+                emptyChecker = true;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
@@ -114,6 +132,7 @@ namespace Laptop_Database_System
 
             if (price.TextLength == 0)
             {
+                emptyChecker = true;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
@@ -126,6 +145,7 @@ namespace Laptop_Database_System
 
             if (model.TextLength == 0)
             {
+                emptyChecker = true;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
@@ -138,6 +158,7 @@ namespace Laptop_Database_System
 
             if (procModel.TextLength == 0)
             {
+                emptyChecker = true;
                 ToolTip tt = new ToolTip();
                 tt.IsBalloon = true;
                 tt.InitialDelay = 0;
@@ -163,6 +184,22 @@ namespace Laptop_Database_System
                 return;
             }
 
+            if (screenSize.TextLength == 0)
+            {
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.InitialDelay = 0;
+
+                Point scr = screenSize.Location;
+
+                tt.Show("Please Enter The Screen Size In Inches ", this, scr, 2000);
+                emptyChecker = true;
+            }
+
+            if (emptyChecker)
+            {
+                return;
+            }
 
 
             if (controllerObj.addToLaptop(model.Text, lapName.Text, releaseDate.Value.ToShortDateString()) == 0)
@@ -203,12 +240,46 @@ namespace Laptop_Database_System
                 MessageBox.Show("3a4 ysta walahi");
             }
 
+            if (controllerObj.addToScreen(screenType.Text, resolution.Text, screenSize.Text, model.Text) == 0)
+            {
+                MessageBox.Show("screen");
+
+            }
+            else
+            {
+                MessageBox.Show("allah ❤❤❤");
+            }
+
+            string light = "No";
+            if (yes.Checked)
+            {
+                light = "Yes";
+            }
+
+            if (controllerObj.addToKeyBoard(kbType.Text,light,model.Text) == 0)
+            {
+                MessageBox.Show("kb");
+            } else
+            {
+                MessageBox.Show("iam so proud of you omar");
+            }
+
+            if (controllerObj.addToUSB(model.Text,usb2.Value.ToString(),usb3.Value.ToString()) == 0)
+            {
+                MessageBox.Show("usb");
+            }
+            else
+            {
+                MessageBox.Show("omar = madfa3 bfadl rabena");
+            }
         }
 
         private void inStock_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+   
 
         private void inStock_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -246,9 +317,36 @@ namespace Laptop_Database_System
             }
         }
 
+        private void gfxModel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gfxMaker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        private void osName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void osMaker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            osName.DataSource = controllerObj.fillosName(osMaker.Text);
+            osName.DisplayMember = "Name";
+
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
+            osVer.DisplayMember = "Version";
+        }
+
         private void procMaker_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             procModel.AutoCompleteCustomSource = controllerObj.getProcModelAutoCompSrc(procMaker.Text);
+            procModel.Text = "";
         }
 
         private void ram_KeyPress(object sender, KeyPressEventArgs e)
@@ -287,6 +385,23 @@ namespace Laptop_Database_System
         private void screenSize_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void osMaker_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void gfxMaker_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            gfxModel.Text = "";
+            gfxModel.AutoCompleteCustomSource = controllerObj.getGFXModelAutoCompSrc(gfxMaker.Text);
+        }
+
+        private void osMaker_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+            osName.DataSource = controllerObj.fillosName(osMaker.Text);
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
         }
     }
 }
