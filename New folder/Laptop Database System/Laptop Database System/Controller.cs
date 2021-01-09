@@ -628,5 +628,21 @@ namespace Laptop_Database_System
             string query = $"update Operating_system set Name='{osn}',Manufacturer='{osman}',Version='{osv}' where Name='{oosn}' and Manufacturer='{oosman}' and Version='{oosv}'";
             return dbMan.ExecuteNonQuery(query);
         }
+        public DataTable SelectStorOwnersTobeApproved()
+        {
+            string query = "select * from S_user where role='Store_WAITING_APPROVAL';";
+            return dbMan.ExecuteReader(query);
+        }
+        public int ApproveStore(string id)
+        {
+            string query = "update S_User set Role='Store' where id=" + id + ";";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int DenyStore(string id)
+        {
+            string query = $"Delete from S_User where ID={id};";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }

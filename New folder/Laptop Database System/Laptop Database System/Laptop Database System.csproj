@@ -117,6 +117,12 @@
     <Compile Include="Store Sign Up.Designer.cs">
       <DependentUpon>Store Sign Up.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stores_To_Approve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stores_To_Approve.Designer.cs">
+      <DependentUpon>Stores_To_Approve.cs</DependentUpon>
+    </Compile>
     <Compile Include="validations.cs" />
     <Compile Include="ViewAll.cs">
       <SubType>Form</SubType>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Store Sign Up.resx">
       <DependentUpon>Store Sign Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stores_To_Approve.resx">
+      <DependentUpon>Stores_To_Approve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAll.resx">
       <DependentUpon>ViewAll.cs</DependentUpon>
