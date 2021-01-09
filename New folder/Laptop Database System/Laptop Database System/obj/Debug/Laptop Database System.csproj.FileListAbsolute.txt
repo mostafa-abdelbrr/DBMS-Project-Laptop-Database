@@ -69,4 +69,7 @@ G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Databas
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.AdminEdit.resources
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewLaptop.resources
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewLaptop.resources
+<<<<<<< HEAD
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Stores_To_Approve.resources
+=======
+>>>>>>> parent of d599b0b... ADDED LAPTOP PROMOTIONS AND UPDATED SCRIPT
