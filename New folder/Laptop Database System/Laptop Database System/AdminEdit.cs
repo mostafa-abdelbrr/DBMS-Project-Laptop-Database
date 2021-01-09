@@ -17,10 +17,10 @@ namespace Laptop_Database_System
         string role; // 34an nefara2 been store aw admin
         int id;
         string username;
-        public AdminEdit(int id)
+        //public AdminEdit(int id);
         string[] GPUomn,CPUmn,OSn,OSman,OSv;
 
-        public AdminEdit()
+        public AdminEdit(int id)
         {
             InitializeComponent();
             this.id = id;

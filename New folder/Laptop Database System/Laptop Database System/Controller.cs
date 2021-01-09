@@ -199,10 +199,7 @@ namespace Laptop_Database_System
             return autolist;
         }
 
-        public int promote(string lapModel)
-        {
-
-        }
+    
         public AutoCompleteStringCollection getGFXModelAutoCompSrc(string mfc)
         {
             string query = "Select Model_Number From Graphics_Card Where Manufacturer = '" + mfc + "'";
