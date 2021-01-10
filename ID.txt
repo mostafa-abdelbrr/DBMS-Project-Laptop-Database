@@ -17,6 +17,8 @@ andrew 1180086: created the original script for the database where everybody the
 			-Approve Stores
 			-Approve Laptops
 			-Promote Laptops waiting to be Promoted
+			-Edit Proc
+			-Remove proc
 			
 
 mostafa:
