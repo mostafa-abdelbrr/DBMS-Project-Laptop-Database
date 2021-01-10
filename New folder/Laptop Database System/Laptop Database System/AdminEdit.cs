@@ -39,26 +39,26 @@ namespace Laptop_Database_System
 
               // EditLTdg.DataSource = controllerObj.SelectEdits();
                   EditLTdg.DataSource = controllerObj.SelectEdits();
-            if (EditLTdg.Rows.Count > 1)
-            {
-                EditLTdg.Columns[0].ReadOnly = true;
-                    EditLTdg.Columns[3].ReadOnly = true;
-                    EditLTdg.Columns[11].ReadOnly = true;
-                    EditLTdg.Columns[12].ReadOnly = true;
-                    EditLTdg.Columns[13].ReadOnly = true;
-                    EditLTdg.Columns[4].ReadOnly = true;
-                    EditLTdg.Columns[7].ReadOnly = true;
-            }
-            comboBox1.SelectedIndex = 0;
+                if (EditLTdg.Rows.Count > 1)
+                {
+                    EditLTdg.Columns[0].ReadOnly = true;
+                        EditLTdg.Columns[3].ReadOnly = true;
+                        EditLTdg.Columns[11].ReadOnly = true;
+                        EditLTdg.Columns[12].ReadOnly = true;
+                        EditLTdg.Columns[13].ReadOnly = true;
+                        EditLTdg.Columns[4].ReadOnly = true;
+                        EditLTdg.Columns[7].ReadOnly = true;
+                }
+                comboBox1.SelectedIndex = 0;
             } else if (role == "Store")
-            {
-                EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
-                 if (EditLTdg.Rows.Count > 1)
-            {
-                EditLTdg.Columns[0].ReadOnly = true;
-                EditLTdg.Columns[7].ReadOnly = true;
-            }
-            }
+                {
+                        EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
+                         if (EditLTdg.Rows.Count > 1)
+                    {
+                        EditLTdg.Columns[0].ReadOnly = true;
+                        EditLTdg.Columns[7].ReadOnly = true;
+                    }
+                }
            // EditLTdg.Columns[0].ReadOnly = true;
            // EditLTdg.Columns[7].ReadOnly = true;
         }
@@ -69,8 +69,7 @@ namespace Laptop_Database_System
             switch (comboBox1.Text)
             {
 
-         
-                case "Laptop":
+                    case "Laptop":
                     
                     if (EditLTdg.Rows.Count <= 1)
                     {
