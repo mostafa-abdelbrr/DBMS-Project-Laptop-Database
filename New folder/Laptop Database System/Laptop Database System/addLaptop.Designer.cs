@@ -636,6 +636,7 @@ namespace Laptop_Database_System
             this.osVer.Name = "osVer";
             this.osVer.Size = new System.Drawing.Size(92, 21);
             this.osVer.TabIndex = 5;
+            this.osVer.SelectedIndexChanged += new System.EventHandler(this.osVer_SelectedIndexChanged);
             // 
             // osName
             // 
@@ -645,6 +646,7 @@ namespace Laptop_Database_System
             this.osName.Name = "osName";
             this.osName.Size = new System.Drawing.Size(92, 21);
             this.osName.TabIndex = 4;
+            this.osName.SelectedIndexChanged += new System.EventHandler(this.osName_SelectedIndexChanged_1);
             // 
             // osMaker
             // 

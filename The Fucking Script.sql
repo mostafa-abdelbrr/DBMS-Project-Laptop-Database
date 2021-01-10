@@ -334,21 +334,62 @@ INSERT INTO Manufacturer_Data Values ('LG','Talaat Harb St., Downtown Cairo 1156
 
 
 
-
 INSERT INTO Processor VALUES('Intel', 'Core i3')
 INSERT INTO Processor VALUES('Intel', 'Core i5')
 INSERT INTO Processor VALUES('Intel', 'Core i7')
-INSERT INTO Processor VALUES('AMD', 'Ryzen')
+INSERT INTO Processor VALUES('Intel', 'Core i9')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9350KF')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9300T')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9350K')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9320')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600T')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600K')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600KF')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9850HL')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9750HF')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9700K')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9700')
+
+INSERT INTO Processor VALUES('AMD', 'Ryzen 3')
+INSERT INTO Processor VALUES('AMD', 'Ryzen 5')
+INSERT INTO Processor VALUES('AMD', 'Ryzen 7')
+INSERT INTO Processor VALUES('AMD', 'Ryzen 9')
 
 
 INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
+INSERT INTO Graphics_Card VALUES ('GTX 970 4GB','Nvidia',4,1178)
+INSERT INTO Graphics_Card VALUES ('GTX 1060 6GB','Nvidia',6,1708)
+INSERT INTO Graphics_Card VALUES ('GTX 1060 3GB','Nvidia',3,1708)
+INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
+INSERT INTO Graphics_Card VALUES ('GTX 1080 8GB','Nvidia',8,1733)
+INSERT INTO Graphics_Card VALUES ('GTX 980 4GB','Nvidia',4,1216)
 INSERT INTO Graphics_Card VALUES ('GTX 3070 8GB','Nvidia',8,1730)
+INSERT INTO Graphics_Card VALUES ('MX450','Nvidia',4,1518)
 INSERT INTO Graphics_Card VALUES ('GTX 1070 TI 8GB','Nvidia',8,1683)
-INSERT INTO Graphics_Card VALUES ('Radeon RX470','AMD',4,1206)
+
+INSERT INTO Graphics_Card VALUES ('Radeon RX 6800','AMD',4,1700)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 5700','AMD',4,1725)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 5600 XT ','AMD',4,1130)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 6800 XT','AMD',4,2250)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 560','AMD',4,1292)
 
 
+INSERT INTO Operating_System VALUES	('DOS','Microsoft','-')
+INSERT INTO Operating_System VALUES	('No OS','N/A','-')
 
+INSERT INTO Operating_System VALUES	('Windows','Microsoft','7')
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','8')
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','8.1')
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','10')
+
 INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Sierra')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','High Sierra')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Mojave')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Catalina')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Big Sur')
+
+INSERT INTO Operating_System VALUES	('Ubuntu','Canonical','14')
+INSERT INTO Operating_System VALUES	('Ubuntu','Canonical','15')
+INSERT INTO Operating_System VALUES	('Ubuntu','Canonical','16')
+

@@ -533,5 +533,15 @@ namespace Laptop_Database_System
         {
            
         }
+
+        private void osName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
+        }
+
+        private void osVer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
