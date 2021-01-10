@@ -166,6 +166,9 @@
     <EmbeddedResource Include="AddParts.resx">
       <DependentUpon>AddParts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Admin.resx">
+      <DependentUpon>Add_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>

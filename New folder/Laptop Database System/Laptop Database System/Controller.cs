@@ -694,5 +694,10 @@ namespace Laptop_Database_System
             string query = $"update Laptop set Promoted='promoted' where Model='{model}'";
             return dbMan.ExecuteNonQuery(query);
         }
+        public int AddAdmin(string email, string un, string pass)
+        {
+            string query = $"insert into S_User values({getNewID()},'{email}','{un}','Admin',1,'{pass}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }
