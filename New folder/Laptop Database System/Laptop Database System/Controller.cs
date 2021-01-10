@@ -63,6 +63,11 @@ namespace Laptop_Database_System
         }
 
 
+        public int editStore(string name,string phone,string address, string oldName)
+        {
+            string query = "UPDATE Store Set Name = '"+name+"' , Phone = "+phone+", Address = '"+address+"' Where Name = '"+oldName+"'";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
         public int checkMail(string email) // checks if the email exists in the DB or not and returns their ID
         {

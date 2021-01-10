@@ -147,5 +147,10 @@ namespace Laptop_Database_System
             Form foo = new ViewLaptop(lapModel,currentUserID);
             foo.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            laptop.DataSource = controllerObj.fillDashStore(controllerObj.getOwner(currentUserID.ToString()));
+        }
     }
 }

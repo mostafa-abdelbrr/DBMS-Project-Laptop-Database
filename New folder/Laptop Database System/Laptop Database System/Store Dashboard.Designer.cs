@@ -39,6 +39,7 @@ namespace Laptop_Database_System
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.laptop)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +118,7 @@ namespace Laptop_Database_System
             // 
             // viewAll
             // 
-            this.viewAll.Location = new System.Drawing.Point(11, 182);
+            this.viewAll.Location = new System.Drawing.Point(11, 185);
             this.viewAll.Margin = new System.Windows.Forms.Padding(2);
             this.viewAll.Name = "viewAll";
             this.viewAll.Size = new System.Drawing.Size(93, 28);
@@ -128,7 +129,7 @@ namespace Laptop_Database_System
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 127);
+            this.button1.Location = new System.Drawing.Point(11, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
             this.button1.TabIndex = 5;
@@ -138,7 +139,7 @@ namespace Laptop_Database_System
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(11, 237);
+            this.button2.Location = new System.Drawing.Point(11, 241);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 28);
             this.button2.TabIndex = 6;
@@ -148,7 +149,7 @@ namespace Laptop_Database_System
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(11, 72);
+            this.button3.Location = new System.Drawing.Point(11, 73);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 28);
@@ -157,11 +158,22 @@ namespace Laptop_Database_System
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(12, 297);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 28);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Refresh";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Store_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1338, 653);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -198,5 +210,6 @@ namespace Laptop_Database_System
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
