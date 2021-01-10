@@ -91,8 +91,8 @@ namespace Laptop_Database_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form foo = new ViewLaptop("yay");
-            foo.Show();
+            //Form foo = new ViewLaptop("yay");
+            //foo.Show();
         }
 
         private void laptop_CellContentClick(object sender, DataGridViewCellEventArgs e)
