@@ -688,5 +688,21 @@ namespace Laptop_Database_System
             string query = "SELECT Model From Laptop WHERE Name= " + Name + ";";
             return (string)dbMan.ExecuteScalar(query);
         }
+
+        public DataTable SelectLapsToPromote()
+        {
+            string query = "select * from Laptop where Approved=1 and Promoted='waiting';";
+            return dbMan.ExecuteReader(query);
+        }
+        public int promoteLaptops(string model)
+        {
+            string query = $"update Laptop set Promoted='promoted' where Model='{model}'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int AddAdmin(string email, string un, string pass)
+        {
+            string query = $"insert into S_User values({getNewID()},'{email}','{un}','Admin',1,'{pass}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }

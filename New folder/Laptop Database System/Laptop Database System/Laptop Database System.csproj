@@ -58,6 +58,12 @@
     <Compile Include="AddParts.Designer.cs">
       <DependentUpon>AddParts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Admin.Designer.cs">
+      <DependentUpon>Add_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,12 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Promote_Laptops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Promote_Laptops.Designer.cs">
+      <DependentUpon>Promote_Laptops.cs</DependentUpon>
+    </Compile>
     <Compile Include="promotions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,9 @@
     <EmbeddedResource Include="AddParts.resx">
       <DependentUpon>AddParts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Admin.resx">
+      <DependentUpon>Add_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Promote_Laptops.resx">
+      <DependentUpon>Promote_Laptops.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="promotions.resx">
       <DependentUpon>promotions.cs</DependentUpon>

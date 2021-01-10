@@ -7,7 +7,15 @@ saleh
 
 Workload:
 
-andrew: mtnsa4 tktb enak 3mlt el database sql code w keda
+andrew 1180086: created the original script for the database where everybody then added to it as they needed
+		Admin Dashboard:
+			-Edit/Remove Laptop Prcedures and Forms
+			-Edit Strong entity parts
+			-Add parts for the store to choose when He is entering Laptop
+			-Check Search History of users
+			-Check most searched Laptops
+			-Approve Stores
+			-Promote Laptops waiting to be Promoted
 
 
 mostafa:
