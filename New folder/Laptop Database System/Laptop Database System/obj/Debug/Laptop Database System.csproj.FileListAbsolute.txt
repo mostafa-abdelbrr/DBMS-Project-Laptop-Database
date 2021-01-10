@@ -47,3 +47,5 @@ G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Databas
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.promotion.resources
+C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.promotion.resources
+C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Promote_Laptops.resources

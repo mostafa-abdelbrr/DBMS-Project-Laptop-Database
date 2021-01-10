@@ -62,5 +62,10 @@ namespace Laptop_Database_System
             s.Show();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Promote_Laptops p = new Promote_Laptops();
+            p.Show();
+        }
     }
 }
