@@ -140,8 +140,8 @@ namespace Laptop_Database_System
             DataGridViewRow selectedRow = laptop.Rows[selectedrowindex];
             string lapName = Convert.ToString(selectedRow.Cells["Name"].Value);
 
-            Form foo = new ViewLaptop(lapName);
-            foo.Show();
+            //Form foo = new ViewLaptop(lapName);
+            //foo.Show();
         }
     }
 }

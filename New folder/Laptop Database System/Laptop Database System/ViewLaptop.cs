@@ -43,64 +43,10 @@ namespace Laptop_Database_System
 
         private void ViewLaptop_Load(object sender, EventArgs e)
         {
-            //The Information of the latop 
-            DataTable dt = ControlObj.GetInformation(LaptopID);
-            InformationDataGrid.DataSource = dt;
-            InformationDataGrid.Refresh();
-
-            //The Processor Information
-            dt = ControlObj.GetProcessor(LaptopID);
-            ProcessorsDataGrid.DataSource = dt;
-            ProcessorsDataGrid.Refresh();
-
-            //The GraphicsCard Information
-            dt = ControlObj.GetGarphicsCard(LaptopID);
-            GrahicsCardDataGrid.DataSource = dt;
-            GrahicsCardDataGrid.Refresh();
-
-            //The RAM Information 
-            dt = ControlObj.GetRAM(LaptopID);
-            RAMDataGrid.DataSource = dt;
-            RAMDataGrid.Refresh();
-
-            //The OperationSystem Information 
-            dt = ControlObj.GetOS(LaptopID);
-            OSDataGrid.DataSource = dt;
-            OSDataGrid.Refresh();
-
-            //The Storage Information 
-            dt = ControlObj.GetStorage(LaptopID);
-            StorageDataGrid.DataSource = dt;
-            StorageDataGrid.Refresh();
-
-            //The USB Information
-            dt = ControlObj.GetUSB(LaptopID);
-            USBDataGrid.DataSource = dt;
-            USBDataGrid.Refresh();
-
-            //The Screen Information
-            dt = ControlObj.GetScreen(LaptopID);
-            ScreenDataGrid.DataSource = dt;
-            ScreenDataGrid.Refresh();
-
-            //The Manufacturer Information
-            dt = ControlObj.GetManufacturer(LaptopID);
-            ManufacturerDataGrid.DataSource = dt;
-            ManufacturerDataGrid.Refresh();
-
-            //The Store Information
-            dt = ControlObj.GetStore(LaptopID);
-            StoreDataGrid.DataSource = dt;
-            StoreDataGrid.Refresh();
-
-            //The KeyBoard Infromation
-            dt = ControlObj.GetKeyboard(LaptopID);
-            KeyboradDataGrid.DataSource = dt;
-            KeyboradDataGrid.Refresh();
-
             //Show Laptop Rating 
-            string LapRating = ControlObj.GetRating(LaptopID);
-            RatingView.Text = LapRating;
+            DataTable dt = ControlObj.GetRating(LaptopID);
+            dataGridView2.DataSource = dt;
+            dataGridView2.Refresh();
 
             //Show Rating
             if (UserRole=="3")
@@ -121,6 +67,37 @@ namespace Laptop_Database_System
 
         private void label12_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string combo = comboBox1.Text;
+            DataTable dt;
+            if (combo == "Processor")
+                dt = ControlObj.GetProcessor(LaptopID);
+            else if (combo == "Graphics Card")
+                dt = ControlObj.GetGarphicsCard(LaptopID);
+            else if (combo == "RAM")
+                dt = ControlObj.GetRAM(LaptopID);
+            else if (combo == "Keyboard")
+                dt = ControlObj.GetKeyboard(LaptopID);
+            else if (combo == "Screen")
+                dt = ControlObj.GetScreen(LaptopID);
+            else if (combo == "Operation System")
+                dt = ControlObj.GetOS(LaptopID);
+            else if (combo == "USB Port")
+                dt = ControlObj.GetUSB(LaptopID);
+            else if (combo == "Storage")
+                dt = ControlObj.GetStorage(LaptopID);
+            else if (combo == "Manufacturer Information")
+                dt = ControlObj.GetManufacturer(LaptopID);
+            else if (combo == "Store Information")
+                dt = ControlObj.GetStore(LaptopID);
+            else
+                dt = ControlObj.GetInformation(LaptopID);
+
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
