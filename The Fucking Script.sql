@@ -9,7 +9,7 @@ create Table Laptop
 	Name varchar(50) UNIQUE,
 	Release_Date date,
 	Approved bit,
-	Promoted bit,
+	Promoted varchar(50),
 	--Usb_Ports_Num int,
 	--Processer_Mnum varchar(50),
 	--GPU_Mnum varchar(50),
@@ -158,7 +158,7 @@ create Table Bought_From
 	Price float NOT NULL,
 	InStock int NOT NULL,
 	primary key(Laptop_Model,Store_Name),
-	foreign key (Laptop_Model) references Laptop,
+	foreign key (Laptop_Model) references Laptop on delete cascade on update cascade,
 	foreign key (Store_Name) references Store,
 )
 
@@ -304,7 +304,7 @@ GO
 
 
 
-
+INSERT INTO S_User VALUES (0,'-','1','Admin',0,'1')
 
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')

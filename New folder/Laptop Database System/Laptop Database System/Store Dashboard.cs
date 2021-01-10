@@ -16,7 +16,7 @@ namespace Laptop_Database_System
         int approved = 0;
         string username;
         Controller controllerObj;
-        public Store_Dashboard(int userID,int approved,string storeName)
+        public Store_Dashboard(int userID, int approved, string storeName)
         {
             this.username = storeName;
             currentUserID = userID;
@@ -40,14 +40,14 @@ namespace Laptop_Database_System
         public void Store_Dashboard_Load(object sender, EventArgs e)
         {
             //WindowState = FormWindowState.Maximized;
-            
-            
-  
 
 
 
-              welcome.Text = "Welcome, " + username + " !";
-            if(approved == 0)
+
+
+
+            welcome.Text = "Welcome, " + username + " !";
+            if (approved == 0)
             {
                 status.Text = "Awaiting Admin Approval";
                 status.ForeColor = Color.Tomato;
@@ -64,12 +64,12 @@ namespace Laptop_Database_System
                 laptop.DataSource = controllerObj.fillDashStore(controllerObj.getOwner(currentUserID.ToString()));
             }
 
-            
+
         }
 
         private void viewAll_Click(object sender, EventArgs e)
         {
-           
+
             Form foo = new ViewAll();
             foo.Show();
             WindowState = FormWindowState.Minimized;
@@ -78,14 +78,14 @@ namespace Laptop_Database_System
         private void editAcc_Click(object sender, EventArgs e)
         {
             Hide();
-            Form foo = new editStore(this,currentUserID);
+            Form foo = new editStore(this, currentUserID);
             foo.Show();
         }
 
         private void addLaptop_Click(object sender, EventArgs e)
         {
             Hide();
-            Form foo = new addLaptop(this,username,currentUserID);
+            Form foo = new addLaptop(this, username, currentUserID);
             foo.Show();
         }
 
@@ -108,7 +108,7 @@ namespace Laptop_Database_System
 
         private void Store_Dashboard_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Store_Dashboard_Shown(object sender, EventArgs e)
@@ -124,7 +124,24 @@ namespace Laptop_Database_System
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form foo = new promotion(controllerObj.getOwner(currentUserID.ToString()));
+            foo.Show();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (laptop.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select A Laptop Row The Table (by clicking on the empty cell on the left side of the row), Then Press View Laptop To View Its Properies");
+                return;
+            }
+
+            int selectedrowindex = laptop.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = laptop.Rows[selectedrowindex];
+            string lapName = Convert.ToString(selectedRow.Cells["Name"].Value);
+
+            Form foo = new ViewLaptop(lapName);
+            foo.Show();
         }
     }
 }
