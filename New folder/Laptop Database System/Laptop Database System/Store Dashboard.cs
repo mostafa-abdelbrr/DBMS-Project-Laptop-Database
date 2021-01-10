@@ -54,8 +54,9 @@ namespace Laptop_Database_System
                 status.ForeColor = Color.Tomato;
 
                 addLaptop.Enabled = false;
-                button1.Enabled = false;
-                button2.Enabled = false;
+                modify.Enabled = false;
+                promote.Enabled = false;
+                refresh.Enabled = false;
             }
 
             if (approved == 1)

@@ -36,10 +36,10 @@ namespace Laptop_Database_System
             this.laptop = new System.Windows.Forms.DataGridView();
             this.editAcc = new System.Windows.Forms.Button();
             this.viewAll = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.modify = new System.Windows.Forms.Button();
+            this.promote = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.laptop)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,25 +127,25 @@ namespace Laptop_Database_System
             this.viewAll.UseVisualStyleBackColor = true;
             this.viewAll.Click += new System.EventHandler(this.viewAll_Click);
             // 
-            // button1
+            // modify
             // 
-            this.button1.Location = new System.Drawing.Point(11, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Modify Laptops";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.modify.Location = new System.Drawing.Point(11, 129);
+            this.modify.Name = "modify";
+            this.modify.Size = new System.Drawing.Size(93, 28);
+            this.modify.TabIndex = 5;
+            this.modify.Text = "Modify Laptops";
+            this.modify.UseVisualStyleBackColor = true;
+            this.modify.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button2
+            // promote
             // 
-            this.button2.Location = new System.Drawing.Point(11, 241);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 28);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Promote ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.promote.Location = new System.Drawing.Point(11, 241);
+            this.promote.Name = "promote";
+            this.promote.Size = new System.Drawing.Size(93, 28);
+            this.promote.TabIndex = 6;
+            this.promote.Text = "Promote ";
+            this.promote.UseVisualStyleBackColor = true;
+            this.promote.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -158,25 +158,25 @@ namespace Laptop_Database_System
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // refresh
             // 
-            this.button4.Location = new System.Drawing.Point(12, 297);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 28);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.refresh.Location = new System.Drawing.Point(12, 297);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(93, 28);
+            this.refresh.TabIndex = 8;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.button4_Click);
             // 
             // Store_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1338, 653);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.promote);
+            this.Controls.Add(this.modify);
             this.Controls.Add(this.viewAll);
             this.Controls.Add(this.editAcc);
             this.Controls.Add(this.laptop);
@@ -207,9 +207,9 @@ namespace Laptop_Database_System
         private System.Windows.Forms.DataGridView laptop;
         private System.Windows.Forms.Button editAcc;
         private System.Windows.Forms.Button viewAll;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button modify;
+        private System.Windows.Forms.Button promote;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button refresh;
     }
 }
