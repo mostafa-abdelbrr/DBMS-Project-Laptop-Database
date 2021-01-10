@@ -699,5 +699,11 @@ namespace Laptop_Database_System
             string query = $"insert into S_User values({getNewID()},'{email}','{un}','Admin',1,'{pass}');";
             return dbMan.ExecuteNonQuery(query);
         }
+
+        public int AdminChangePass(string id,string np)
+        {
+            string query = $"update S_User set Password='{np}' where ID={id}";
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }

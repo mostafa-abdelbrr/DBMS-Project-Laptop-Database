@@ -15,14 +15,16 @@ namespace Laptop_Database_System
     {
         Controller controllerObj;
         validations validator = new validations();
-        public Add_Admin()
+        
+        public Add_Admin( )
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ERR.Visible = false;
+            ERR.Visible = false;    
             controllerObj = new Controller();
             
             if (user.TextLength == 0)

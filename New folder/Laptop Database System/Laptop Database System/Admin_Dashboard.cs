@@ -73,5 +73,11 @@ namespace Laptop_Database_System
             Add_Admin a = new Add_Admin();
             a.Show();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Admin_Change_Pass a = new Admin_Change_Pass(this.id);
+            a.Show();
+        }
     }
 }

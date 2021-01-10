@@ -64,6 +64,12 @@
     <Compile Include="Add_Admin.Designer.cs">
       <DependentUpon>Add_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Change_Pass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Change_Pass.Designer.cs">
+      <DependentUpon>Admin_Change_Pass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Admin.resx">
       <DependentUpon>Add_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Change_Pass.resx">
+      <DependentUpon>Admin_Change_Pass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
