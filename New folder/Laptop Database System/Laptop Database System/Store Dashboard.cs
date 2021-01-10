@@ -39,7 +39,8 @@ namespace Laptop_Database_System
 
         public void Store_Dashboard_Load(object sender, EventArgs e)
         {
-            //WindowState = FormWindowState.Maximized;
+            laptop.Refresh();
+            laptop.Update();
 
 
 
@@ -119,6 +120,8 @@ namespace Laptop_Database_System
                 status.ForeColor = Color.MidnightBlue;
 
                 laptop.DataSource = controllerObj.fillDashStore(controllerObj.getOwner(currentUserID.ToString()));
+                laptop.Refresh();
+                laptop.Update();
             }
         }
 
@@ -138,9 +141,9 @@ namespace Laptop_Database_System
 
             int selectedrowindex = laptop.SelectedCells[0].RowIndex;
             DataGridViewRow selectedRow = laptop.Rows[selectedrowindex];
-            string lapName = Convert.ToString(selectedRow.Cells["Name"].Value);
+            string lapModel = Convert.ToString(selectedRow.Cells["Model"].Value);
 
-            Form foo = new ViewLaptop(lapName);
+            Form foo = new ViewLaptop(lapModel,currentUserID);
             foo.Show();
         }
     }
