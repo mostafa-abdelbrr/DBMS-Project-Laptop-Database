@@ -30,6 +30,8 @@ Omar 1180004 : Login Form Design + Functionalities
 	       Store Dashboard form deisgn
                Add Laptop form design + functionalities
                Promote Laptop Form Design (Functionality on admin side by Andrew)
+	       Stored Procedure: getNewID
+   	       Stored Procedure : fillComposedOf 
                
 
 
