@@ -697,7 +697,7 @@ namespace Laptop_Database_System
         }
         public int promoteLaptops(string model)
         {
-            string query = $"update Laptop set Promoted='promoted' where Model='{model}'";
+            string query = $"update Laptop set Promoted='promoted' where Model='{model}';";
             return dbMan.ExecuteNonQuery(query);
         }
         public int AddAdmin(string email, string un, string pass)
@@ -709,6 +709,17 @@ namespace Laptop_Database_System
         public int AdminChangePass(string id,string np)
         {
             string query = $"update S_User set Password='{np}' where ID={id}";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable SelectLaptopsToApprove()
+        {
+            string query = "select * from Laptop where Approved=0;";
+            return dbMan.ExecuteReader(query);
+        }
+        public int ApproveLaptops(string model)
+        {
+            string query = $"update Laptop set Approved=1 where Model='{model}';";
             return dbMan.ExecuteNonQuery(query);
         }
     }

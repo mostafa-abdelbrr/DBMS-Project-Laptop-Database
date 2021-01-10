@@ -22,6 +22,7 @@ namespace Laptop_Database_System
         {
             controllerObj = new Controller();
             dataGridView1.DataSource = controllerObj.SelectLapsToPromote();
+            dataGridView2.DataSource = controllerObj.SelectLaptopsToApprove();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +33,17 @@ namespace Laptop_Database_System
                 controllerObj.promoteLaptops(dataGridView1.SelectedRows[i].Cells[0].Value.ToString());
             }
             dataGridView1.DataSource = controllerObj.SelectLapsToPromote();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            controllerObj = new Controller();
+            for (int i = 0; i < dataGridView2.SelectedRows.Count; i++)
+            {
+                controllerObj.ApproveLaptops(dataGridView2.SelectedRows[i].Cells[0].Value.ToString());
+            }
+            dataGridView1.DataSource = controllerObj.SelectLapsToPromote();
+            dataGridView2.DataSource = controllerObj.SelectLaptopsToApprove();
         }
     }
 }

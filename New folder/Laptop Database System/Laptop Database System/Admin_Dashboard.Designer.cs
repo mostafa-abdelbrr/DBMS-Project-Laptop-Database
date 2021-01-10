@@ -92,15 +92,15 @@
             // 
             this.button6.Location = new System.Drawing.Point(21, 180);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 42);
+            this.button6.Size = new System.Drawing.Size(75, 64);
             this.button6.TabIndex = 11;
-            this.button6.Text = "Promote Laptops";
+            this.button6.Text = "Approve /Promote Laptops";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(21, 228);
+            this.button7.Location = new System.Drawing.Point(21, 250);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 24);
             this.button7.TabIndex = 12;
@@ -110,7 +110,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(21, 258);
+            this.button8.Location = new System.Drawing.Point(21, 280);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 44);
             this.button8.TabIndex = 13;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(120, 314);
+            this.ClientSize = new System.Drawing.Size(131, 439);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
