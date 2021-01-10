@@ -255,9 +255,17 @@ create procedure RemoveLaptop @LM varchar(100)
 AS
 Delete from Composed_Of where Laptop_Model=@LM
 Delete from Laptop where Model=@LM
+Delete from Bought_From where Laptop_Model=@LM
 GO
 
+create procedure getnewID @newID int OUTPUT 
+AS
+Select @newID = Max(ID) + 1  From S_User 
+return @newID
 GO
+
+
+
 CREATE PROCEDURE fillComposedOf @lapModel varchar(50), @procbrand varchar(50),@pnum varchar(50),@gpu varchar(50),@osmanu varchar(50),@osname varchar(50),@osver varchar(50)
 AS
 Begin
@@ -304,12 +312,14 @@ GO
 
 
 
-INSERT INTO S_User VALUES (0,'-','1','Admin',0,'1')
+
 
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')
 INSERT INTO Roles Values (3,'User')
 INSERT INTO Roles Values (0,'Store_WAITING_APPROVAL')
+
+INSERT INTO S_User VALUES (0,'-','1','Admin',0,'1')
 
 INSERT INTO Manufacturer_Data Values ('ASUS','RAYA: 1 Abdel Hamid Loutfy St, Makram Ebeid, Nasr city, Cairo, Egypt')
 INSERT INTO Manufacturer_Data Values ('Acer','Mantrac: 30 Lebonan St,1st Floor, Mohandseen, Giza')

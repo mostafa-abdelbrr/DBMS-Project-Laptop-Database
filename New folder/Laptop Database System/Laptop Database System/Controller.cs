@@ -287,12 +287,16 @@ namespace Laptop_Database_System
 
         public long getNewID()
         {
-            if (dbMan.ExecuteScalar("select max(ID)+1 from S_User") == DBNull.Value)
-            {
-                return 0;
-            }
+            //if (dbMan.ExecuteScalar("select max(ID)+1 from S_User") == DBNull.Value)
+            //{
+            //    return 0;
+            //}
 
-            return Convert.ToInt64(dbMan.ExecuteScalar("select max(ID)+1 from S_User"));
+            //return Convert.ToInt64(dbMan.ExecuteScalar("select max(ID)+1 from S_User"));
+
+
+            string query = "declare @y int exec getnewID @y OUTPUT select @y";
+            return  Convert.ToInt64(dbMan.ExecuteScalar(query));
         }
 
         public int signUp(string email, string username, string password, bool consent, string role)

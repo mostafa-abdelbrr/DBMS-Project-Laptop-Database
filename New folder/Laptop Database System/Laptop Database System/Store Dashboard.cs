@@ -55,6 +55,7 @@ namespace Laptop_Database_System
 
                 addLaptop.Enabled = false;
                 button1.Enabled = false;
+                button2.Enabled = false;
             }
 
             if (approved == 1)
