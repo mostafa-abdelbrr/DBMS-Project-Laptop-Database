@@ -1,0 +1,25 @@
+andrew
+mostafa
+Omar Tarek Ahmed Mohammed Ali Amer 1180004
+saleh
+
+
+
+Workload:
+
+andrew: mtnsa4 tktb enak 3mlt el database sql code w keda
+
+
+mostafa:
+
+Omar 1180004 : Login Form Design + Functionalities 
+	       Sign Up Form + Functionalities
+	       Store Owner Sign up + Functionalities
+               Edit Store Account Form + Functionalities
+	       Store Dashboard form deisgn
+               Add Laptop form design + functionalities
+               Promote Laptop Form Design (Functionality on admin side by Andrew)
+               
+
+
+saleh
