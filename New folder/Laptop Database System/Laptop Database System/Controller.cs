@@ -131,7 +131,8 @@ namespace Laptop_Database_System
 
         public DataTable fillDashStore(string store)
         {
-            string query = "select Name, Composed_Of.Laptop_Model as 'Model',K_type as 'Keyboard',K_Light as 'Light On Keyboard',P_brand as 'Processor',p_ModelNum as 'Processor Model Number',R_size as 'Ram' ,R_DDR as 'DDR',GPU_Model_Number as 'GPU',OS_Manufacturer as 'Operating system Vendor',OS_Name as 'Operating System',OS_Ver as 'Operating System Version',HDD_Manufacturer as 'HDD Manufacturer',HDD_Size as 'HDD Size',SSD_Manufacturer as 'SSD Manufacturer',SSD_Size as 'SSD Size',USB2 as 'No. Of USB2 Ports',USB3 as 'No. Of USB3 Ports',SC_Type as 'Screen',SC_Resolution as 'Resolution',SC_Size as 'Size' FROM Laptop, Composed_Of,Bought_From where Laptop.Model = Composed_of.Laptop_Model AND Composed_Of.Laptop_Model = Bought_From.Laptop_Model AND Bought_From.Store_Name = '"+store+"'";
+            string query = "select Manufacturered_By.Name as Manufacturer ,Laptop.Name, Approved,Promoted, Composed_Of.Laptop_Model as 'Model',K_type as 'Keyboard',K_Light as 'Light On Keyboard',P_brand as 'Processor',p_ModelNum as 'Processor Model Number',R_size as 'Ram' ,R_DDR as 'DDR',GPU_Model_Number as 'GPU',OS_Manufacturer as 'Operating system Vendor',OS_Name as 'Operating System',OS_Ver as 'Operating System Version',HDD_Manufacturer as 'HDD Manufacturer',HDD_Size as 'HDD Size',SSD_Manufacturer as 'SSD Manufacturer',SSD_Size as 'SSD Size',USB2 as 'No. Of USB2 Ports',USB3 as 'No. Of USB3 Ports',SC_Type as 'Screen',SC_Resolution as 'Resolution',SC_Size as 'Size' FROM Manufacturered_By, Laptop, Composed_Of,Bought_From where Manufacturered_By.Laptop_Model = Laptop.Model AND Laptop.Model = Composed_of.Laptop_Model AND Composed_Of.Laptop_Model = Bought_From.Laptop_Model AND Bought_From.Store_Name = '"+store+"'";
+
             return dbMan.ExecuteReader(query);
         }
 
