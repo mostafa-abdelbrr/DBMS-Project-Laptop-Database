@@ -148,7 +148,7 @@ create table Owner
 	Store_Name varchar(50),
 	primary key (User_ID,Store_Name),
 	foreign key (User_ID) references S_User ON DELETE CASCADE,
-	foreign key (Store_Name) references Store ON DELETE CASCADE
+	foreign key (Store_Name) references Store ON DELETE CASCADE on update cascade
 )
 
 create Table Bought_From
@@ -159,7 +159,7 @@ create Table Bought_From
 	InStock int NOT NULL,
 	primary key(Laptop_Model,Store_Name),
 	foreign key (Laptop_Model) references Laptop on delete cascade on update cascade,
-	foreign key (Store_Name) references Store,
+	foreign key (Store_Name) references Store on delete cascade on update cascade,
 )
 
 create Table USB_Type

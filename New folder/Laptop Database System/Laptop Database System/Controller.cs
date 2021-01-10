@@ -41,7 +41,8 @@ namespace Laptop_Database_System
         }
         public DataTable fillPromoBox(string store)
         {
-            string query = "select Laptop_Model from Bought_From where Store_Name = '" + store + "'";
+             string query = "select Bought_From.Laptop_Model from Bought_From,Laptop where Store_Name = '" + store + "' AND Laptop.Model = Bought_From.Laptop_Model And Promoted = '0' ";
+            //string query = "";
             return dbMan.ExecuteReader(query);
         }
 
@@ -63,6 +64,11 @@ namespace Laptop_Database_System
         }
 
 
+        public int editStore(string name,string phone,string address, string oldName)
+        {
+            string query = "UPDATE Store Set Name = '"+name+"' , Phone = "+phone+", Address = '"+address+"' Where Name = '"+oldName+"'";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
         public int checkMail(string email) // checks if the email exists in the DB or not and returns their ID
         {

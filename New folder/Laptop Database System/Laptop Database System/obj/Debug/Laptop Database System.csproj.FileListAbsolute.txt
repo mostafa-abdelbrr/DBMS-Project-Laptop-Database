@@ -50,4 +50,9 @@ G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Databas
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.promotion.resources
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Promote_Laptops.resources
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Add_Admin.resources
+<<<<<<< HEAD
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Admin_Change_Pass.resources
+=======
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Add_Admin.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Promote_Laptops.resources
+>>>>>>> df87b3d2ede2a04d3f77be27ed6e40bddd1d1f80

@@ -54,8 +54,9 @@ namespace Laptop_Database_System
                 status.ForeColor = Color.Tomato;
 
                 addLaptop.Enabled = false;
-                button1.Enabled = false;
-                button2.Enabled = false;
+                modify.Enabled = false;
+                promote.Enabled = false;
+                refresh.Enabled = false;
             }
 
             if (approved == 1)
@@ -146,6 +147,11 @@ namespace Laptop_Database_System
 
             Form foo = new ViewLaptop(lapModel,currentUserID);
             foo.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            laptop.DataSource = controllerObj.fillDashStore(controllerObj.getOwner(currentUserID.ToString()));
         }
     }
 }
