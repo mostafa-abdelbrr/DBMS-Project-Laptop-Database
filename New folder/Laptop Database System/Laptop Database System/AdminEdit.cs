@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Laptop_Database_System
 {
-    
+
     public partial class AdminEdit : Form
     {
         Controller controllerObj;
@@ -31,7 +31,7 @@ namespace Laptop_Database_System
         private void AdminEdit_Load(object sender, EventArgs e)
         {
             controllerObj = new Controller();
-          
+
             controllerObj.getUserDataFromID(id,ref username,ref role);
 
             if (role == "Admin")
@@ -51,14 +51,17 @@ namespace Laptop_Database_System
                 }
                 comboBox1.SelectedIndex = 0;
             } else if (role == "Store")
-                {
-                        EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
-                         if (EditLTdg.Rows.Count > 1)
-                    {
-                        EditLTdg.Columns[0].ReadOnly = true;
-                        EditLTdg.Columns[7].ReadOnly = true;
-                    }
-                }
+            {
+                comboBox1.Visible = false;
+                label3.Visible = false;
+                label1.Text = "Press DEL to Delete";
+                EditLTdg.DataSource = controllerObj.SelectEditsStore(controllerObj.getOwner(id.ToString()));
+                 if (EditLTdg.Rows.Count > 1)
+            {
+                EditLTdg.Columns[0].ReadOnly = true;
+                EditLTdg.Columns[7].ReadOnly = true;
+            }
+            }
            // EditLTdg.Columns[0].ReadOnly = true;
            // EditLTdg.Columns[7].ReadOnly = true;
         }
@@ -70,12 +73,12 @@ namespace Laptop_Database_System
             {
 
                     case "Laptop":
-                    
+
                     if (EditLTdg.Rows.Count <= 1)
                     {
                         return;
                     }
-                 
+
                     controllerObj = new Controller();
                     for (int i = 0; i < EditLTdg.Rows.Count - 1; i++)
                     {
@@ -169,12 +172,12 @@ namespace Laptop_Database_System
             //}
             //EditLTdg.Columns[0].ReadOnly = true;
             //EditLTdg.Columns[7].ReadOnly = true;
-           
+
         }
 
         private void EditLTdg_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void EditLTdg_KeyDown(object sender, KeyEventArgs e)
@@ -200,7 +203,7 @@ namespace Laptop_Database_System
             {
                 case "Laptop":
                     EditLTdg.DataSource = null;
-                    EditLTdg.DataSource = controllerObj.SelectEdits();               
+                    EditLTdg.DataSource = controllerObj.SelectEdits();
                     if (EditLTdg.Rows.Count > 1)
                     {
                         EditLTdg.Columns[0].ReadOnly = true;
@@ -218,7 +221,7 @@ namespace Laptop_Database_System
                     GPUomn = new string[EditLTdg.Rows.Count - 1];
                     for (int i = 0; i < EditLTdg.Rows.Count - 1; i++)
                     {
-                        GPUomn[i] = EditLTdg.Rows[i].Cells[0].Value.ToString();                      
+                        GPUomn[i] = EditLTdg.Rows[i].Cells[0].Value.ToString();
                     }
                     break;
                 case "CPU":

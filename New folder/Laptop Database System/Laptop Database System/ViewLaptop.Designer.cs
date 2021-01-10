@@ -51,6 +51,11 @@ namespace Laptop_Database_System
             this.USBDataGrid = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.KeyboradDataGrid = new System.Windows.Forms.DataGridView();
+            this.Rating = new System.Windows.Forms.Label();
+            this.RatingView = new System.Windows.Forms.Label();
+            this.Rate = new System.Windows.Forms.Label();
+            this.RateText = new System.Windows.Forms.TextBox();
+            this.RateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.InformationDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessorsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrahicsCardDataGrid)).BeginInit();
@@ -289,11 +294,65 @@ namespace Laptop_Database_System
             this.KeyboradDataGrid.Size = new System.Drawing.Size(753, 71);
             this.KeyboradDataGrid.TabIndex = 21;
             // 
+            // Rating
+            // 
+            this.Rating.AutoSize = true;
+            this.Rating.Location = new System.Drawing.Point(803, 102);
+            this.Rating.Name = "Rating";
+            this.Rating.Size = new System.Drawing.Size(49, 17);
+            this.Rating.TabIndex = 22;
+            this.Rating.Text = "Rating";
+            this.Rating.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // RatingView
+            // 
+            this.RatingView.AutoSize = true;
+            this.RatingView.Location = new System.Drawing.Point(900, 102);
+            this.RatingView.Name = "RatingView";
+            this.RatingView.Size = new System.Drawing.Size(82, 17);
+            this.RatingView.TabIndex = 23;
+            this.RatingView.Text = "Rating View";
+            this.RatingView.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // Rate
+            // 
+            this.Rate.AutoSize = true;
+            this.Rate.Location = new System.Drawing.Point(812, 227);
+            this.Rate.Name = "Rate";
+            this.Rate.Size = new System.Drawing.Size(38, 17);
+            this.Rate.TabIndex = 24;
+            this.Rate.Text = "Rate";
+            this.Rate.Visible = false;
+            // 
+            // RateText
+            // 
+            this.RateText.Location = new System.Drawing.Point(815, 247);
+            this.RateText.Name = "RateText";
+            this.RateText.Size = new System.Drawing.Size(176, 22);
+            this.RateText.TabIndex = 25;
+            this.RateText.Visible = false;
+            // 
+            // RateButton
+            // 
+            this.RateButton.Location = new System.Drawing.Point(860, 293);
+            this.RateButton.Name = "RateButton";
+            this.RateButton.Size = new System.Drawing.Size(75, 23);
+            this.RateButton.TabIndex = 26;
+            this.RateButton.Text = "Rate";
+            this.RateButton.UseVisualStyleBackColor = true;
+            this.RateButton.Visible = false;
+            this.RateButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ViewLaptop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 1055);
+            this.ClientSize = new System.Drawing.Size(1015, 1055);
+            this.Controls.Add(this.RateButton);
+            this.Controls.Add(this.RateText);
+            this.Controls.Add(this.Rate);
+            this.Controls.Add(this.RatingView);
+            this.Controls.Add(this.Rating);
             this.Controls.Add(this.KeyboradDataGrid);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.USBDataGrid);
@@ -359,5 +418,10 @@ namespace Laptop_Database_System
         private System.Windows.Forms.DataGridView USBDataGrid;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView KeyboradDataGrid;
+        private System.Windows.Forms.Label Rating;
+        private System.Windows.Forms.Label RatingView;
+        private System.Windows.Forms.Label Rate;
+        private System.Windows.Forms.TextBox RateText;
+        private System.Windows.Forms.Button RateButton;
     }
 }
