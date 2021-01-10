@@ -25,3 +25,31 @@ C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Lapto
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
 C:\Users\andrew\Documents\GitHub\DBMS-Project-Laptop-Database\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe.config
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csprojAssemblyReference.cache
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.addLaptop.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.AddParts.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Add_Admin.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Admin_Change_Pass.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Admin_Dashboard.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.check_search.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.editStore.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.AdminEdit.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Login.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Promote_Laptops.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.promotion.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Properties.Resources.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Search.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Sign_Up.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Dashboard.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Sign_Up.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Stores_To_Approve.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewAll.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewLaptop.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.WelcomeForm.resources
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.GenerateResource.cache
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
+G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
