@@ -41,7 +41,8 @@ namespace Laptop_Database_System
         }
         public DataTable fillPromoBox(string store)
         {
-            string query = "select Laptop_Model from Bought_From where Store_Name = '" + store + "'";
+             string query = "select Bought_From.Laptop_Model from Bought_From,Laptop where Store_Name = '" + store + "' AND Laptop.Model = Bought_From.Laptop_Model And Promoted = '0' ";
+            //string query = "";
             return dbMan.ExecuteReader(query);
         }
 
