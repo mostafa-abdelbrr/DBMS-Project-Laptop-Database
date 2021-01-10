@@ -252,7 +252,7 @@ namespace Laptop_Database_System
             {
                 MessageBox.Show("Thank You For Choosing LDBS! An Admin Will Review Your Request Shortly");
                // Hide();
-                
+               
               //  parent.Show();
 
             }
@@ -527,6 +527,21 @@ namespace Laptop_Database_System
         private void addLaptop_Shown(object sender, EventArgs e)
         {
 
+        }
+
+        private void procModel_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void osName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            osVer.DataSource = controllerObj.fillosVer(osName.Text);
+        }
+
+        private void osVer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

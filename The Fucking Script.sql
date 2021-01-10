@@ -1,4 +1,4 @@
-create database Laptops
+﻿create database Laptops
 go
 
 use Laptops
@@ -255,9 +255,17 @@ create procedure RemoveLaptop @LM varchar(100)
 AS
 Delete from Composed_Of where Laptop_Model=@LM
 Delete from Laptop where Model=@LM
+Delete from Bought_From where Laptop_Model=@LM
 GO
 
+create procedure getnewID @newID int OUTPUT 
+AS
+Select @newID = Max(ID) + 1  From S_User 
+return @newID
 GO
+
+
+
 CREATE PROCEDURE fillComposedOf @lapModel varchar(50), @procbrand varchar(50),@pnum varchar(50),@gpu varchar(50),@osmanu varchar(50),@osname varchar(50),@osver varchar(50)
 AS
 Begin
@@ -304,32 +312,94 @@ GO
 
 
 
-INSERT INTO S_User VALUES (0,'-','1','Admin',0,'1')
+
 
 INSERT INTO Roles Values (1,'Admin')
 INSERT INTO Roles Values (2,'Store')
 INSERT INTO Roles Values (3,'User')
 INSERT INTO Roles Values (0,'Store_WAITING_APPROVAL')
 
+INSERT INTO S_User VALUES (0,'-','1','Admin',0,'1')
+
 INSERT INTO Manufacturer_Data Values ('ASUS','RAYA: 1 Abdel Hamid Loutfy St, Makram Ebeid, Nasr city, Cairo, Egypt')
 INSERT INTO Manufacturer_Data Values ('Acer','Mantrac: 30 Lebonan St,1st Floor, Mohandseen, Giza')
 INSERT INTO Manufacturer_Data Values ('Lenovo','MAS Egypt: 26 Jeddah St., off Mohi Eldin Abou Elezz,Dokki, Giza')
 INSERT INTO Manufacturer_Data Values ('Samsung','Samsung Service Center: 15 Wadi Al Nile, Gazirat Mit Oqbah, Agouza, Giza Governorate')
+INSERT INTO Manufacturer_Data Values ('DELL','Al Masreya: Abdo Morad Al Mohamei, Al Huwaiteyah, Agouza, Giza Governorate 12654')
+INSERT INTO Manufacturer_Data Values ('Apple','3 Ibn El Nabih Street zamalek Cairo، 11211')
+INSERT INTO Manufacturer_Data Values ('Huawei','14 Mossadak, Ad Doqi, Dokki, Giza Governorate')
+INSERT INTO Manufacturer_Data Values ('Razer','--')
+INSERT INTO Manufacturer_Data Values ('Toshiba','Al Araby Service Center:Bahtim, Shubra El Kheima 2, Al Qalyubia Governorate')
+INSERT INTO Manufacturer_Data Values ('Microsoft','--')
+INSERT INTO Manufacturer_Data Values ('Sony','Al Araby Service Center:Bahtim, Shubra El Kheima 2, Al Qalyubia Governorate')
+INSERT INTO Manufacturer_Data Values ('Sharp','Al Araby Service Center:Bahtim, Shubra El Kheima 2, Al Qalyubia Governorate')
+INSERT INTO Manufacturer_Data Values ('LG','Talaat Harb St., Downtown Cairo 11566')
+
+
+
+
+
+
+
+
+
 
 INSERT INTO Processor VALUES('Intel', 'Core i3')
 INSERT INTO Processor VALUES('Intel', 'Core i5')
 INSERT INTO Processor VALUES('Intel', 'Core i7')
-INSERT INTO Processor VALUES('AMD', 'Ryzen')
+INSERT INTO Processor VALUES('Intel', 'Core i9')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9350KF')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9300T')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9350K')
+INSERT INTO Processor VALUES('Intel', 'Core i3 i3-9320')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600T')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600K')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600KF')
+INSERT INTO Processor VALUES('Intel', 'Core i5-9600')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9850HL')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9750HF')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9700K')
+INSERT INTO Processor VALUES('Intel', 'Core i7-9700')
+
+INSERT INTO Processor VALUES('AMD', 'Ryzen 3')
+INSERT INTO Processor VALUES('AMD', 'Ryzen 5')
+INSERT INTO Processor VALUES('AMD', 'Ryzen 7')
+INSERT INTO Processor VALUES('AMD', 'Ryzen 9')
 
 
 INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
+INSERT INTO Graphics_Card VALUES ('GTX 970 4GB','Nvidia',4,1178)
+INSERT INTO Graphics_Card VALUES ('GTX 1060 6GB','Nvidia',6,1708)
+INSERT INTO Graphics_Card VALUES ('GTX 1060 3GB','Nvidia',3,1708)
+INSERT INTO Graphics_Card VALUES ('GTX 960 2GB','Nvidia',2,1253)
+INSERT INTO Graphics_Card VALUES ('GTX 1080 8GB','Nvidia',8,1733)
+INSERT INTO Graphics_Card VALUES ('GTX 980 4GB','Nvidia',4,1216)
 INSERT INTO Graphics_Card VALUES ('GTX 3070 8GB','Nvidia',8,1730)
+INSERT INTO Graphics_Card VALUES ('MX450','Nvidia',4,1518)
 INSERT INTO Graphics_Card VALUES ('GTX 1070 TI 8GB','Nvidia',8,1683)
-INSERT INTO Graphics_Card VALUES ('Radeon RX470','AMD',4,1206)
+
+INSERT INTO Graphics_Card VALUES ('Radeon RX 6800','AMD',4,1700)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 5700','AMD',4,1725)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 5600 XT ','AMD',4,1130)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 6800 XT','AMD',4,2250)
+INSERT INTO Graphics_Card VALUES ('Radeon RX 560','AMD',4,1292)
 
 
+INSERT INTO Operating_System VALUES	('DOS','Microsoft','-')
+INSERT INTO Operating_System VALUES	('No OS','N/A','-')
 
+INSERT INTO Operating_System VALUES	('Windows','Microsoft','7')
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','8')
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','8.1')
 INSERT INTO Operating_System VALUES	('Windows','Microsoft','10')
+
 INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Sierra')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','High Sierra')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Mojave')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Catalina')
+INSERT INTO Operating_System VALUES	('Mac OSX','Apple','Big Sur')
+
+INSERT INTO Operating_System VALUES	('Ubuntu','Canonical','14')
+INSERT INTO Operating_System VALUES	('Ubuntu','Canonical','15')
+INSERT INTO Operating_System VALUES	('Ubuntu','Canonical','16')
+
