@@ -66,6 +66,8 @@ namespace Laptop_Database_System
             this.ram = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.ssdSize = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -99,8 +101,6 @@ namespace Laptop_Database_System
             this.add = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.err = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usb2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usb3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -408,6 +408,7 @@ namespace Laptop_Database_System
             this.procModel.Name = "procModel";
             this.procModel.Size = new System.Drawing.Size(151, 20);
             this.procModel.TabIndex = 24;
+            this.procModel.Enter += new System.EventHandler(this.procModel_Enter);
             // 
             // label7
             // 
@@ -520,6 +521,26 @@ namespace Laptop_Database_System
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Storage";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(225, 159);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(22, 13);
+            this.label32.TabIndex = 45;
+            this.label32.Text = "GB";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(225, 119);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(22, 13);
+            this.label31.TabIndex = 12;
+            this.label31.Text = "GB";
             // 
             // label30
             // 
@@ -888,26 +909,6 @@ namespace Laptop_Database_System
             this.err.TabIndex = 36;
             this.err.Text = "ERR_LBL";
             this.err.Visible = false;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(225, 119);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(22, 13);
-            this.label31.TabIndex = 12;
-            this.label31.Text = "GB";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(225, 159);
-            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(22, 13);
-            this.label32.TabIndex = 45;
-            this.label32.Text = "GB";
             // 
             // addLaptop
             // 

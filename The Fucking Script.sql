@@ -1,4 +1,4 @@
-create database Laptops
+﻿create database Laptops
 go
 
 use Laptops
@@ -315,6 +315,25 @@ INSERT INTO Manufacturer_Data Values ('ASUS','RAYA: 1 Abdel Hamid Loutfy St, Mak
 INSERT INTO Manufacturer_Data Values ('Acer','Mantrac: 30 Lebonan St,1st Floor, Mohandseen, Giza')
 INSERT INTO Manufacturer_Data Values ('Lenovo','MAS Egypt: 26 Jeddah St., off Mohi Eldin Abou Elezz,Dokki, Giza')
 INSERT INTO Manufacturer_Data Values ('Samsung','Samsung Service Center: 15 Wadi Al Nile, Gazirat Mit Oqbah, Agouza, Giza Governorate')
+INSERT INTO Manufacturer_Data Values ('DELL','Al Masreya: Abdo Morad Al Mohamei, Al Huwaiteyah, Agouza, Giza Governorate 12654')
+INSERT INTO Manufacturer_Data Values ('Apple','3 Ibn El Nabih Street zamalek Cairo، 11211')
+INSERT INTO Manufacturer_Data Values ('Huawei','14 Mossadak, Ad Doqi, Dokki, Giza Governorate')
+INSERT INTO Manufacturer_Data Values ('Razer','--')
+INSERT INTO Manufacturer_Data Values ('Toshiba','Al Araby Service Center:Bahtim, Shubra El Kheima 2, Al Qalyubia Governorate')
+INSERT INTO Manufacturer_Data Values ('Microsoft','--')
+INSERT INTO Manufacturer_Data Values ('Sony','Al Araby Service Center:Bahtim, Shubra El Kheima 2, Al Qalyubia Governorate')
+INSERT INTO Manufacturer_Data Values ('Sharp','Al Araby Service Center:Bahtim, Shubra El Kheima 2, Al Qalyubia Governorate')
+INSERT INTO Manufacturer_Data Values ('LG','Talaat Harb St., Downtown Cairo 11566')
+
+
+
+
+
+
+
+
+
+
 
 INSERT INTO Processor VALUES('Intel', 'Core i3')
 INSERT INTO Processor VALUES('Intel', 'Core i5')
