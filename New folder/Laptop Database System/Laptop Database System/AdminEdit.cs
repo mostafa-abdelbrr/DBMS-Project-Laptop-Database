@@ -34,6 +34,8 @@ namespace Laptop_Database_System
 
             controllerObj.getUserDataFromID(id,ref username,ref role);
 
+            comboBox1.SelectedIndex = 0;
+
             if (role == "Admin")
             {
 
@@ -49,7 +51,7 @@ namespace Laptop_Database_System
                         EditLTdg.Columns[4].ReadOnly = true;
                         EditLTdg.Columns[7].ReadOnly = true;
                 }
-                comboBox1.SelectedIndex = 0;
+                
             } else if (role == "Store")
             {
                 comboBox1.Visible = false;
