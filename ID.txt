@@ -15,8 +15,9 @@ andrew 1180086: created the original script for the database where everybody the
 			-Check Search History of users
 			-Check most searched Laptops
 			-Approve Stores
+			-Approve Laptops
 			-Promote Laptops waiting to be Promoted
-
+			
 
 mostafa:
 
