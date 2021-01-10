@@ -526,14 +526,14 @@ namespace Laptop_Database_System
 
         public DataTable GetInformation(string Name)
         {
-            string query = "Select * from Laptop where Name=" + Name + ";";
+            string query = "Select * from Laptop where Model=" + Name + ";";
             return dbMan.ExecuteReader(query);
         }
 
         public DataTable GetProcessor(string Name)
         {
             string query = "Select Brand, ModelNum From Laptop l,Composed_Of c ,Processor p" +
-                "Where l.Model=c.Laptop_Model AND P.ModelNum=C.P_ModelNum AND l.Name=" + Name + "';";
+                "Where l.Model=c.Laptop_Model AND P.ModelNum=C.P_ModelNum AND l.Model=" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
@@ -541,7 +541,7 @@ namespace Laptop_Database_System
         {
             string query = "Select Manufacturer, Vram, Clock_speed  " +
                 "From Laptop l, Composed_Of c, Graphics_Card g " +
-                "Where l.Model = c.Laptop_Model AND GPU_Model_Number = g.Model_Number AND l.Name = '" + Name + "';";
+                "Where l.Model = c.Laptop_Model AND GPU_Model_Number = g.Model_Number AND l.Model = '" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
@@ -549,7 +549,7 @@ namespace Laptop_Database_System
         {
             string query = "Select Size,DDR " +
                 "From Laptop l, RAM r" +
-                "Where l.Model=r.Laptop_Model AND l.Name ='" + Name + "';";
+                "Where l.Model=r.Laptop_Model AND l.Model ='" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
@@ -557,7 +557,7 @@ namespace Laptop_Database_System
         {
             string query = "Select o.Name, Manufacturer, o.Version " +
                 "from Laptop l, Composed_Of c, Operating_System o " +
-                "Where l.Model = c.Laptop_Model AND c.OS_Name = o.Name AND l.Name ='" + Name + "';";
+                "Where l.Model = c.Laptop_Model AND c.OS_Name = o.Name AND l.Model ='" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
@@ -565,7 +565,7 @@ namespace Laptop_Database_System
         {
             string query = "Select s.Size, s.Manufacturer, s.HDD, s.SDD " +
                 "From Laptop l, Storage s " +
-                "where l.Model = s.Laptop_Model AND l.Name = '" + Name + "';";
+                "where l.Model = s.Laptop_Model AND l.Model = '" + Name + "';";
             return dbMan.ExecuteReader(query);
         }
 
@@ -573,7 +573,7 @@ namespace Laptop_Database_System
         {
             string query = "Select s.Type, s.Resolution, s.Size " +
                 "From Laptop l, Screen s " +
-                "Where l.Model = s.Laptop_Model AND l.Name = '" + Name + "'; ";
+                "Where l.Model = s.Laptop_Model AND l.Model = '" + Name + "'; ";
             return dbMan.ExecuteReader(query);
         }
 
@@ -581,7 +581,7 @@ namespace Laptop_Database_System
         {
             string query = "Select M_Name, Phone, Official_service_centre_address " +
                 "From Laptop l, Manufacturered_By MB, Manufacturer_Data MD, M_Contact_Info MC" +
-                "WHERE l.Model = MB.Laptop_Model AND MB.Name = MD.Name AND MD.Name = MC.M_Name AND l.Name = '" + Name + "'; ";
+                "WHERE l.Model = MB.Laptop_Model AND MB.Name = MD.Name AND MD.Name = MC.M_Name AND l.Model = '" + Name + "'; ";
             return dbMan.ExecuteReader(query);
         }
 
@@ -589,7 +589,7 @@ namespace Laptop_Database_System
         {
             string query = "SELECT b.Price, b.InStock, s.Name, s.Address  " +
                 "From Laptop l, Bought_From b, Store s " +
-                "Where l.Model = b.Laptop_Model AND b.Store_Name = s.Name AND l.Name = '" + Name + "'";
+                "Where l.Model = b.Laptop_Model AND b.Store_Name = s.Name AND l.Model = '" + Name + "'";
             return dbMan.ExecuteReader(query);
         }
 
@@ -597,7 +597,7 @@ namespace Laptop_Database_System
         {
             string query = "Select Type , Number  " +
                 "From Laptop l, USB_Type u " +
-                "Where L.Model = u.Laptop_Model AND l.Name = '" + Name + "'";
+                "Where L.Model = u.Laptop_Model AND l.Model = '" + Name + "'";
             return dbMan.ExecuteReader(query);
         }
 
@@ -658,6 +658,26 @@ namespace Laptop_Database_System
         {
             string query = $"Delete from S_User where ID={id};";
             return dbMan.ExecuteNonQuery(query);
+        }
+
+        public string GetRating (string Name)
+        {
+            string query = "Select Rating  " +
+                "From Laptop l, Rating r" +
+                "Where l.Model = r.Laptop_Model And l.Model = '" + Name + "'";
+            return (string)dbMan.ExecuteScalar(query);
+        }
+
+        public int Rate (string LapId, int UserId,string Rating)
+        {
+            string query = "INSERT INTO Rating Values ('"+LapId+"',"+UserId+","+Rating+")";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public string GetModel (string Name)
+        {
+            string query = "SELECT Model From Laptop WHERE Name= " + Name + ";";
+            return (string)dbMan.ExecuteScalar(query);
         }
     }
 }
