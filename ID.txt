@@ -1,17 +1,35 @@
 andrew
 mostafa
 Omar Tarek Ahmed Mohammed Ali Amer 1180004
-saleh Talaat Hassan Ali
-
+saleh
 
 
 
 Workload:
 
-andrew: mtnsa4 tktb enak 3mlt el database sql code w keda
-
+andrew 1180086: created the original script for the database where everybody then added to it as they needed
+		Admin Dashboard:
+			-Edit/Remove Laptop Prcedures and Forms
+			-Edit Strong entity parts
+			-Add parts for the store to choose when He is entering Laptop
+			-Check Search History of users
+			-Check most searched Laptops
+			-Approve Stores
+			-Approve Laptops
+			-Promote Laptops waiting to be Promoted
+			-Edit Proc
+			-Remove proc
+			
 
 mostafa:
+mostafa: Landing page and design:
+- Search page: search all laptops by any desired criteria
+- Log searches if user consents to this.
+    Searching and logging use one function which takes all criteria then checks for empty ones and only searches for the criteria entered by the user. If all criteria are empty, it can display all laptops at once.
+- View all: view all available laptops or just view promoted ones.
+- Compare laptops: Select any two desired laptops from the drop down list and display their specs to compare them.
+- Edit user data: Update email address, privacy consent, and password of user.
+- Simple procedure to get promoted laptops.
 
 Omar 1180004 : Login Form Design + Functionalities 
 	       Sign Up Form + Functionalities
@@ -23,5 +41,4 @@ Omar 1180004 : Login Form Design + Functionalities
                
 
 
-saleh 3190002: View Laptop Form + Functionaltities
-               Crystal Report
+saleh
