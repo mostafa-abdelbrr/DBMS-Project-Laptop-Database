@@ -1,4 +1,4 @@
-﻿create database Laptops
+create database Laptops
 go
 
 use Laptops
@@ -196,8 +196,8 @@ create Table Search_log
 (
 	UserID int not null,
 	Laptop_Model varchar(100) not null,
-	search_Date date not null,
-	primary key(UserID,Laptop_Model),
+	search_Date varchar(50) not null,
+	primary key(UserID,Laptop_Model,search_Date),
 	foreign key(UserID) references S_User,
 	foreign Key(Laptop_Model) references Laptop on delete cascade on update cascade,
 
@@ -309,7 +309,10 @@ INSERT INTO Composed_Of VALUES (@lapModel,@ktype,@klight,@procbrand,@pnum,@rsize
 END
 GO
 
-
+create procedure getpromotedlaptops
+AS
+Select * from Laptop l,Composed_Of c where l.Promoted = 'Promoted'
+GO
 
 
 

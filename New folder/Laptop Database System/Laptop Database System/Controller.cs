@@ -63,6 +63,11 @@ namespace Laptop_Database_System
         }
 
 
+        public int editStore(string name,string phone,string address, string oldName)
+        {
+            string query = "UPDATE Store Set Name = '"+name+"' , Phone = "+phone+", Address = '"+address+"' Where Name = '"+oldName+"'";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
         public int checkMail(string email) // checks if the email exists in the DB or not and returns their ID
         {
@@ -99,7 +104,7 @@ namespace Laptop_Database_System
             return (string)dbMan.ExecuteScalar(query);
 
         }
-         int addToScreen(string type, string res, string size, string model)
+        int addToScreen(string type, string res, string size, string model)
         {
             string query = "INSERT INTO Screen Values ('" + type + "','" + res + "','" + size + "','" + model + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -125,7 +130,8 @@ namespace Laptop_Database_System
 
         public DataTable fillDashStore(string store)
         {
-            string query = "select Name, Composed_Of.Laptop_Model as 'Model',K_type as 'Keyboard',K_Light as 'Light On Keyboard',P_brand as 'Processor',p_ModelNum as 'Processor Model Number',R_size as 'Ram' ,R_DDR as 'DDR',GPU_Model_Number as 'GPU',OS_Manufacturer as 'Operating system Vendor',OS_Name as 'Operating System',OS_Ver as 'Operating System Version',HDD_Manufacturer as 'HDD Manufacturer',HDD_Size as 'HDD Size',SSD_Manufacturer as 'SSD Manufacturer',SSD_Size as 'SSD Size',USB2 as 'No. Of USB2 Ports',USB3 as 'No. Of USB3 Ports',SC_Type as 'Screen',SC_Resolution as 'Resolution',SC_Size as 'Size' FROM Laptop, Composed_Of,Bought_From where Laptop.Model = Composed_of.Laptop_Model AND Composed_Of.Laptop_Model = Bought_From.Laptop_Model AND Bought_From.Store_Name = '"+store+"'";
+            string query = "select Manufacturered_By.Name as Manufacturer ,Laptop.Name, Approved,Promoted, Composed_Of.Laptop_Model as 'Model',K_type as 'Keyboard',K_Light as 'Light On Keyboard',P_brand as 'Processor',p_ModelNum as 'Processor Model Number',R_size as 'Ram' ,R_DDR as 'DDR',GPU_Model_Number as 'GPU',OS_Manufacturer as 'Operating system Vendor',OS_Name as 'Operating System',OS_Ver as 'Operating System Version',HDD_Manufacturer as 'HDD Manufacturer',HDD_Size as 'HDD Size',SSD_Manufacturer as 'SSD Manufacturer',SSD_Size as 'SSD Size',USB2 as 'No. Of USB2 Ports',USB3 as 'No. Of USB3 Ports',SC_Type as 'Screen',SC_Resolution as 'Resolution',SC_Size as 'Size' FROM Manufacturered_By, Laptop, Composed_Of,Bought_From where Manufacturered_By.Laptop_Model = Laptop.Model AND Laptop.Model = Composed_of.Laptop_Model AND Composed_Of.Laptop_Model = Bought_From.Laptop_Model AND Bought_From.Store_Name = '"+store+"'";
+
             return dbMan.ExecuteReader(query);
         }
 
@@ -141,7 +147,7 @@ namespace Laptop_Database_System
 
         }
 
-         int addToRam(string ram, string ddr, string model)
+        int addToRam(string ram, string ddr, string model)
         {
             string query = "INSERT INTO RAM VALUES ('" + ram + "','" + ddr + "','" + model + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -168,7 +174,7 @@ namespace Laptop_Database_System
 
 
         }
-         int addToLaptop(string modelNum, string name, string date)
+        int addToLaptop(string modelNum, string name, string date)
         {
 
             string query = "INSERT INTO Laptop Values('" + modelNum + "','" + name + "','" + date + "',0,0)";
@@ -181,7 +187,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-         int addToManufacturer(string maker, string model, string date)
+        int addToManufacturer(string maker, string model, string date)
         {
             string query = "INSERT INTO Manufacturered_By Values ('" + maker + "','" + model + "','" + date + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -214,7 +220,7 @@ namespace Laptop_Database_System
             return autolist;
         }
 
-    
+
         public AutoCompleteStringCollection getGFXModelAutoCompSrc(string mfc)
         {
             string query = "Select Model_Number From Graphics_Card Where Manufacturer = '" + mfc + "'";
@@ -272,13 +278,13 @@ namespace Laptop_Database_System
         }
 
 
-         int addToBoughtFrom(string model, string store, string price, string stock)
+        int addToBoughtFrom(string model, string store, string price, string stock)
         {
             string query = "INSERT INTO Bought_From VALUES('" + model + "','" + store + "','" + price + "','" + stock + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
-         int addToKeyBoard(string type, string light, string lapModel)
+        int addToKeyBoard(string type, string light, string lapModel)
         {
             string query = "INSERT INTO KeyBoard VALUES('" + type + "','" + light + "','" + lapModel + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -296,7 +302,7 @@ namespace Laptop_Database_System
 
 
             string query = "declare @y int exec getnewID @y OUTPUT select @y";
-            return  Convert.ToInt64(dbMan.ExecuteScalar(query));
+            return Convert.ToInt64(dbMan.ExecuteScalar(query));
         }
 
         public int signUp(string email, string username, string password, bool consent, string role)
@@ -374,7 +380,7 @@ namespace Laptop_Database_System
 
         }
 
-         int addToStorage(string hddM, string ssdM, string hdd, string ssd, string lapModel)
+        int addToStorage(string hddM, string ssdM, string hdd, string ssd, string lapModel)
         {
             string query = "insert into Storage VALUES ('" + hddM + "','" + ssdM + "','" + hdd + "','" + ssd + "','" + lapModel + "')";
             return dbMan.ExecuteNonQuery(query);
@@ -392,19 +398,19 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-         int addToUSB(string lapModel, string usb2, string usb3)
+        int addToUSB(string lapModel, string usb2, string usb3)
         {
             string query = "INSERT INTO USB_Type VALUES ('" + lapModel + "', '" + usb2 + "','" + usb3 + "')";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public DataTable getall()
+        public DataTable getpromoted()
         {
-            string query = "Select * from Laptop"; // TODO: Add a select all feature
+            string query = "EXEC getpromotedlaptops"; // TODO: Add a select all feature
             return dbMan.ExecuteReader(query);
         }
 
-         int addToComposedOf(string model, string procMaker, string procModel, string gpu, string osManu, string os, string osVer)
+        int addToComposedOf(string model, string procMaker, string procModel, string gpu, string osManu, string os, string osVer)
         {
             string query = "exec fillComposedOf '" + model + "','" + procMaker + "','" + procModel + "','" + gpu + "','" + osManu + "','" + os + "','" + osVer + "'";
             return dbMan.ExecuteNonQuery(query);
@@ -431,36 +437,68 @@ namespace Laptop_Database_System
             return 0;
         }
 
-        public DataTable getlaptopbyfeatures(string lname, string ktype, string klight,
-                                             string cpubrand, string cpumodel, string ramsize,
-                                             string ramddr, string gpumodel, string os, string ssize,
-                                             string smanufacturer, string sctype, string scres, string scsize)
+        public DataTable getlaptop(string userid = "Guest", string lname = "", string ktype = "", string klight = "",
+                                   string cpubrand = "", string cpumodel = "", string ramsize = "",
+                                   string ramddr = "", string gpumodel = "", string osmanufacturer = "", string os = "", string osversion = "", 
+                                   string ssize = "", string smanufacturer = "", string hsize = "", string hmanufacturer = "",
+                                   string sctype = "", string scres = "", string scsize = "", string usb2 = "", string usb3 = "", string promoted = "")
         {
 
-            /* this block just checks if the passed argument is empty and replaces it with the wildcard "*",
-               otherwise it uses the same stored value */
-            lname = lname == "" ? "*" : lname;
-            ktype = ktype == "" ? "*" : ktype;
-            klight = klight == "" ? "*" : klight;
-            cpubrand = cpubrand == "" ? "*" : cpubrand;
-            cpumodel = cpumodel == "" ? "*" : cpumodel;
-            ramsize = ramsize == "" ? "*" : ramsize;
-            ramddr = ramddr == "" ? "*" : ramddr;
-            gpumodel = gpumodel == "" ? "*" : gpumodel;
-            os = os == "" ? "*" : os;
-            ssize = ssize == "" ? "*" : ssize;
-            smanufacturer = smanufacturer == "" ? "*" : smanufacturer;
-            sctype = sctype == "" ? "*" : sctype;
-            scres = scres == "" ? "*" : scres;
-            scsize = scsize == "" ? "*" : scsize;
 
-            string query = "Select * from Laptop l, Composed_of c where l.Name like '" + lname
-                + "' and c.Laptop_Model = l.Model and c.K_Type = '" + ktype + "' and c.K_Light = '" + klight
-                + "'and c.P_Brand = '" + cpubrand + "' and c.P_ModelNum = '" + cpumodel + "' and c.R_Size = '" + ramsize
-                + "' and c.R_DDR = '" + ramddr + "' and c.GPU_Model_Number = '" + gpumodel + "' and c.OS_Name = '" + os
-                + "'and c.S_Size = '" + ssize + "' and c.S_Manufacturer = '" + smanufacturer + "' and c.SC_Type = '" + sctype
-                + "'and c.SC_Resolution ='" + scres + "' and c.SC_Size = '" + scsize + "'";
+            string query = "Select * from Laptop l, Composed_of c where c.Laptop_Model = l.Model ";
+            /* "and l.Name like '" + lname
+             + "' and c.Laptop_Model = l.Model and c.K_Type = '" + ktype + "' and c.K_Light = '" + klight
+             + "'and c.P_Brand = '" + cpubrand + "' and c.P_ModelNum = '" + cpumodel + "' and c.R_Size = '" + ramsize
+             + "' and c.R_DDR = '" + ramddr + "' and c.GPU_Model_Number = '" + gpumodel + "' and c.OS_Name = '" + os
+             + "'and c.S_Size = '" + ssize + "' and c.S_Manufacturer = '" + smanufacturer + "' and c.SC_Type = '" + sctype
+             + "'and c.SC_Resolution ='" + scres + "' and c.SC_Size = '" + scsize + "'";*/
+
+            /* this block just checks if the passed argument is empty and replaces it with empty string"*",
+               otherwise it uses the same stored value and adds it to the query */
+            query += lname != "" ? "and l.Name like '%" + lname + "%'" : "";
+            query += ktype != "" ? "and c.K_Type like '%" + ktype + "%' " : "";
+            query += klight != "" ? "and c.K_Light = '" + klight + "' " : "";
+            query += cpubrand != "" ? "and c.P_Brand like '%" + cpubrand + "%' " : "";
+            query += cpumodel != "" ? "and c.P_ModelNum like '%" + cpumodel + "%' " : "";
+            query += ramsize != "" ? " and c.R_Size = '" + ramsize + "' " : "";
+            query += ramddr != "" ? "and c.R_DDR = '" + ramddr + "' " : "";
+            query += gpumodel != "" ? "and c.GPU_Model_Number like '%" + gpumodel + "%' " : "";
+            query += osmanufacturer != "" ? "and c.OS_Manufacturer like '%" + osmanufacturer + "%' " : "";
+            query += os != "" ? "and c.OS_Name like '%" + os + "%' " : "";
+            query += osversion != "" ? "and c.OS_Manufacturer like '%" + osversion + "%' " : "";
+            query += ssize != "" ? "and c.SSD_Size = '" + ssize + "' " : "";
+            query += smanufacturer != "" ? "and c.SSD_Manufacturer like '%" + smanufacturer + "%' " : "";
+            query += hsize != "" ? "and c.HDD_Size = '" + hsize + "' " : "";
+            query += hmanufacturer != "" ? "and c.HDD_Manufacturer like '%" + hmanufacturer + "%' " : "";
+            query += sctype != "" ? "and c.SC_Type like '%" + sctype + "%' " : "";
+            query += scres != "" ? "and c.SC_Resolution ='" + scres + "' " : "";
+            query += scsize != "" ? "and c.SC_Size = '" + scsize + "' " : "";
+            query += usb2 != "" ? "and c.USB2 = '" + usb2 + "' " : "";
+            query += usb3 != "" ? "and c.USB3 = '" + usb3 + "' " : "";
+            query += promoted != "" ? "and l.Promoted like '%" + promoted + "%' " : "";
+            string query2 = "";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (userid != "Guest" && dt != null)
+                for (int i=0;i < dt.Rows.Count;i++)
+                {
+                    string model = dt.Rows[i][0].ToString();
+                    string timestamp = DateTime.Now.ToString();
+                    query2 = $"Select * from S_User u where u.ID = '{userid}' and DataShareConsent = 'True'";
+                    if (dbMan.ExecuteReader(query2) != null)
+                    {
+                        query2 = $"Insert into Search_Log Values('{userid}','{model}','{timestamp}')";
+                        dbMan.ExecuteReader(query2);
+                    }
+
+                }
+            return dt;
+        }
+
+        public DataTable comparelaptops(string name1, string name2)
+        {
+            string query = $"Select * from Laptop l, Composed_of c where l.Name in ('{name1}','{name2}') and l.Model = c.Laptop_Model";
             return dbMan.ExecuteReader(query);
+
         }
 
         public DataTable getramsize()
@@ -512,7 +550,7 @@ namespace Laptop_Database_System
 
         public DataTable SelectEditsStore(string store)
         {
-            string query = "select Composed_Of.Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size,SC_Type,SC_Resolution,SC_Size,USB2,USB3 from Bought_From, Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version AND Bought_From.Laptop_Model = Composed_Of.Laptop_Model AND Bought_From.Store_Name = '"+store+"'";
+            string query = "select Composed_Of.Laptop_Model,K_Type,K_Light,P_Brand,P_ModelNum,R_Size,R_DDR,g.Model_Number AS gpu_modelnum,g.Manufacturer,Vram,Clock_Speed,OS_Name,os.Manufacturer,Version,HDD_Manufacturer,SSD_Manufacturer,HDD_Size,SSD_Size,SC_Type,SC_Resolution,SC_Size,USB2,USB3 from Bought_From, Composed_Of,Graphics_Card G,Processor p,Operating_System os where GPU_Model_Number=g.Model_Number and P_ModelNum=p.ModelNum and OS_Name=os.Name and OS_Ver=os.Version AND Bought_From.Laptop_Model = Composed_Of.Laptop_Model AND Bought_From.Store_Name = '" + store + "'";
             return dbMan.ExecuteReader(query);
         }
 
@@ -631,7 +669,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public int EditGpu(string omn,string mn, string man, string vr, string cs)
+        public int EditGpu(string omn, string mn, string man, string vr, string cs)
         {
             string query = $"update Graphics_Card set Model_Number='{mn}',Manufacturer='{man}',Vram='{vr}',Clock_Speed='{cs}' where Model_Number='{omn}';";
             return dbMan.ExecuteNonQuery(query);
@@ -642,7 +680,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int EditOs(string oosn,string oosman,string oosv, string osn, string osman, string osv)
+        public int EditOs(string oosn, string oosman, string oosv, string osn, string osman, string osv)
         {
             string query = $"update Operating_system set Name='{osn}',Manufacturer='{osman}',Version='{osv}' where Name='{oosn}' and Manufacturer='{oosman}' and Version='{oosv}'";
             return dbMan.ExecuteNonQuery(query);
@@ -664,7 +702,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public DataTable GetRating (string Name)
+        public string GetRating (string Name)
         {
             string query = "Select Laptoo_Model, Rating  " +
                 "From Laptop l, Rating r" +
@@ -672,16 +710,49 @@ namespace Laptop_Database_System
             return dbMan.ExecuteReader(query);
         }
 
-        public int Rate (string LapId, int UserId,string Rating)
+        public int Rate(string LapId, int UserId, string Rating)
         {
-            string query = "INSERT INTO Rating Values ('"+LapId+"',"+UserId+","+Rating+")";
+            string query = "INSERT INTO Rating Values ('" + LapId + "'," + UserId + "," + Rating + ")";
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public string GetModel (string Name)
+        public string GetModel(string Name)
         {
             string query = "SELECT Model From Laptop WHERE Name= " + Name + ";";
             return (string)dbMan.ExecuteScalar(query);
+        }
+
+        public DataTable SelectLapsToPromote()
+        {
+            string query = "select * from Laptop where Approved=1 and Promoted='waiting';";
+            return dbMan.ExecuteReader(query);
+        }
+        public int promoteLaptops(string model)
+        {
+            string query = $"update Laptop set Promoted='promoted' where Model='{model}';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int AddAdmin(string email, string un, string pass)
+        {
+            string query = $"insert into S_User values({getNewID()},'{email}','{un}','Admin',1,'{pass}');";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int AdminChangePass(string id,string np)
+        {
+            string query = $"update S_User set Password='{np}' where ID={id}";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable SelectLaptopsToApprove()
+        {
+            string query = "select * from Laptop where Approved=0;";
+            return dbMan.ExecuteReader(query);
+        }
+        public int ApproveLaptops(string model)
+        {
+            string query = $"update Laptop set Approved=1 where Model='{model}';";
+            return dbMan.ExecuteNonQuery(query);
         }
     }
 }

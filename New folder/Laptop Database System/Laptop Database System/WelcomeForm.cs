@@ -14,9 +14,25 @@ namespace Laptop_Database_System
     public partial class WelcomeForm : Form
     {
         Controller controllerObj;
-        public WelcomeForm()
+        String role = "";
+        String ID = "";
+        public WelcomeForm(string userrole = "Guest",string userid = "")
         {
             InitializeComponent();
+            ID = userid;
+            role = userrole;
+            if (role != "Guest")
+            {
+                loginbutton.Hide();
+                signupbutton.Hide();
+                Search s = new Search();
+                this.Hide();
+                s.Show();
+            }
+            else
+            {
+
+            }
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
@@ -47,5 +63,9 @@ namespace Laptop_Database_System
             foo.Show();
         }
 
+        private void WelcomeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+                System.Environment.Exit(0);
+        }
     }
 }

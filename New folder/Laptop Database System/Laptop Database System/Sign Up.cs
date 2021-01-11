@@ -93,6 +93,9 @@ namespace Laptop_Database_System
             if (controllerObj.signUp(email.Text, user.Text, password.Text, consent.Checked, "User") == 1)
             {
                 MessageBox.Show("Welcome To LDBS, " + user.Text + ".");
+                Form search = new Search("new",user.Text);
+                this.Hide();
+                search.Show();
             }
             else
             {

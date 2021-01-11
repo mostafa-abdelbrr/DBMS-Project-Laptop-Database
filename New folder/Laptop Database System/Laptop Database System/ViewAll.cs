@@ -16,8 +16,7 @@ namespace Laptop_Database_System
         public ViewAll()
         {
             InitializeComponent();
-            DataTable dt = controllerObj.getall();
-            dataGridView1.DataSource = dt;
+
         }
     }
 }

@@ -92,7 +92,7 @@ namespace Laptop_Database_System
                     foo.Show();
                 } else if (role == "User")
                 {
-                    Form foo = new WelcomeForm();
+                    Form foo = new Search(userId.ToString());
                     Hide();
                     foo.Show();
                 }
