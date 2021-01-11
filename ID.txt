@@ -1,5 +1,5 @@
 andrew
-mostafa
+Mostafa Khalid Saiid Abdelbrr 1180126
 Omar Tarek Ahmed Mohammed Ali Amer 1180004
 saleh Talaat Hassan Ali
 
@@ -11,7 +11,11 @@ Workload:
 andrew: mtnsa4 tktb enak 3mlt el database sql code w keda
 
 
-mostafa:
+mostafa: Landing page and design:
+- Search page: search all laptops by any desired criteria
+- View all: view all available laptops or just view promoted ones.
+- Compare laptops: Select any two desired laptops from the drop down list and display their specs to compare them.
+- Edit user data: Update email address, privacy consent, and password of user.
 
 Omar 1180004 : Login Form Design + Functionalities 
 	       Sign Up Form + Functionalities
