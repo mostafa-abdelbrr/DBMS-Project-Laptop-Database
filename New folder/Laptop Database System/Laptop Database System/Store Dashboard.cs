@@ -144,13 +144,8 @@ namespace Laptop_Database_System
             DataGridViewRow selectedRow = laptop.Rows[selectedrowindex];
             string lapModel = Convert.ToString(selectedRow.Cells["Model"].Value);
 
-<<<<<<< HEAD
-            //Form foo = new ViewLaptop(lapName);
-            //foo.Show();
-=======
             Form foo = new ViewLaptop(lapModel,currentUserID);
             foo.Show();
->>>>>>> c141c46c7479804d499c4b4ef5a53e7b5e56a5a5
         }
     }
 }

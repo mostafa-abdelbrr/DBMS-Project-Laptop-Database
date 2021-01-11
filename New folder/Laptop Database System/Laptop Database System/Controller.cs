@@ -41,7 +41,8 @@ namespace Laptop_Database_System
         }
         public DataTable fillPromoBox(string store)
         {
-            string query = "select Laptop_Model from Bought_From where Store_Name = '" + store + "'";
+            string query = "select Bought_From.Laptop_Model from Bought_From,Laptop where Store_Name = '" + store + "' AND Laptop.Model = Bought_From.Laptop_Model And Promoted = '0' ";
+            //string query = "";
             return dbMan.ExecuteReader(query);
         }
 
@@ -63,9 +64,9 @@ namespace Laptop_Database_System
         }
 
 
-        public int editStore(string name,string phone,string address, string oldName)
+        public int editStore(string name, string phone, string address, string oldName)
         {
-            string query = "UPDATE Store Set Name = '"+name+"' , Phone = "+phone+", Address = '"+address+"' Where Name = '"+oldName+"'";
+            string query = "UPDATE Store Set Name = '" + name + "' , Phone = " + phone + ", Address = '" + address + "' Where Name = '" + oldName + "'";
             return dbMan.ExecuteNonQuery(query);
         }
 
@@ -130,7 +131,7 @@ namespace Laptop_Database_System
 
         public DataTable fillDashStore(string store)
         {
-            string query = "select Manufacturered_By.Name as Manufacturer ,Laptop.Name, Approved,Promoted, Composed_Of.Laptop_Model as 'Model',K_type as 'Keyboard',K_Light as 'Light On Keyboard',P_brand as 'Processor',p_ModelNum as 'Processor Model Number',R_size as 'Ram' ,R_DDR as 'DDR',GPU_Model_Number as 'GPU',OS_Manufacturer as 'Operating system Vendor',OS_Name as 'Operating System',OS_Ver as 'Operating System Version',HDD_Manufacturer as 'HDD Manufacturer',HDD_Size as 'HDD Size',SSD_Manufacturer as 'SSD Manufacturer',SSD_Size as 'SSD Size',USB2 as 'No. Of USB2 Ports',USB3 as 'No. Of USB3 Ports',SC_Type as 'Screen',SC_Resolution as 'Resolution',SC_Size as 'Size' FROM Manufacturered_By, Laptop, Composed_Of,Bought_From where Manufacturered_By.Laptop_Model = Laptop.Model AND Laptop.Model = Composed_of.Laptop_Model AND Composed_Of.Laptop_Model = Bought_From.Laptop_Model AND Bought_From.Store_Name = '"+store+"'";
+            string query = "select Manufacturered_By.Name as Manufacturer ,Laptop.Name, Approved,Promoted, Composed_Of.Laptop_Model as 'Model',K_type as 'Keyboard',K_Light as 'Light On Keyboard',P_brand as 'Processor',p_ModelNum as 'Processor Model Number',R_size as 'Ram' ,R_DDR as 'DDR',GPU_Model_Number as 'GPU',OS_Manufacturer as 'Operating system Vendor',OS_Name as 'Operating System',OS_Ver as 'Operating System Version',HDD_Manufacturer as 'HDD Manufacturer',HDD_Size as 'HDD Size',SSD_Manufacturer as 'SSD Manufacturer',SSD_Size as 'SSD Size',USB2 as 'No. Of USB2 Ports',USB3 as 'No. Of USB3 Ports',SC_Type as 'Screen',SC_Resolution as 'Resolution',SC_Size as 'Size' FROM Manufacturered_By, Laptop, Composed_Of,Bought_From where Manufacturered_By.Laptop_Model = Laptop.Model AND Laptop.Model = Composed_of.Laptop_Model AND Composed_Of.Laptop_Model = Bought_From.Laptop_Model AND Bought_From.Store_Name = '" + store + "'";
 
             return dbMan.ExecuteReader(query);
         }
@@ -439,7 +440,7 @@ namespace Laptop_Database_System
 
         public DataTable getlaptop(string userid = "Guest", string lname = "", string ktype = "", string klight = "",
                                    string cpubrand = "", string cpumodel = "", string ramsize = "",
-                                   string ramddr = "", string gpumodel = "", string osmanufacturer = "", string os = "", string osversion = "", 
+                                   string ramddr = "", string gpumodel = "", string osmanufacturer = "", string os = "", string osversion = "",
                                    string ssize = "", string smanufacturer = "", string hsize = "", string hmanufacturer = "",
                                    string sctype = "", string scres = "", string scsize = "", string usb2 = "", string usb3 = "", string promoted = "")
         {
@@ -479,7 +480,7 @@ namespace Laptop_Database_System
             string query2 = "";
             DataTable dt = dbMan.ExecuteReader(query);
             if (userid != "Guest" && dt != null)
-                for (int i=0;i < dt.Rows.Count;i++)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     string model = dt.Rows[i][0].ToString();
                     string timestamp = DateTime.Now.ToString();
@@ -702,12 +703,12 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public DataTable GetRating (string Name)
+        public string GetRating(string Name)
         {
-            string query = "Select Laptoo_Model, Rating  " +
+            string query = "Select Rating  " +
                 "From Laptop l, Rating r" +
                 "Where l.Model = r.Laptop_Model And l.Model = '" + Name + "'";
-            return dbMan.ExecuteReader(query);
+            return (string)dbMan.ExecuteScalar(query);
         }
 
         public int Rate(string LapId, int UserId, string Rating)
@@ -738,7 +739,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int AdminChangePass(string id,string np)
+        public int AdminChangePass(string id, string np)
         {
             string query = $"update S_User set Password='{np}' where ID={id}";
             return dbMan.ExecuteNonQuery(query);
@@ -753,6 +754,36 @@ namespace Laptop_Database_System
         {
             string query = $"update Laptop set Approved=1 where Model='{model}';";
             return dbMan.ExecuteNonQuery(query);
+        }
+        public int updateemail(string email, string id)
+        {
+            string query = $"update S_User set Email='{email}' where ID='{id}'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int updateusername(string user_name, string id)
+        {
+            string query = $"update S_User set UserName='{user_name}' where ID='{id}'";
+            return dbMan.ExecuteNonQuery(query);
+
+        }
+        public int updateconsent(string consent, string id)
+        {
+            string query = $"update S_User set DataShareConsent='{consent}' where ID='{id}'";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int updatepassword(string oldpass, string newpass, string id)
+        {
+            string username = "";
+            string role = "";
+            getUserDataFromID(int.Parse(id), ref username, ref role);
+            if (checkUser(username, oldpass) != -1)
+            {
+                return AdminChangePass(id, newpass);
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }
