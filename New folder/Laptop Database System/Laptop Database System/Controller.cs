@@ -703,12 +703,12 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public string GetRating(string Name)
+        public DataTable GetRating(string Name)
         {
             string query = "Select Rating  " +
                 "From Laptop l, Rating r" +
                 "Where l.Model = r.Laptop_Model And l.Model = '" + Name + "'";
-            return (string)dbMan.ExecuteScalar(query);
+            return dbMan.ExecuteReader(query);
         }
 
         public int Rate(string LapId, int UserId, string Rating)
