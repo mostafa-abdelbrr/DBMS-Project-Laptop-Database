@@ -1,7 +1,7 @@
 andrew
 Mostafa Khalid Saiid Abdelbrr 1180126
 Omar Tarek Ahmed Mohammed Ali Amer 1180004
-saleh Talaat Hassan Ali
+Saleh Talaat Hassan Ali
 
 
 
@@ -11,7 +11,7 @@ Workload:
 andrew: mtnsa4 tktb enak 3mlt el database sql code w keda
 
 
-mostafa: Landing page and design:
+Mostafa: Landing page and design:
 - Search page: search all laptops by any desired criteria
 - View all: view all available laptops or just view promoted ones.
 - Compare laptops: Select any two desired laptops from the drop down list and display their specs to compare them.
@@ -24,6 +24,8 @@ Omar 1180004 : Login Form Design + Functionalities
 	       Store Dashboard form deisgn
                Add Laptop form design + functionalities
                Promote Laptop Form Design (Functionality on admin side by Andrew)
+           Stored Procedure: getNewID
+   	       Stored Procedure : fillComposedOf 
                
 
 
