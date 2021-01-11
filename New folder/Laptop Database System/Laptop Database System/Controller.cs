@@ -702,7 +702,7 @@ namespace Laptop_Database_System
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public string GetRating (string Name)
+        public DataTable GetRating (string Name)
         {
             string query = "Select Laptoo_Model, Rating  " +
                 "From Laptop l, Rating r" +
