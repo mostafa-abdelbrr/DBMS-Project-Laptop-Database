@@ -46,34 +46,6 @@ G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Databas
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
 G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
-<<<<<<< Updated upstream
-G:\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.promotion.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe.config
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csprojAssemblyReference.cache
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.addLaptop.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.AddParts.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Admin_Dashboard.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.check_search.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.editStore.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.AdminEdit.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Login.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.promotion.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Properties.Resources.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Search.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Sign_Up.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Dashboard.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Store_Sign_Up.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.Stores_To_Approve.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewAll.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.ViewLaptop.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop_Database_System.WelcomeForm.resources
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.GenerateResource.cache
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
-C:\Users\saleh\OneDrive\Documents\GitHub\DBMS-Project-Laptop-Database\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
-=======
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe.config
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.exe
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\bin\Debug\Laptop Database System.pdb
@@ -102,4 +74,3 @@ G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database Sy
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.csproj.CoreCompileInputs.cache
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.exe
 G:\Assignments\DBMS-Project\New folder\Laptop Database System\Laptop Database System\obj\Debug\Laptop Database System.pdb
->>>>>>> Stashed changes
