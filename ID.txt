@@ -1,7 +1,8 @@
 andrew
 mostafa
 Omar Tarek Ahmed Mohammed Ali Amer 1180004
-saleh
+saleh Talaat Hassan Ali
+
 
 
 
@@ -22,4 +23,5 @@ Omar 1180004 : Login Form Design + Functionalities
                
 
 
-saleh: View Laptop Form + Functionaltities
+saleh 3190002: View Laptop Form + Functionaltities
+               Crystal Report
